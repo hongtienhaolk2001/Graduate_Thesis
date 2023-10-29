@@ -1,5 +1,5 @@
 selenium
 pandas
 numpy
-pytorch
+torch
 transformer

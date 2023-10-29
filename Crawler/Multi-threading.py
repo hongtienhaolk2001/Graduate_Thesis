@@ -20,13 +20,17 @@ class MultiThreading:
         self.service = Service(executable_path='./chromedriver.exe')
 
     def open_MultiBrowsers(self):
-        self.browsers = [webdriver.Chrome(service=self.service, options=self.options) for _ in range(self.threads)]
+        try:
+            self.browsers = [webdriver.Chrome(service=self.service, options=self.options) for _ in range(self.threads)]
+            print(f"open {self.threads} browser successfully")
+        except:
+            print("open multi-browser is fail")
 
     def get_URLs(self, browser, page):
-        # url = f"https://agro.gov.vn/vn/p{i}_9Lua-gao.html"
-        # url = f"https://agro.gov.vn/vn/p{i}_10Cao-su.html"
         try:
             browser.get(f"https://agro.gov.vn/vn/p{page}_2Ca-phe.html")
+            # browser.get(f"https://agro.gov.vn/vn/p{i}_9Lua-gao.html")
+            # browser.get(f"https://agro.gov.vn/vn/p{i}_10Cao-su.html"")
             sleep(self.threads)
             elements = browser.find_elements(By.CSS_SELECTOR, ".news [href]")
             links = [element.get_attribute('href') for element in elements]
@@ -70,34 +74,35 @@ class MultiThreading:
             print(f"total of urls: {len(self.url_list)}")
         except:
             print("get error when saving url")
-            # print(f"length: {len(self.url_list)}")
 
-    def crawl_News(self, current_url):
+    def crawl_News(self, url_index):
         queue = Queue(self.threads)
         for i in range(self.threads):
             browser = self.browsers[i]
             t = threading.Thread(target=lambda q, b, u: q.put(self.get_News(b, self.url_list[u])),
-                                 args=(queue, browser, current_url+i,))
+                                 args=(queue, browser, url_index + i,))
             t.start()
         try:
             sleep(10)
-            for _ in range(self.threads):
+            for j in range(self.threads):
                 self.df.loc[len(self.df.index)] = queue.get()
-            print(f"total of crawled news: {len(self.url_list)}")
+            print(f"total of crawled news: {len(self.df)}")
         except:
             print("get error when saving news")
 
 
 if __name__ == '__main__':
-    multi_threading = MultiThreading(threads=2)
+    multi_threading = MultiThreading(threads=6)
     max_page = 264
+    # Get url
     for page_i in range(1, max_page, multi_threading.threads):
         multi_threading.open_MultiBrowsers()
         multi_threading.crawl_Urls(page=page_i)
-        break
+    # Crawl news
     current_url = 0
-    for i in range(0, len(multi_threading.url_list), multi_threading.threads):
+    for i in range(current_url, len(multi_threading.url_list), multi_threading.threads):
         multi_threading.open_MultiBrowsers()
-        multi_threading.crawl_News(current_url=current_url)
-        break
-    pd.DataFrame.from_dict(MultiThreading.df).to_csv(f'data/coffee.csv')
+        multi_threading.crawl_News(url_index=current_url)
+    # Save
+    multi_threading.df.to_csv(f'../data/crawled_data/coffee.csv')
+    print("save successfully")
