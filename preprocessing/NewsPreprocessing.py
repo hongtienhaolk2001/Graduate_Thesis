@@ -1,0 +1,80 @@
+import pandas as pd
+import numpy as np
+import re
+import os
+from FilesProcessing import concat_files
+
+
+def normalize_annotation(text):
+    NN & PTNT
+    return re.sub(r"\btp hcm?|\btphcm?|\bhcm?", "thành phố hồ chí minh",
+           re.sub(r"\bđbscl?", "đồng bằng sông cửu long",
+           re.sub(r"\bvn?", "việt nam",
+           re.sub(r"\beu?", "châu âu", text))))
+
+
+def remove_number(text):
+    return re.sub(" \d+", " ", text)
+
+
+def remove_punctuation(text):
+    punctuation = re.compile(r"[!#$%&()*+;<=>?@[\]^_`{|}~]")
+    return punctuation.sub(r"", text)
+
+
+def remove_special_char(text):
+    special_character = re.compile("�+")
+    return special_character.sub(r'', text)
+
+
+def remove_punctuation(text):
+    punctuation = re.compile(r"[!#$%&()*+;<=>?@[\]^_`{|}~]")
+    return punctuation.sub(r"", text)
+
+
+def pipeline(text):
+    """
+    Layer 1: lowercase
+    Layer 2: remove punctuation
+    Layer 3: remove special character
+    Layer 4: remove number
+    Layer 5: annotation
+    """
+    return {"News": normalize_annotation(
+                    remove_number(
+                    remove_special_char(
+                    remove_punctuation(
+                    text["News"].lower()))))}
+
+
+class Preprocess():
+    def __init__(self, tokenizer, rdrsegmenter):
+        self.tokenizer = tokenizer
+        self.rdrsegmenter = rdrsegmenter
+        self.feature = ['category', 'price', 'gov', 'market', 'intrinsic', 'extrinsic']
+
+    def segment(self, example):
+        return {"Segment": " ".join([" ".join(sen) for sen in self.rdrsegmenter.tokenize(example["News"])])}
+
+    def tokenize(self, example):
+        return self.tokenizer(example["Segment"], truncation=True)
+
+    def label(self, example):
+        return {'labels_regressor': np.array([example[i] for i in self.feature]),
+                'labels_classifier': np.array([int(example[i] != 0) for i in self.feature])}
+
+    def run(self, dataset):
+        dataset = dataset.map(pipeline)
+        dataset = dataset.map(self.segment)
+        dataset = dataset.map(self.tokenize, batched=True)
+        dataset = dataset.map(self.label)
+        columns = ['Unnamed: 0', 'News', 'category', 'price', 'gov', 'market', 'intrinsic', 'extrinsic', 'Segment']
+        dataset = dataset.remove_columns(columns)
+        dataset.set_format("torch")
+        return dataset
+
+
+# if __name__ == '__main__':
+#     df = concat_files(root_path='../data/labeled_data/', file_format='xlsx')
+
+#     # preprocess.crawled_Data()
