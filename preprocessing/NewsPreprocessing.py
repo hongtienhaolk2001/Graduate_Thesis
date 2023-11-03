@@ -6,11 +6,11 @@ from FilesProcessing import concat_files
 
 
 def normalize_annotation(text):
-    NN & PTNT
     return re.sub(r"\btp hcm?|\btphcm?|\bhcm?", "thành phố hồ chí minh",
            re.sub(r"\bđbscl?", "đồng bằng sông cửu long",
            re.sub(r"\bvn?", "việt nam",
-           re.sub(r"\beu?", "châu âu", text))))
+           re.sub(r"\beu?", "châu âu",
+           re.sub(r"\bnnptnt?", "nhà nước và phát triển nông thôn",text)))))
 
 
 def remove_number(text):
@@ -34,11 +34,7 @@ def remove_punctuation(text):
 
 def pipeline(text):
     """
-    Layer 1: lowercase
-    Layer 2: remove punctuation
-    Layer 3: remove special character
-    Layer 4: remove number
-    Layer 5: annotation
+    lowercase -> remove punctuation -> remove special char -> remove number -> annotation
     """
     return {"News": normalize_annotation(
                     remove_number(

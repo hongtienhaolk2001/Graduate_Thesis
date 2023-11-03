@@ -2,9 +2,10 @@ import os
 import pandas as pd
 
 
-def merge_and_drop_Col(dataframe):
+def merge_and_drop_Col(dataframe, cols):
     dataframe['News'] = dataframe['title'] + ' ' + dataframe['brief']
-    dataframe = dataframe.drop(columns=['Unnamed: 0', 'title', 'date', 'brief', 'content', 'sources'])
+    dataframe = dataframe.drop(columns=cols)
+    print("merge and drop columns successfully")
     return dataframe
 
 
@@ -24,13 +25,13 @@ def concat_files(root_path, file_format='csv'):
     df_full = pd.concat(df, ignore_index=True)
     df_full = df_full.drop(df_full.columns[[0]], axis=1)  # remove "#" column
     print("concentrating successfully")
-    # try:
-    #     df_full.to_csv(output_path)
-    #     print("saving successfully")
-    # except:
-    #     print("get error when saving merged file")
     return df_full
 
-# if __name__ == "__main__":
-#     concat_files(root_path='../data/raw_data/',
-#                  output_path="../data/_data/merge_data.csv")
+
+if __name__ == "__main__":
+    # test
+    df = concat_files(root_path='../data/labeled_data/', file_format='xlsx')
+    print(df.columns)
+    drop_cols = ['title', 'date', 'brief', 'content', 'sources']
+    df = merge_and_drop_Col(df, drop_cols)
+    df.to_csv('../data/original_data/original_data.csv', index=False)
