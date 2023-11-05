@@ -2,22 +2,31 @@ import numpy as np
 import pandas as pd
 
 
-def split_train_test(data, test_size):
-    shuffled = np.random.permutation(len(data))
-    num_test = int(test_size * len(data))
+def split_train_test(dataframe, test_size, seed=19133022):
+    shuffled = np.random.default_rng(seed=seed).permutation(len(dataframe))
+    num_test = int(test_size * len(dataframe))
     test_index = shuffled[:num_test]
     train_index = shuffled[num_test:]
-    return data.iloc[train_index], data.iloc[test_index]
+    return dataframe.iloc[train_index], dataframe.iloc[test_index]
+
+
+def check_ratio(full_dataset, train_set, test_set):
+    calc_ratio = lambda dataframe: (dataframe.iloc[:, :-1] != 0).sum() / len(dataframe)
+    variance = lambda ratio_1, ratio_2, diff: np.all(((ratio_1 - ratio_2).abs() < diff).values)
+    ratio = calc_ratio(full_dataset)
+    train_ratio = calc_ratio(train_set)
+    test_ratio = calc_ratio(test_set)
+    condition_1 = variance(ratio, test_ratio, 0.002)
+    condition_2 = variance(ratio, train_ratio, 0.002)
+    return condition_1 and condition_2
 
 
 def main():
-    all_datasets = pd.read_csv("../data/original_data/original_data.csv")
+    df = pd.read_csv("../data/original_data/original_data.csv")
+    # df = pd.read_csv("../datasets/data_original/Original-datasets.csv")
     while True:
-        train_set, test_set = split_train_test(data=all_datasets, test_size=0.2)
-        ratio = (all_datasets.iloc[:, 1:] != 0).sum() / len(all_datasets)
-        train_ratio = (train_set.iloc[:, 1:] != 0).sum() / len(train_set)
-        val_ratio = (test_set.iloc[:, 1:] != 0).sum() / len(test_set)
-        if np.all(((ratio - val_ratio).abs() < 0.002).values) and np.all(((ratio - train_ratio).abs() < 0.002).values):
+        train_set, test_set = split_train_test(dataframe=df, test_size=0.2)
+        if check_ratio(df, train_set, test_set):
             break
     print("Samples train: ", len(train_set))
     print("Samples val: ", len(test_set))

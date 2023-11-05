@@ -10,7 +10,8 @@ def normalize_annotation(text):
            re.sub(r"\bđbscl?", "đồng bằng sông cửu long",
            re.sub(r"\bvn?", "việt nam",
            re.sub(r"\beu?", "châu âu",
-           re.sub(r"\bnnptnt?", "nhà nước và phát triển nông thôn",text)))))
+           re.sub(r"\bxk?", "xuất khẩu",
+           re.sub(r"\bnnptnt|\bptnnnt?", "phát triển nông nghiệp nông thôn", text))))))
 
 
 def remove_number(text):

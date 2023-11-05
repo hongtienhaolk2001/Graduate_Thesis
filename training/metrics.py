@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class ScalarMetric():
+class ScalarMetric:
     def __init__(self):
         self.scalar = 0
         self.num = 0
@@ -19,7 +19,7 @@ class ScalarMetric():
         self.num = 0
 
 
-class AccuracyMetric():
+class AccuracyMetric:
     def __init__(self):
         self.correct = 0
         self.num = 0
@@ -48,7 +48,7 @@ def recall(y_pred, y_true):
     return true_positive / (true_positive + false_negative)
 
 
-class F1_score():
+class F1_score:
     def __init__(self):
         self.y_pred = None
         self.y_true = None
@@ -70,7 +70,7 @@ class F1_score():
         return f1_score
 
 
-class R2_score():
+class R2_score:
     def __init__(self):
         self.y_pred = None
         self.y_true = None
