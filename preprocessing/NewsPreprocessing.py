@@ -1,8 +1,5 @@
-import pandas as pd
 import numpy as np
 import re
-import os
-from FilesProcessing import concat_files
 
 
 def normalize_annotation(text):

@@ -2,14 +2,13 @@ import random
 from datasets import load_dataset
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
-from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
+from transformers import AutoModel, AutoConfig, AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
 from vncorenlp import VnCoreNLP
-
 from loss import *
 from metrics import *
 from Model import CustomModelSoftmax
 from Model.utils import *
-from ..preprocessing.NewsPreprocessing import Preprocess
+from preprocessing.NewsPreprocessing import Preprocess
 
 # Set Seed
 seed = 19133022
@@ -23,22 +22,22 @@ torch.backends.cudnn.benchmark = False
 torch.backends.cudnn.deterministic = True
 
 # Segmenter input
-rdrsegmenter = VnCoreNLP("vncorenlp/VnCoreNLP-1.1.1.jar", annotators="wseg", max_heap_size='-Xmx500m')
+rdrsegmenter = VnCoreNLP(r"./vncorenlp_file/VnCoreNLP-1.1.1.jar",
+                         annotators="wseg", max_heap_size='-Xmx500m')
 # Tokenizer
 tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
+
 # Load datasets
-data_files = {'train': "../data/training_data/train_datasets.csv",
-              'test': "../data/training_data/test_datasets.csv"}
+data_files = {'train': r"../data/training_data/train_datasets.csv",
+              'test': r"../data/training_data/test_datasets.csv"}
 
 dataset = load_dataset('csv', data_files=data_files)
 
 # Preprocess
 preprocess = Preprocess(tokenizer, rdrsegmenter)
 tokenized_datasets = preprocess.run(dataset)
-
 # Data loader
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-
 train_dataloader = DataLoader(tokenized_datasets["train"],
                               batch_size=32,
                               collate_fn=data_collator,
