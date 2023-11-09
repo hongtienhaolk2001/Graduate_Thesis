@@ -30,7 +30,7 @@ def concat_files(root_path, file_format='csv'):
 
 if __name__ == "__main__":
     # test
-    df = concat_files(root_path='../data/labeled_data/', file_format='xlsx')
+    df = concat_files(root_path='../../data/labeled_data/', file_format='xlsx')
     print(df.columns)
     drop_cols = ['title', 'date', 'brief', 'content', 'sources']
     df = merge_and_drop_Col(df, drop_cols)

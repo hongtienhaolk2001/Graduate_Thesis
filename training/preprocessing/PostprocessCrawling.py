@@ -37,6 +37,6 @@ def pipeline(dataframe):
 
 
 if __name__ == '__main__':
-    df = concat_files(root_path='../data/raw_data/', file_format='csv')
+    df = concat_files(root_path='../../data/raw_data/', file_format='csv')
     df = pipeline(df)
     df.to_csv(r'../data/crawled_data/crawled_rice_news.csv')

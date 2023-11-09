@@ -22,7 +22,7 @@ def check_ratio(full_dataset, train_set, test_set):
 
 
 def main():
-    df = pd.read_csv("../data/original_data/original_data.csv")
+    df = pd.read_csv("../../data/original_data/original_data.csv")
     # df = pd.read_csv("../datasets/data_original/Original-datasets.csv")
     train_set, test_set = split_train_test(dataframe=df, test_size=0.2)
     print("Samples train: ", len(train_set))

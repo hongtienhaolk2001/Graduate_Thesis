@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from ..preprocessing.PostprocessCrawling import preprocess_crawled_Data
 from time import sleep
 from queue import Queue
 import pandas as pd
