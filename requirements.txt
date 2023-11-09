@@ -2,7 +2,7 @@ selenium
 pandas
 numpy
 torch
-transformer
+transformers
 openpyxl==3.1.2
 datasets
 vncorenlp
