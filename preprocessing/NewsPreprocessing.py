@@ -8,7 +8,8 @@ def normalize_annotation(text):
            re.sub(r"\bvn?", "việt nam",
            re.sub(r"\beu?", "châu âu",
            re.sub(r"\bxk?", "xuất khẩu",
-           re.sub(r"\bnnptnt|\bptnnnt?", "phát triển nông nghiệp nông thôn", text))))))
+           re.sub(r"\bdn?", "doanh nghiệp",
+           re.sub(r"\bnnptnt|\bptnnnt?", "phát triển nông nghiệp nông thôn", text)))))))
 
 
 def remove_number(text):
@@ -21,7 +22,7 @@ def remove_punctuation(text):
 
 
 def remove_special_char(text):
-    special_character = re.compile("�+")
+    special_character = re.compile("�+|+")
     return special_character.sub(r'', text)
 
 

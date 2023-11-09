@@ -1,13 +1,15 @@
 import random
+
 from datasets import load_dataset
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
-from transformers import AutoModel, AutoConfig, AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
+from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
 from vncorenlp import VnCoreNLP
+
+from Model.CustomSoftmaxModel import CustomModelSoftmax
+from utils import *
 from loss import *
 from metrics import *
-from Model import CustomModelSoftmax
-from Model.utils import *
 from preprocessing.NewsPreprocessing import Preprocess
 
 # Set Seed

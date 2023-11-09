@@ -1,7 +1,6 @@
-from transformers import AutoModel, AutoConfig, AutoTokenizer
-import torch.nn as nn
-import numpy as np
 import torch
+import torch.nn as nn
+from transformers import AutoModel, AutoConfig
 
 
 class CustomModel(nn.Module):

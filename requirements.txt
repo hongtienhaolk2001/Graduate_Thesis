@@ -6,4 +6,3 @@ transformer
 openpyxl==3.1.2
 datasets
 vncorenlp
-tokenizers
