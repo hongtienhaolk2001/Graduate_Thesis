@@ -1,0 +1,38 @@
+.main {
+    display: block;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.main-title {
+    padding-top: 50px;
+    text-align: center;
+}
+.input_review {
+    width: 80%;
+    height: 50px;
+}
+
+.btn-info {
+    height: 40px;   
+    width: 15%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.table {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    text-align: center;
+}
+
+.baner {
+    background: url("../img/background.jpg") top center / cover no-repeat;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
