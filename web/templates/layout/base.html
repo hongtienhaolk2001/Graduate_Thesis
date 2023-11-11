@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- Site Metas -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/colors.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/version/news.css') }}" rel="stylesheet">
+
+    {% block css %} {% endblock %}
+    {% block js %} {% endblock %}
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+</head>
+<body>
+    <div id="wrapper">
+        {% block header %}
+            {% include 'layout/header.html' %}
+        {% endblock %}
+
+
+        {% block content %} {% endblock %}
+
+
+        {% block footer %}
+            {% include 'layout/footer.html' %}
+        {% endblock %}
+    </div><!-- end wrapper -->
+
+
+    <!-- Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tether.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</body>
+</html>
