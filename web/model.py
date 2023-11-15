@@ -41,8 +41,9 @@ class ModelInference(nn.Module):
 class CustomModelSoftmax(nn.Module):
     def __init__(self, checkpoint):
         super(CustomModelSoftmax, self).__init__()
-        self.model = model = AutoModel.from_config(
-            AutoConfig.from_pretrained(checkpoint, output_attentions=True, output_hidden_states=True))
+        self.model = AutoModel.from_config(AutoConfig.from_pretrained(checkpoint,
+                                                                      output_attentions=True,
+                                                                      output_hidden_states=True))
         self.dropout = nn.Dropout(0.1)
         self.classifier = nn.Linear(768 * 4, 6)
         self.regressor = nn.Linear(768 * 4, 30)
