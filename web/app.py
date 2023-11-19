@@ -20,7 +20,7 @@ def news_list(product_id):
     counter = utils.count_product()
     return render_template('news.html',
                            product=int(product_id),
-                           news_list=utils.load_news(product_id=product_id, page=int(page)),
+                           news_list=jsonify(utils.load_news(product_id=product_id, page=int(page))),
                            pages=math.ceil(counter / app.config['PAGE_SIZE'])
                            )
 

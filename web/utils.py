@@ -1,6 +1,5 @@
 import pandas as pd
-from web import *
-
+from web import app
 
 
 def count_product():

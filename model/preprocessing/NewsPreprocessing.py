@@ -1,7 +1,8 @@
 import numpy as np
 import re
 
-
+héc ta HÉCTA ha
+ptnnnt
 def normalize_annotation(text):
     return re.sub(r"\btp hcm?|\btphcm?|\bhcm?", "thành phố hồ chí minh",
            re.sub(r"\bđbscl?", "đồng bằng sông cửu long",
