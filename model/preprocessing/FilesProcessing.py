@@ -14,15 +14,15 @@ def concat_files(root_path, file_format='csv'):
     Merge Excel file a format used to label news data.
     """
     files = os.listdir(root_path)
-    df = []
+    dataframe = []
     for f in files:
         print(f)
         _file = root_path + "/" + f
         if file_format == 'csv':
-            df.append(pd.read_csv(_file))
+            dataframe.append(pd.read_csv(_file))
         else:
-            df.append(pd.read_excel(_file))
-    df_full = pd.concat(df, ignore_index=True)
+            dataframe.append(pd.read_excel(_file))
+    df_full = pd.concat(dataframe, ignore_index=True)
     df_full = df_full.drop(df_full.columns[[0]], axis=1)  # remove "#" column
     print("concentrating successfully")
     return df_full
@@ -34,4 +34,4 @@ if __name__ == "__main__":
     print(df.columns)
     drop_cols = ['title', 'date', 'brief', 'content', 'sources']
     df = merge_and_drop_Col(df, drop_cols)
-    df.to_csv('../data/original_data/original_data.csv', index=False)
+    df.to_csv('../../data/original_data/original_data.csv', index=False)
