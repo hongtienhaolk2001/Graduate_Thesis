@@ -8,3 +8,5 @@ datasets
 vncorenlp
 tqdm
 flask
+matplotlib
+jupyter
