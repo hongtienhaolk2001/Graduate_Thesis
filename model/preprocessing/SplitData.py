@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
-import model, os
+
+import model
+import os
+
 
 def split_train_test(dataframe, test_size, seed=19133022):
     shuffled = np.random.default_rng(seed=seed).permutation(len(dataframe))
