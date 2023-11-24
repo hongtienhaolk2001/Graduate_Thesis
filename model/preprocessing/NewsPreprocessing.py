@@ -39,9 +39,8 @@ def normalize_annotation(text):
 
 
 def remove_irrelevant(text):
-    txt_file = os.path.join(model.root_path, "preprocessing/remove_list.txt")
-    with open(txt_file, "r", encoding='utf8') as f:
-        remove_list = f.read().split("\n")
+    remove_list = ['tổng giám đốc', 'tgđ', 'giám đốc', 'chủ tịch', 'cp',
+                   'thạc sĩ', 'ths', 'tiến sĩ', 'ts', 'gs', 'pgs', 'tnhh', 'hđqt']
     for i in remove_list:
         text = re.sub(i, "", text)
     inside_brackets = re.compile(r"\(.* ?\)")
