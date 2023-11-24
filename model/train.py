@@ -6,7 +6,7 @@ from tqdm.auto import tqdm
 from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
 from vncorenlp import VnCoreNLP
 
-from model.CustomSoftmaxModel import CustomModelSoftmax
+from CustomSoftmaxModel import CustomModelSoftmax
 from utils import *
 from loss import *
 from metrics import *
