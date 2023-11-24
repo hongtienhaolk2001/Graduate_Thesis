@@ -1,6 +1,8 @@
 import numpy as np
 import re
-import json
+import os
+
+import model
 
 
 def normalize_annotation(text):
@@ -37,7 +39,8 @@ def normalize_annotation(text):
 
 
 def remove_irrelevant(text):
-    with open("remove_list.txt", "r", encoding='utf8') as f:
+    txt_file = os.path.join(model.root_path, "preprocessing/remove_list.txt")
+    with open(txt_file, "r", encoding='utf8') as f:
         remove_list = f.read().split("\n")
     for i in remove_list:
         text = re.sub(i, "", text)
@@ -66,7 +69,7 @@ def remove_punctuation(text):
 
 def pipeline(text):
     """
-    lowercase -> irrelevant -> punctuation -> special char -> number -> annotation
+    lowercase -> irrelevant -> punctuation -> special char -> number -> annotation -> space check
     """
     return {"News": space_check(
         normalize_annotation(
@@ -105,8 +108,9 @@ class Preprocess:
 
 
 if __name__ == '__main__':
+    pass
     # df = concat_files(root_path='../data/labeled_data/', file_format='xlsx')
     # print(remove_irrelevant("tổng giám đốc cp đồng bằng ths tiến sĩ thac si"))
-    t = "BẢN TIN THỊ TRƯỜNG VÀ THƯƠNG MẠI LÚA GẠO VIỆT NAM ½ (TUẦN 23 - 29/03/2009) Theo chỉ đạo của Bộ Công thương và Bộ NN&PTNT, cho đến hết tháng 6/2009, Việt Nam sẽ xuất khẩu khoảng 3,4 triệu tấn gạo trong tổng số 3,7 triệu tấn theo hợp đồng đã ký."
-    print(pipeline(t))
+    # t = "BẢN TIN THỊ TRƯỜNG VÀ THƯƠNG MẠI LÚA GẠO VIỆT NAM ½ (TUẦN 23 - 29/03/2009) Theo chỉ đạo của Bộ Công thương và Bộ NN&PTNT, cho đến hết tháng 6/2009, Việt Nam sẽ xuất khẩu khoảng 3,4 triệu tấn gạo trong tổng số 3,7 triệu tấn theo hợp đồng đã ký."
+    # print(pipeline(t))
     # preprocess.crawled_Data()
