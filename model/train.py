@@ -133,8 +133,17 @@ for epoch in range(num_epochs):
         best_score = final_score
         torch.save(model.state_dict(), "weights/model.pt")
 
-    print()
+    print(f"""
+        Test Loss: {val_loss.compute()}
+        Loss Classifier: {val_loss_classifier.compute()}
+        Loss Regressor: {val_loss_regressor.compute()}
+        Acc: {val_acc.compute()}
+        F1 score: {f1_score}
+        R2 score: {r2_score}
+        Final_score: {final_score}
+        Best score: {best_score}""")
 
+print('Train complete')
 
 # class train:
 #     def __init__(self):
