@@ -3,7 +3,6 @@ from FilesProcessing import concat_files
 import model
 import os
 
-
 def preprocess_crawled_Data(text):
     """
     - remove url (ex: https://xyz.com, www.xyz.com, etc.)

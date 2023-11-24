@@ -1,5 +1,4 @@
 import random
-import os
 from transformers import AutoTokenizer
 from vncorenlp import VnCoreNLP
 from CustomSoftmaxModel import CustomModelSoftmax
@@ -12,7 +11,6 @@ from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 from transformers import DataCollatorWithPadding, AdamW, get_scheduler
 
-root_path = os.path.dirname(__file__)
 
 # Set Seed
 seed = 19133022
@@ -26,14 +24,14 @@ torch.backends.cudnn.benchmark = False
 torch.backends.cudnn.deterministic = True
 
 # Segmenter input
-rdrsegmenter = VnCoreNLP(os.path.join(root_path, "preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar"),
+rdrsegmenter = VnCoreNLP("preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar",
                          annotators="wseg", max_heap_size='-Xmx500m')
 # Tokenizer
 tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
 
 # Load datasets
-data_files = {'train': os.path.join(root_path, r"data/training_data/train_datasets.csv"),
-              'test': os.path.join(root_path, r"./data/training_data/test_datasets.csv")}
+data_files = {'train': r"data/training_data/train_datasets.csv",
+              'test': r"./data/training_data/test_datasets.csv"}
 
 dataset = load_dataset('csv', data_files=data_files)
 
