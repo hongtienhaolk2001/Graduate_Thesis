@@ -1,8 +1,5 @@
 import numpy as np
 import re
-import os
-
-import model
 
 
 def normalize_annotation(text):
