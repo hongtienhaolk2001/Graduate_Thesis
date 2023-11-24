@@ -30,10 +30,9 @@ rdrsegmenter = VnCoreNLP("preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar",
 tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
 
 # Load datasets
-data_files = {'train': r"data/training_data/train_datasets.csv",
-              'test': r"./data/training_data/test_datasets.csv"}
-
-dataset = load_dataset('csv', data_files=data_files)
+dataset = load_dataset('csv',
+                       data_files={'train': r"./data/training_data/train_datasets.csv",
+                                   'test': r"./data/training_data/test_datasets.csv"})
 
 # Preprocess
 preprocess = Preprocess(tokenizer, rdrsegmenter)
