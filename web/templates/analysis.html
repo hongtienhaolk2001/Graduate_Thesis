@@ -1,10 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout/base.html' %}
+{% block title %}Phân Tích Tin Tức Nông Sản UTE{% endblock %}
+{% block content %}
+<div>
+    <form action="/analysis" method="post">
+        <div class="main">
+            <h1>Phân Tích Tin Tức Nông Sản</h1>
+            <div class="input-group mb-3">
+                <input name="input_review" type="text" class="form-control" placeholder="Tin tức" aria-label="Tin tức" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit">Evaluate</button>
+                </div>
+              </div>
+        </div>
+    </form>
 
-</body>
-</html>
+    <table class="table">
+        {% if predict %}
+        <tr>
+            <th>Loại Nông Sản</th>
+            <td>{{predict.giai_tri}}</td>
+        </tr>
+        <tr>
+            <th>Giá Nông Sản</th>
+            <td>{{predict.giai_tri}}</td>
+        </tr>
+        <tr>
+            <th>Nông Sản</th>
+            <td>{{predict.giai_tri}}</td>
+        </tr>
+        <tr>
+            <th>Thị Trường</th>
+            <td>{{predict.giai_tri}}</td>
+        </tr>
+        <tr>
+            <th>Nội Tại</th>
+            <td>{{predict.giai_tri}}</td>
+        </tr>
+        <tr>
+            <th>Ngoại Vi</th>
+            <td>{{predict.giai_tri}}</td>
+        </tr>
+       {% else %}
+       <tr>
+            <th>Loại Nông Sản</th>
+            <td>Không xác định</td>
+       </tr>
+       <tr>
+           <th>Giá Nông Sản</th>
+           <td></td>
+       </tr>
+       <tr>
+           <th>Nông Sản</th>
+           <td></td>
+       </tr>
+       <tr>
+           <th>Thị Trường</th>
+           <td></td>
+       </tr>
+       <tr>
+           <th>Nội Tại</th>
+           <td></td>
+       </tr>
+       <tr>
+           <th>Ngoại Vi</th>
+           <td></td>
+       </tr>
+       {% endif %}
+    </table >
+</div>
+{% endblock %}

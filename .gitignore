@@ -1,3 +1,4 @@
 
 Crawler/chromedriver.exe
 /model/weights/model.pt
+web/analysis/weights/model.pt

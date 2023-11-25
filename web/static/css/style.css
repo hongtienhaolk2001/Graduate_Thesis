@@ -1533,6 +1533,11 @@ pre code {
   width: 100%;
   margin-bottom: 1rem;
   color: #9A9DA2;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 
 .table th,
@@ -9677,4 +9682,36 @@ h6,
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+/*analysis*/
+
+.main {
+    display: block;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.main-title {
+    padding-top: 50px;
+    text-align: center;
+}
+.input_review {
+    width: 80%;
+    height: 50px;
+}
+
+.btn-info {
+    height: 40px;
+    width: 15%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.baner {
+    background: url("../img/background.png") top center / cover no-repeat;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
