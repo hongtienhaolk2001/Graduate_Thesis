@@ -1,7 +1,7 @@
 from flask import Flask
-from transformers import AutoTokenizer
+from analysis import ModelInference
 from vncorenlp import VnCoreNLP
-from analysis.phobert import ModelInference
+from transformers import AutoTokenizer
 # from flask_sqlalchemy import SQLAlchemy
 # from flask_login import LoginManager
 
@@ -13,13 +13,10 @@ app.config['PAGE_SIZE'] = 10
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # db = SQLAlchemy(app=app)
 # login_manager = LoginManager(app=app)
-rdrsegmenter = VnCoreNLP(r"./analysis/vncorenlp/VnCoreNLP-1.1.1.jar",
-                         annotators="wseg",
-                         max_heap_size='-Xmx500m')
+phobert_model = ModelInference(tokenizer=AutoTokenizer.from_pretrained("vinai/phobert-base", local_files_only=True),
+                               rdrsegmenter=VnCoreNLP("vncorenlp/VnCoreNLP-1.1.1.jar", annotators="wseg", max_heap_size='-Xmx500m'),
+                               model_path='weights/model.pt')
+phobert_model = None
 
-tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base",
-                                          local_files_only=True)
-
-phobert_model = ModelInference(tokenizer, rdrsegmenter, r'./analysis/weights/model.pt')
 
 

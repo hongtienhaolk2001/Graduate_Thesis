@@ -1,9 +1,8 @@
 from flask import Flask, request, render_template
-from web import *
-import math
+from web import app, phobert_model
 import utils
-
-
+import NewsPreprocessing
+import math
 
 
 @app.context_processor
@@ -28,9 +27,9 @@ def analysis():
     if request.method == 'POST':
         NEWS_ASPECTS = ["giai_tri", "luu_tru", "nha_hang", "an_uong", "di_chuyen", "mua_sam"]
         # Get review from input
-        review_sentence = request.form['input_review']
+        news_sentence = NewsPreprocessing.pipeline(request.form['input_news'])
         # Predict
-        predict_results = phobert_model.predict(review_sentence)
+        predict_results = phobert_model.predict(news_sentence)
         results = dict()
         for i, aspect in enumerate(NEWS_ASPECTS):
             results.update({aspect: str(predict_results[i]) + " ⭐"})

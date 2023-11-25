@@ -1,7 +1,8 @@
-import pandas as pd
 from web import app
+import pandas as pd
 import json
 import os
+import numpy as np
 
 
 def read_json(path):
@@ -13,13 +14,15 @@ def load_categories():
     return read_json(r'data/categories.json')
 
 
-def count_product():
-    return 120
+def pred_to_label(outputs_classifier, outputs_regressor):
+    result = np.zeros((outputs_classifier.shape[0], 6))
+    mask = (outputs_classifier >= 0.5)
+    result[mask] = outputs_regressor[mask]
+    return result
 
-
-def load_news(product_id=None, page=1):
-    pass
 
 
 if __name__ == '__main__':
-    print(load_news(product_id=1, page=1))
+    # print(load_news(product_id=1, page=1))
+
+    pass

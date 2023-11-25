@@ -107,12 +107,3 @@ class Preprocess:
         dataset = dataset.remove_columns(columns)
         dataset.set_format("torch")
         return dataset
-
-
-if __name__ == '__main__':
-    pass
-    # df = concat_files(root_path='../data/labeled_data/', file_format='xlsx')
-    # print(remove_irrelevant("tổng giám đốc cp đồng bằng ths tiến sĩ thac si"))
-    # t = "BẢN TIN THỊ TRƯỜNG VÀ THƯƠNG MẠI LÚA GẠO VIỆT NAM ½ (TUẦN 23 - 29/03/2009) Theo chỉ đạo của Bộ Công thương và Bộ NN&PTNT, cho đến hết tháng 6/2009, Việt Nam sẽ xuất khẩu khoảng 3,4 triệu tấn gạo trong tổng số 3,7 triệu tấn theo hợp đồng đã ký."
-    # print(pipeline(t))
-    # preprocess.crawled_Data()
