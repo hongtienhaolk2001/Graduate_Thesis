@@ -1,2 +1,5 @@
 flask
-pyrebase
+flask-login
+flask-sqlalchemy
+flask-admin
+pymysql

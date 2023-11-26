@@ -15,7 +15,7 @@
                     <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Tin Tức</a>
                     <div class="dropdown-menu rounded-0 m-0">
                         {% for c in categories %}
-                        <a href="{{ url_for('news_list', product_id=c.id)  }}" class="dropdown-item">{{ c.name }}</a>
+                        <a href="{{ url_for('news_list', category_id=c.id)  }}" class="dropdown-item">{{ c.name }}</a>
                         {% endfor %}
                     </div>
                 </div>
