@@ -33,9 +33,10 @@ def news_list(category_id):
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
     if request.method == 'POST':
-        NEWS_ASPECTS = ["giai_tri", "luu_tru", "nha_hang", "an_uong", "di_chuyen", "mua_sam"]
-        news_sentence = NewsPreprocessing.pipeline(request.form['input_news'])  # Get review from input
+        news_sentence = f"{request.form['input_headline']} {request.form['input_news']}"
+        news_sentence = NewsPreprocessing.pipeline(news_sentence)  # Get review from input
         predict_results = phobert_model.predict(news_sentence)  # Predict
+        NEWS_ASPECTS = ["giai_tri", "luu_tru", "nha_hang", "an_uong", "di_chuyen", "mua_sam"]
         results = dict()
         for i, aspect in enumerate(NEWS_ASPECTS):
             results.update({aspect: str(predict_results[i]) + " ⭐"})

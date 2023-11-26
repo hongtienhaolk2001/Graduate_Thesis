@@ -1,72 +1,84 @@
 {% extends 'layout/base.html' %}
 {% block title %}Phân Tích Tin Tức Nông Sản UTE{% endblock %}
 {% block content %}
-<div>
-    <form action="/analysis" method="post">
-        <div class="main">
-            <h1>Phân Tích Tin Tức Nông Sản</h1>
-            <div class="input-group mb-3">
-                <input name="headline_input" type="text" class="form-control" placeholder="Tiêu đề" aria-label="Tin tức" aria-describedby="basic-addon2">
-                <input name="news_input" type="text" class="form-control" placeholder="Tin tức" aria-label="Tin tức" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="submit">Evaluate</button>
+    <div class="container-fluid mt-5 pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h4 class="m-0 text-uppercase font-weight-bold center">Phân Tích Tin Tức Nông Sản</h4>
+                    </div>
                 </div>
-              </div>
+                <div class="col-lg-6">
+                    <form action="/analysis" method="post">
+                        <div class="form-group">
+                            <input name="headline_input" type="text" class="form-control p-4" placeholder="Tiêu Đề Tin Tức" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="brief_input" class="form-control" rows="10" placeholder="Nội Dung" required="required"></textarea>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
+                                type="submit">Evaluation</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <table class="table">
+                        {% if predict %}
+                        <tr>
+                            <th>Loại Nông Sản:</th>
+                            <td>{{predict.giai_tri}}</td>
+                        </tr>
+                        <tr>
+                            <th>Giá Nông Sản:</th>
+                            <td>{{predict.giai_tri}}</td>
+                        </tr>
+                        <tr>
+                            <th>Nông Sản:</th>
+                            <td>{{predict.giai_tri}}</td>
+                        </tr>
+                        <tr>
+                            <th>Thị Trường:</th>
+                            <td>{{predict.giai_tri}}</td>
+                        </tr>
+                        <tr>
+                            <th>Nội Tại:</th>
+                            <td>{{predict.giai_tri}}</td>
+                        </tr>
+                        <tr>
+                            <th>Ngoại Vi:</th>
+                            <td>{{predict.giai_tri}}</td>
+                        </tr>
+                       {% else %}
+                       <tr>
+                            <th>Loại Nông Sản:</th>
+                            <td>Chưa có thông tin</td>
+                       </tr>
+                       <tr>
+                           <th>Giá Nông Sản:</th>
+                           <td>Chưa có thông tin</td>
+                       </tr>
+                       <tr>
+                           <th>Nông Sản:</th>
+                           <td>Chưa có thông tin</td>
+                       </tr>
+                       <tr>
+                           <th>Thị Trường:</th>
+                           <td>Chưa có thông tin</td>
+                       </tr>
+                       <tr>
+                           <th>Nội Tại:</th>
+                           <td>Chưa có thông tin</td>
+                       </tr>
+                       <tr>
+                           <th>Ngoại Vi:</th>
+                           <td>Chưa có thông tin</td>
+                       </tr>
+                       {% endif %}
+                    </table >
+                </div>
+            </div>
         </div>
-    </form>
-
-    <table class="table">
-        {% if predict %}
-        <tr>
-            <th>Loại Nông Sản</th>
-            <td>{{predict.giai_tri}}</td>
-        </tr>
-        <tr>
-            <th>Giá Nông Sản</th>
-            <td>{{predict.giai_tri}}</td>
-        </tr>
-        <tr>
-            <th>Nông Sản</th>
-            <td>{{predict.giai_tri}}</td>
-        </tr>
-        <tr>
-            <th>Thị Trường</th>
-            <td>{{predict.giai_tri}}</td>
-        </tr>
-        <tr>
-            <th>Nội Tại</th>
-            <td>{{predict.giai_tri}}</td>
-        </tr>
-        <tr>
-            <th>Ngoại Vi</th>
-            <td>{{predict.giai_tri}}</td>
-        </tr>
-       {% else %}
-       <tr>
-            <th>Loại Nông Sản</th>
-            <td>Không xác định</td>
-       </tr>
-       <tr>
-           <th>Giá Nông Sản</th>
-           <td></td>
-       </tr>
-       <tr>
-           <th>Nông Sản</th>
-           <td></td>
-       </tr>
-       <tr>
-           <th>Thị Trường</th>
-           <td></td>
-       </tr>
-       <tr>
-           <th>Nội Tại</th>
-           <td></td>
-       </tr>
-       <tr>
-           <th>Ngoại Vi</th>
-           <td></td>
-       </tr>
-       {% endif %}
-    </table >
-</div>
+    </div>
 {% endblock %}
