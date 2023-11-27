@@ -1,15 +1,16 @@
 import random
-from transformers import AutoTokenizer
+import numpy as np
+import torch
+from torch.utils.data import DataLoader
+from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
 from vncorenlp import VnCoreNLP
 from CustomSoftmaxModel import CustomModelSoftmax
-from loss import *
-from metrics import *
+from loss import loss_classifier, loss_softmax, sigmoid_focal_loss
+from metrics import ScalarMetric, AccuracyMetric, F1_score, R2_score
 from preprocessing.NewsPreprocessing import Preprocess
-from utils import *
+from utils import pred_to_label
 from datasets import load_dataset
-from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
-from transformers import DataCollatorWithPadding, AdamW, get_scheduler
 
 
 # Set Seed
@@ -91,8 +92,6 @@ for epoch in range(num_epochs):
         pb_train.update(1)
         pb_train.set_postfix(loss_classifier=loss1.item(), loss_regressor=loss2.item(), loss=loss.item())
         train_loss += loss.item() / len(train_dataloader)
-
-    print("Train Loss:", train_loss)
     val_loss = ScalarMetric()
     val_loss_classifier = ScalarMetric()
     val_loss_regressor = ScalarMetric()
@@ -133,17 +132,16 @@ for epoch in range(num_epochs):
     if final_score > best_score:
         best_score = final_score
         torch.save(model.state_dict(), "weights/model.pt")
-
     print(f"""
+        Train Loss: {train_loss}
         Test Loss: {val_loss.compute()}
+        
         Loss Classifier: {val_loss_classifier.compute()}
         Loss Regressor: {val_loss_regressor.compute()}
+        
         Acc: {val_acc.compute()}
         F1 score: {f1_score}
-        R2 score: {r2_score}
+        R2 score: {r2_score}        
         Final_score: {final_score}
-        Best score: {best_score}""")
-
-print('Train complete')
-
-
+        """)
+print(f'best score: {best_score}')
