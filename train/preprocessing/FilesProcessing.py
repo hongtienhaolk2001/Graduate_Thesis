@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import model
+import train
 
 
 def merge_and_drop_Col(dataframe, cols):
@@ -30,9 +30,9 @@ def concat_files(root_path, file_format='csv'):
 
 
 if __name__ == "__main__":
-    df = concat_files(root_path=os.path.join(model.root_path, r"data/labeled_data"), file_format='xlsx')
+    df = concat_files(root_path=os.path.join(train.root_path, r"data/labeled_data"), file_format='xlsx')
     print(df.columns)
     drop_cols = ['title', 'date', 'brief', 'content', 'sources']
     df = merge_and_drop_Col(df, drop_cols)
-    df.to_csv(os.path.join(model.root_path, r"data/original_data/original_data.csv"), index=False)
-    print(f"save at {os.path.join(model.root_path, r'data/original_data/original_data.csv')} ")
+    df.to_csv(os.path.join(train.root_path, r"data/original_data/original_data.csv"), index=False)
+    print(f"save at {os.path.join(train.root_path, r'data/original_data/original_data.csv')} ")

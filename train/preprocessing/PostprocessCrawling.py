@@ -1,6 +1,6 @@
 import re
 from FilesProcessing import concat_files
-import model
+import train
 import os
 
 def preprocess_crawled_Data(text):
@@ -39,4 +39,4 @@ def pipeline(dataframe):
 if __name__ == '__main__':
     df = concat_files(root_path='../../data/raw_data/', file_format='csv')
     df = pipeline(df)
-    df.to_csv(os.path.join(model.root_path, r'data/crawled_data/crawled_rice_news.csv'))
+    df.to_csv(os.path.join(train.root_path, r'data/crawled_data/crawled_rice_news.csv'))
