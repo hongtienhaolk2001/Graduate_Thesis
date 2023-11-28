@@ -68,6 +68,7 @@ pb_train = tqdm(range(num_training_steps))
 pb_test = tqdm(range(num_epochs * len(test_dataloader)))
 best_score = -1
 
+
 for epoch in range(num_epochs):
     print(f"------------ epoch {epoch}: --------------")
     train_loss, val_loss = 0, 0
@@ -76,18 +77,17 @@ for epoch in range(num_epochs):
     for batch in train_dataloader:
         inputs = {'input_ids': batch['input_ids'].to(device),
                   'attention_mask': batch['attention_mask'].to(device)}
-        outputs_classifier, outputs_regressor = model(**inputs)
-        loss1 = sigmoid_focal_loss(outputs_classifier,
-                                   batch['labels_classifier'].to(device).float(),
-                                   alpha=-1, gamma=1, reduction='mean')
-        loss2 = loss_softmax(outputs_regressor,
-                             batch['labels_regressor'].to(device).float(),
-                             device)
 
+        outputs_classifier, outputs_regressor = model(**inputs)
+        loss1 = sigmoid_focal_loss(outputs_classifier, batch['labels_classifier'].to(device).float(), alpha=-1, gamma=1, reduction='mean')
+        loss2 = loss_softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
         loss = 10 * loss1 + loss2
+
         optimizer.zero_grad()
+        # Backward pass and optimization
         loss.backward()
         optimizer.step()
+
         lr_scheduler.step()
         pb_train.update(1)
         pb_train.set_postfix(loss_classifier=loss1.item(), loss_regressor=loss2.item(), loss=loss.item())
@@ -98,9 +98,9 @@ for epoch in range(num_epochs):
     val_acc = AccuracyMetric()
     val_f1_score = F1_score()
     val_r2_score = R2_score()
-    num, correct, result = 0, 0, None
-    model.eval()
+    # num, correct, result = 0, 0, None
 
+    model.eval()
     for batch in test_dataloader:
         inputs = {'input_ids': batch['input_ids'].to(device),
                   'attention_mask': batch['attention_mask'].to(device)}

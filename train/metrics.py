@@ -87,3 +87,14 @@ class R2_score:
         mask2 = (k != 0)
         r2_score[mask2] = 1 - rss[mask2] / k[mask2]
         return r2_score
+
+
+class metric:
+    def __init__(self):
+        self.loss = ScalarMetric()
+        self.sigmoid_focal_loss = ScalarMetric()
+        self.classifier_loss = ScalarMetric()
+        self.regressor_loss = ScalarMetric()
+        self.acc = AccuracyMetric()
+        self.f1_score = F1_score()
+        self.r2_score = R2_score()

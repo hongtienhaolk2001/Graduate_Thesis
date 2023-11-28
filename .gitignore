@@ -1,4 +1,4 @@
 
-Crawler/chromedriver.exe
-/model/weights/model.pt
-web/analysis/weights/model.pt
+crawler/chromedriver.exe
+train/weights/model.pt
+web/weights/model.pt

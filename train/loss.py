@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 
 
-def loss_classifier(pred_classifier, labels_classifier):
+def classifier(pred_classifier, labels_classifier):
     """
     Binary Cross Entropy Loss for classification tasks.
 
@@ -17,7 +17,7 @@ def loss_classifier(pred_classifier, labels_classifier):
     return nn.BCELoss()(pred_classifier, labels_classifier)
 
 
-def loss_softmax(inputs, labels, device):
+def softmax(inputs, labels, device):
     """
     Cross Entropy Loss for softmax-based multi-class classification tasks.
 
@@ -41,7 +41,7 @@ def loss_softmax(inputs, labels, device):
     return loss
 
 
-def sigmoid_focal_loss(inputs: torch.Tensor, targets: torch.Tensor,
+def sigmoid_focal(inputs: torch.Tensor, targets: torch.Tensor,
                        alpha: float = 0.25, gamma: float = 2,
                        reduction: str = "none", ):
     """
@@ -73,3 +73,9 @@ def sigmoid_focal_loss(inputs: torch.Tensor, targets: torch.Tensor,
 
     return loss
 
+
+# def compute_loss(outputs_classifier, outputs_regressor, coef=10):
+#     loss1 = sigmoid_focal_loss(outputs_classifier, batch['labels_classifier'].to(device).float(), alpha=-1, gamma=1,
+#                                reduction='mean')
+#     loss2 = loss_softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
+#     return coef * loss1 + loss2
