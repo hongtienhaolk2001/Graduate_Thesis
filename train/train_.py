@@ -51,19 +51,17 @@ num_training_steps = num_epochs * len(train_dataloader)
 lr_scheduler = get_scheduler('linear', optimizer=optimizer, num_warmup_steps=0, num_training_steps=num_training_steps)
 
 
-def evaluation(model, val_dataloader):
+def evaluation(model, dataloader):
     valid = metric()
     model.eval()
     with torch.no_grad():
-        for batch in val_dataloader:
+        for batch in dataloader:
             inputs = {'input_ids': batch['input_ids'].to(device),
                       'attention_mask': batch['attention_mask'].to(device)}
             outputs_classifier, outputs_regressor = model(**inputs)
-            # loss
             classifier_loss = loss.classifier(outputs_classifier, batch['labels_classifier'].to(device).float())
             softmax_loss = loss.softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-            mix_loss = classifier_loss + softmax_loss
-
+            loss = classifier_loss + softmax_loss
             outputs_classifier = outputs_classifier.cpu().numpy()
             outputs_regressor = outputs_regressor.cpu().numpy()
             outputs_regressor = outputs_regressor.argmax(axis=-1) + 1
@@ -88,37 +86,29 @@ for epoch in range(num_epochs):
     train_metrics = metric()
     phobert.train()
     for batch in train_dataloader:
-        # Move inputs and labels to the device
         inputs = {'input_ids': batch['input_ids'].to(device),
                   'attention_mask': batch['attention_mask'].to(device)}
-        # Forward pass
         outputs_classifier, outputs_regressor = phobert(**inputs)
-        # Compute Loss
         sigmoid_focal_loss = loss.sigmoid_focal(outputs_classifier, batch['labels_classifier'].to(device).float(),
                                                 alpha=-1, gamma=1, reduction='mean')
         softmax_loss = loss.softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
         mix_loss = 10 * sigmoid_focal_loss + softmax_loss
-        # Zero the parameter gradients
         optimizer.zero_grad()
-        # Backward pass and optimization
         mix_loss.backward()
         optimizer.step()
-        with torch.no_grad():
-            # Predicted
-            outputs_classifier = outputs_classifier.cpu().numpy()
-            outputs_regressor = outputs_regressor.cpu().numpy()
-            outputs_regressor = outputs_regressor.argmax(axis=-1) + 1
-            outputs = pred_to_label(outputs_classifier, outputs_regressor)
-            y_true = batch['labels_regressor'].numpy()
-
-            # update loss
-            train_metrics.sigmoid_focal_loss.update(sigmoid_focal_loss.item())
-            train_metrics.regressor_loss.update(softmax_loss.item())
-            train_metrics.loss.update(mix_loss.item())
-
-            train_metrics.acc.update(np.round(outputs), y_true)
-            train_metrics.f1_score.update(np.round(outputs), y_true)
-            train_metrics.r2_score.update(np.round(outputs), y_true)
+        # with torch.no_grad():
+        #     outputs_classifier = outputs_classifier.cpu().numpy()
+        #     outputs_regressor = outputs_regressor.cpu().numpy()
+        #     outputs_regressor = outputs_regressor.argmax(axis=-1) + 1
+        #     outputs = pred_to_label(outputs_classifier, outputs_regressor)
+        #
+        #     y_true = batch['labels_regressor'].numpy()
+        #     train_metrics.sigmoid_focal_loss.update(sigmoid_focal_loss.item())
+        #     train_metrics.regressor_loss.update(softmax_loss.item())
+        #     train_metrics.loss.update(mix_loss.item())
+        #     train_metrics.acc.update(np.round(outputs), y_true)
+        #     train_metrics.f1_score.update(np.round(outputs), y_true)
+        #     train_metrics.r2_score.update(np.round(outputs), y_true)
 
     val_metrics = evaluation(phobert, test_dataloader)
     # Save for plot

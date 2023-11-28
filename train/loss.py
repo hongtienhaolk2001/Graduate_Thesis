@@ -42,21 +42,9 @@ def softmax(inputs, labels, device):
 
 
 def sigmoid_focal(inputs: torch.Tensor, targets: torch.Tensor,
-                       alpha: float = 0.25, gamma: float = 2,
-                       reduction: str = "none", ):
-    """
-    Sigmoid Focal Loss for binary classification tasks.
+                  alpha: float = 0.25, gamma: float = 2,
+                  reduction: str = "none", ):
 
-    Args:
-        inputs (torch.Tensor): Model predictions before sigmoid activation.
-        targets (torch.Tensor): True labels for the binary classification task.
-        alpha (float): Weighting factor for class imbalance.
-        gamma (float): Focusing parameter to down-weight easy examples.
-        reduction (str): Specifies the reduction to apply to the output.
-
-    Returns:
-        torch.Tensor: Sigmoid Focal Loss.
-    """
     p = inputs
     ce_loss = F.binary_cross_entropy(inputs, targets, reduction="none")
     p_t = p * targets + (1 - p) * (1 - targets)
@@ -72,7 +60,6 @@ def sigmoid_focal(inputs: torch.Tensor, targets: torch.Tensor,
         loss = loss.sum()
 
     return loss
-
 
 # def compute_loss(outputs_classifier, outputs_regressor, coef=10):
 #     loss1 = sigmoid_focal_loss(outputs_classifier, batch['labels_classifier'].to(device).float(), alpha=-1, gamma=1,

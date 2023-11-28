@@ -64,8 +64,6 @@ class F1_score:
         mask_precision_score = np.logical_and(precision_score != 0, np.logical_not(np.isnan(precision_score)))
         mask_recall_score = np.logical_and(recall_score != 0, np.logical_not(np.isnan(recall_score)))
         mask = np.logical_and(mask_precision_score, mask_recall_score)
-        print("Precision:", precision_score)
-        print("Recall", recall_score)
         f1_score[mask] = 2 * (precision_score[mask] * recall_score[mask]) / (precision_score[mask] + recall_score[mask])
         return f1_score
 

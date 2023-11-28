@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
 from vncorenlp import VnCoreNLP
 from CustomSoftmaxModel import CustomModelSoftmax
-from loss import loss_classifier, loss_softmax, sigmoid_focal_loss
+import loss
 from metrics import ScalarMetric, AccuracyMetric, F1_score, R2_score
 from preprocessing.NewsPreprocessing import Preprocess
 from utils import pred_to_label
@@ -79,8 +79,8 @@ for epoch in range(num_epochs):
                   'attention_mask': batch['attention_mask'].to(device)}
 
         outputs_classifier, outputs_regressor = model(**inputs)
-        loss1 = sigmoid_focal_loss(outputs_classifier, batch['labels_classifier'].to(device).float(), alpha=-1, gamma=1, reduction='mean')
-        loss2 = loss_softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
+        loss1 = loss.sigmoid_focal(outputs_classifier, batch['labels_classifier'].to(device).float(), alpha=-1, gamma=1, reduction='mean')
+        loss2 = loss.softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
         loss = 10 * loss1 + loss2
 
         optimizer.zero_grad()
@@ -98,7 +98,6 @@ for epoch in range(num_epochs):
     val_acc = AccuracyMetric()
     val_f1_score = F1_score()
     val_r2_score = R2_score()
-    # num, correct, result = 0, 0, None
 
     model.eval()
     for batch in test_dataloader:
