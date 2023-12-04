@@ -1,17 +1,18 @@
 import random
+
 import numpy as np
 import torch
+from datasets import load_dataset
 from torch.utils.data import DataLoader
+from tqdm.auto import tqdm
 from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
 from vncorenlp import VnCoreNLP
-from CustomSoftmaxModel import CustomModelSoftmax
+
 import loss
-from metrics import ScalarMetric, AccuracyMetric, F1_score, R2_score
+from CustomSoftmaxModel import CustomModelSoftmax
+from metrics import ScalarMetric, F1_score, R2_score
 from preprocessing.NewsPreprocessing import Preprocess
 from utils import pred_to_label
-from datasets import load_dataset
-from tqdm.auto import tqdm
-
 
 # Set Seed
 seed = 19133022
@@ -95,7 +96,6 @@ for epoch in range(num_epochs):
     val_loss = ScalarMetric()
     val_loss_classifier = ScalarMetric()
     val_loss_regressor = ScalarMetric()
-    val_acc = AccuracyMetric()
     val_f1_score = F1_score()
     val_r2_score = R2_score()
 
@@ -119,7 +119,7 @@ for epoch in range(num_epochs):
             val_loss_classifier.update(loss1.item())
             val_loss_regressor.update(loss2.item())
             val_loss.update(loss.item())
-            val_acc.update(np.round(outputs), y_true)
+            # val_acc.update(np.round(outputs), y_true)
             val_f1_score.update(np.round(outputs), y_true)
             val_r2_score.update(np.round(outputs), y_true)
             pb_test.update(1)
@@ -138,7 +138,6 @@ for epoch in range(num_epochs):
         Loss Classifier: {val_loss_classifier.compute()}
         Loss Regressor: {val_loss_regressor.compute()}
         
-        Acc: {val_acc.compute()}
         F1 score: {f1_score}
         R2 score: {r2_score}        
         Final_score: {final_score}

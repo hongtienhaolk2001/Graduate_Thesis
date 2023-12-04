@@ -22,7 +22,7 @@ class CustomModelSoftmax(nn.Module):
         # Classifier for classification task
         self.classifier = nn.Linear(768 * 4, 6)
         # Regressor for regression task
-        self.regressor = nn.Linear(768 * 4, 30)
+        self.regressor = nn.Linear(768 * 4, 24)
 
     def forward(self, input_ids=None, attention_mask=None):
         """

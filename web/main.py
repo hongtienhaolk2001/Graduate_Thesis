@@ -1,7 +1,7 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from web import app, phobert_model
 import utils
-import NewsPreprocessing
+import preprocessing
 import math
 
 
@@ -38,18 +38,17 @@ def read():
 
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
-    if request.method == 'POST':
-        news_sentence = f"{request.form['input_headline']} {request.form['input_news']}"
-        news_sentence = NewsPreprocessing.pipeline(news_sentence)  # Get review from input
-        predict_results = phobert_model.predict(news_sentence)  # Predict
-        NEWS_ASPECTS = ["giai_tri", "luu_tru", "nha_hang", "an_uong", "di_chuyen", "mua_sam"]
-        results = dict()
-        for i, aspect in enumerate(NEWS_ASPECTS):
-            results.update({aspect: str(predict_results[i]) + " ⭐"})
-        return render_template("analysis.html", predict=results)
-    return render_template("analysis.html")
+    if request.method.__eq__('POST'):
+        news_sentence = f"{request.form['headline']} {request.form['brief']}"
+        news_sentence = preprocessing.pipeline(news_sentence)  # Get review from input
+        predict_results = phobert_model.predict(news_sentence)
+        final_output = preprocessing.output(predict_results[0])
+        return render_template("analysis.html",
+                               predict=final_output['results'])
+    else:
+        return render_template("analysis.html")
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run()
     # app.run(debug=True)

@@ -1,5 +1,5 @@
 from transformers import AutoModel, AutoConfig, AutoTokenizer
-from NewsPreprocessing import Preprocess
+from preprocessing import Preprocess
 import torch
 import torch.nn as nn
 import numpy as np

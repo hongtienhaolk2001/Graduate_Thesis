@@ -1,6 +1,5 @@
-import numpy as np
+from flask import jsonify
 import re
-
 
 def normalize_annotation(text):
     annotation_dict = {
@@ -73,37 +72,42 @@ def pipeline(text):
     """
     lowercase -> irrelevant -> punctuation -> special char -> number -> annotation -> space check
     """
-    return {"News": space_check(
+    return space_check(
         normalize_annotation(
             remove_punctuation(
                 remove_special_char(
                     remove_number(
                         remove_irrelevant(
-                            text["News"].lower()))))))}
+                            text.lower()))))))
 
 
 class Preprocess:
     def __init__(self, tokenizer, rdrsegmenter):
         self.tokenizer = tokenizer
         self.rdrsegmenter = rdrsegmenter
-        self.feature = ['category', 'price', 'gov', 'market', 'intrinsic', 'extrinsic']
 
-    def segment(self, example):
-        return {"Segment": " ".join([" ".join(sen) for sen in self.rdrsegmenter.tokenize(example["News"])])}
+    def tokenize(self, sentence):
+        sentence = pipeline(sentence)
+        segment = " ".join([" ".join(sent) for sent in self.rdrsegmenter.tokenize(sentence)])
 
-    def tokenize(self, example):
-        return self.tokenizer(example["Segment"], truncation=True)
+        inputs = self.tokenizer(segment, truncation=True, return_tensors='pt')
+        return inputs
 
-    def label(self, example):
-        return {'labels_regressor': np.array([example[i] for i in self.feature]),
-                'labels_classifier': np.array([int(example[i] != 0) for i in self.feature])}
 
-    def run(self, dataset):
-        dataset = dataset.map(pipeline)
-        dataset = dataset.map(self.segment)
-        dataset = dataset.map(self.tokenize, batched=True)
-        dataset = dataset.map(self.label)
-        columns = ['Unnamed: 0', 'News', 'category', 'price', 'gov', 'market', 'intrinsic', 'extrinsic', 'Segment']
-        dataset = dataset.remove_columns(columns)
-        dataset.set_format("torch")
-        return dataset
+def output(encode_result):
+    result = {
+        "news": "sentence",
+        "results": {}
+    }
+    factors = {"category": ["Không xác định", "Nông sản từ lúa, gạo", "Nông sản cà phê", "Nông sản cao su"],
+               "price": ["Không xác định", "Giảm", "Ổn định", "Tăng"],
+               "market": ["Không xác định", "Nguồn cung lớn hơn nhu cầu", "Nguồn cung và cầu ổn định", "Nhu cầu lớn hơn Nguồn cung"],
+               "polices": ["Không xác định",
+                           "Chính sách", "Hiệp định", "Khác"],
+               "internal": ["Không xác định", "Liên quan đến sản lượng nông sản",
+                            "Liên quan đến chất lượng nông sản.", "Chi phí sản suất liên quan"],
+               "external": ["Không xác định", "Dịch bệnh", "Thiên tai", "Khủng hoảng"]
+               }
+    for i, r in enumerate(factors):
+        result["results"][r] = factors[r][int(encode_result[i])]
+    return result

@@ -7,7 +7,7 @@ import pandas as pd
 import threading
 import GetData
 
-
+#https://googlechromelabs.github.io/chrome-for-testing/#stable
 class MultiThreading:
     def __init__(self, threads):
         self.url_list = []
@@ -28,10 +28,10 @@ class MultiThreading:
 
     def crawl_Urls(self, page):
         queue = Queue(self.threads)
-        for i in range(self.threads):
-            browser = self.browsers[i]
+        for thread_i in range(self.threads):
+            browser = self.browsers[thread_i]
             t = threading.Thread(target=lambda th, q, b, p: q.put(GetData.get_URLs(th, b, p)),
-                                 args=(self.threads, queue, browser, page + i,))
+                                 args=(self.threads, queue, browser, page + thread_i,))
             t.start()
         try:
             sleep(10)
@@ -43,10 +43,10 @@ class MultiThreading:
 
     def crawl_News(self, url_index):
         queue = Queue(self.threads)
-        for i in range(self.threads):
-            browser = self.browsers[i]
+        for thread_i in range(self.threads):
+            browser = self.browsers[thread_i]
             t = threading.Thread(target=lambda th, q, b, u: q.put(GetData.get_News(th, b, self.url_list[u])),
-                                 args=(self.threads, queue, browser, url_index + i,))
+                                 args=(self.threads, queue, browser, url_index + thread_i,))
             t.start()
         try:
             sleep(10)
@@ -60,16 +60,18 @@ class MultiThreading:
 if __name__ == '__main__':
     multi_threading = MultiThreading(threads=6)
     max_page = 264
-    # Get url
-    for page_i in range(1, max_page, multi_threading.threads):
-        multi_threading.open_MultiBrowsers()
-        multi_threading.crawl_Urls(page=page_i)
-    # Crawl news
-    current_url = 0
-    for i in range(current_url, len(multi_threading.url_list), multi_threading.threads):
-        multi_threading.open_MultiBrowsers()
-        multi_threading.crawl_News(url_index=current_url)
 
+    try:  # Get url
+        for page_i in range(1, max_page, multi_threading.threads):
+            multi_threading.open_MultiBrowsers()
+            multi_threading.crawl_Urls(page=page_i)
+        # Crawl news
+        current_url = 0
+        for i in range(current_url, len(multi_threading.url_list), multi_threading.threads):
+            multi_threading.open_MultiBrowsers()
+            multi_threading.crawl_News(url_index=current_url)
+    except:
+        pass
     # Save
-    multi_threading.df.to_csv(f'../data/raw_data/coffee.csv')
+    multi_threading.df.to_csv(f'./coffee.csv')
     print("save successfully")

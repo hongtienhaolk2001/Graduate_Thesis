@@ -10,12 +10,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form action="/analysis" method="post">
+                    <form action="/analysis" method="POST">
                         <div class="form-group">
-                            <input name="headline_input" type="text" class="form-control p-4" placeholder="Tiêu Đề Tin Tức" required="required"/>
+                            <input name="headline" type="text" class="form-control p-4" placeholder="Tiêu Đề Tin Tức" required="required"/>
                         </div>
                         <div class="form-group">
-                            <textarea name="brief_input" class="form-control" rows="10" placeholder="Nội Dung" required="required"></textarea>
+                            <textarea name="brief" class="form-control" rows="10" placeholder="Nội Dung" required="required"></textarea>
                         </div>
                         <div>
                             <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
@@ -27,28 +27,28 @@
                     <table class="table">
                         {% if predict %}
                         <tr>
-                            <th>Loại Nông Sản:</th>
-                            <td>{{predict.giai_tri}}</td>
+                            <th>Loại:</th>
+                            <td>{{predict.category}}</td>
                         </tr>
                         <tr>
-                            <th>Giá Nông Sản:</th>
-                            <td>{{predict.giai_tri}}</td>
+                            <th>Giá:</th>
+                            <td>{{predict.price}}</td>
                         </tr>
                         <tr>
-                            <th>Nông Sản:</th>
-                            <td>{{predict.giai_tri}}</td>
+                            <th>Thị trường:</th>
+                            <td>{{predict.market}}</td>
                         </tr>
                         <tr>
-                            <th>Thị Trường:</th>
-                            <td>{{predict.giai_tri}}</td>
+                            <th>Chính sách:</th>
+                            <td>{{predict.polices}}</td>
                         </tr>
                         <tr>
                             <th>Nội Tại:</th>
-                            <td>{{predict.giai_tri}}</td>
+                            <td>{{predict.internal}}</td>
                         </tr>
                         <tr>
                             <th>Ngoại Vi:</th>
-                            <td>{{predict.giai_tri}}</td>
+                            <td>{{predict.external}}</td>
                         </tr>
                        {% else %}
                        <tr>

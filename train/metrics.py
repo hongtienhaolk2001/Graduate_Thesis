@@ -19,23 +19,6 @@ class ScalarMetric:
         self.num = 0
 
 
-class AccuracyMetric:
-    def __init__(self):
-        self.correct = 0
-        self.num = 0
-
-    def update(self, y_pred, y_true):
-        self.correct += (y_pred == y_true).sum()
-        self.num += len(y_pred) * y_pred.shape[1]
-
-    def compute(self):
-        return self.correct / self.num
-
-    def reset(self):
-        self.correct = 0
-        self.num = 0
-
-
 def precision(y_pred, y_true):
     true_positive = np.logical_and(y_pred, y_true).sum(axis=0)
     false_positive = np.logical_and(y_pred, np.logical_not(y_true)).sum(axis=0)
@@ -87,12 +70,20 @@ class R2_score:
         return r2_score
 
 
-class metric:
+class all_metric:
     def __init__(self):
         self.loss = ScalarMetric()
         self.sigmoid_focal_loss = ScalarMetric()
         self.classifier_loss = ScalarMetric()
         self.regressor_loss = ScalarMetric()
-        self.acc = AccuracyMetric()
         self.f1_score = F1_score()
         self.r2_score = R2_score()
+
+    def update(self):
+        pass
+
+    def compute(self):
+        pass
+
+    def reset(self):
+        pass
