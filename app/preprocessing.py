@@ -1,5 +1,5 @@
-from flask import jsonify
 import re
+
 
 def normalize_annotation(text):
     annotation_dict = {
@@ -101,7 +101,8 @@ def output(encode_result):
     }
     factors = {"category": ["Không xác định", "Nông sản từ lúa, gạo", "Nông sản cà phê", "Nông sản cao su"],
                "price": ["Không xác định", "Giảm", "Ổn định", "Tăng"],
-               "market": ["Không xác định", "Nguồn cung lớn hơn nhu cầu", "Nguồn cung và cầu ổn định", "Nhu cầu lớn hơn Nguồn cung"],
+               "market": ["Không xác định", "Nguồn cung lớn hơn nhu cầu", "Nguồn cung và cầu ổn định",
+                          "Nhu cầu lớn hơn Nguồn cung"],
                "polices": ["Không xác định",
                            "Chính sách", "Hiệp định", "Khác"],
                "internal": ["Không xác định", "Liên quan đến sản lượng nông sản",

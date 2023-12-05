@@ -1,9 +1,9 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, ForeignKey, Text, Enum
+from sqlalchemy import Column, Integer, String, ForeignKey, Text
 from sqlalchemy.orm import relationship
-from web import db, app
-from datetime import datetime
-from enum import Enum as UserEnum
-from flask_login import UserMixin
+
+from app import *
+# from main import app
+
 
 
 class BaseModel(db.Model):

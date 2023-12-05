@@ -1,8 +1,8 @@
-from flask import Flask, request, render_template, jsonify
-from web import app, phobert_model
-import utils
-import preprocessing
 import math
+
+from flask import request, render_template
+
+from app import utils, preprocessing, app, phobert_model
 
 
 @app.context_processor
@@ -39,8 +39,8 @@ def read():
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
     if request.method.__eq__('POST'):
-        news_sentence = f"{request.form['headline']} {request.form['brief']}"
-        news_sentence = preprocessing.pipeline(news_sentence)  # Get review from input
+        news_sentence = f"{request.form['headline']} {request.form['brief']}"  # Get review from input
+        news_sentence = preprocessing.pipeline(news_sentence)
         predict_results = phobert_model.predict(news_sentence)
         final_output = preprocessing.output(predict_results[0])
         return render_template("analysis.html",
@@ -50,5 +50,4 @@ def analysis():
 
 
 if __name__ == '__main__':
-    app.run()
-    # app.run(debug=True)
+    app.run(port=8080)

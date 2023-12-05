@@ -1,9 +1,9 @@
-from transformers import AutoModel, AutoConfig, AutoTokenizer
-from preprocessing import Preprocess
+import numpy as np
 import torch
 import torch.nn as nn
-import numpy as np
-from vncorenlp import VnCoreNLP
+from transformers import AutoModel, AutoConfig
+
+from app.preprocessing import Preprocess
 
 
 def pred_to_label(outputs_classifier, outputs_regressor):

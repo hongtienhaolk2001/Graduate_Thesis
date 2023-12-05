@@ -1,4 +1,4 @@
-runtime: python311
+runtime: python311java8
 entrypoint: uwsgi --http-socket :$PORT --wsgi-file main.py --callable app --master --processes 1 --threads 2
 
 #env_variables:
@@ -6,3 +6,7 @@ entrypoint: uwsgi --http-socket :$PORT --wsgi-file main.py --callable app --mast
 #  CLOUD_SQL_PASSWORD: root
 #  CLOUD_SQL_DATABASE_NAME: news
 #  CLOUD_SQL_CONNECTION_NAME: long-equinox-405504:asia-east1:cloudmysql
+
+#handlers:
+#- url: /.*
+#  script: auto

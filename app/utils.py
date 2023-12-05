@@ -1,9 +1,5 @@
-from web import app
-from web.models import *
-import pandas as pd
-import json
-import os
 import numpy as np
+from app.models import *
 
 
 def load_categories():

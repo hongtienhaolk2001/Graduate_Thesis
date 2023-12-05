@@ -1,4 +1,5 @@
 uwsgi==2.0.22
+gunicorn==21.2.0
 flask==3.0.0
 flask-login==0.6.3
 flask-sqlalchemy==3.1.1
@@ -14,3 +15,4 @@ openpyxl==3.1.2
 datasets==2.14.6
 vncorenlp==1.0.3
 matplotlib==3.8.2
+tqdm==4.66.1
