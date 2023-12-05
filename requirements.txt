@@ -5,8 +5,12 @@ flask-sqlalchemy==3.1.1
 pymysql==1.1.0
 numpy==1.26.0
 openpyxl==3.1.2
-torch==2.1.0
 transformers==4.34.1
 datasets==2.14.6
 vncorenlp==1.0.3
 tqdm==4.66.1
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.0
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+torchvision
