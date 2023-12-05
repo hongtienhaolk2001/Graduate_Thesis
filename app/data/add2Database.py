@@ -1,5 +1,5 @@
-from web.models import *
-from web import db, app
+from app.models import *
+from app import db, app
 import pandas as pd
 import hashlib
 
@@ -19,6 +19,9 @@ def add_News(file_path):
                             date=news['date'][i],
                             category_id=news['category'][i],
                             content=news['content'][i], ))
+
+
+
 
 
 if __name__ == '__main__':

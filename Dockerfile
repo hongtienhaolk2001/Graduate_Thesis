@@ -9,12 +9,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Install Java environment to run VnCoreNLP
 RUN apt-get update && \
-    apt-get install -y openjdk-11-jre-headless && \
+    apt-get install -y default-jre && \
     apt-get clean;
 
-#COPY . /cta_matrix
+COPY . /Graduate_Thesis
 
-# Run to download Automodel
-
-
+#EXPOSE 8080
+#CMD ["gunicorn", "app:app", "-b", ":8080", "--timeout", "300"]
 CMD ["python", "main.py"]

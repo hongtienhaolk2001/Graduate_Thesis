@@ -3,3 +3,4 @@ train/weights/model.pt
 app/weights/model.pt
 */.idea
 */__pycache__
+venv/

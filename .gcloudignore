@@ -1,0 +1,12 @@
+.gcloudignore
+.git
+.gitignore
+train/
+crawler/
+venv/
+app/data/
+
+# Python pycache:
+__pycache__/
+# Ignored by the build system
+/setup.cfg
