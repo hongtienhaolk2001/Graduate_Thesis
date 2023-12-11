@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231205">
-      <change beforePath="$PROJECT_DIR$/.gcloudignore" beforeDir="false" />
+    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231211">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/add2Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/add2Database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/CustomSoftmaxModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/CustomSoftmaxModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/train/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train/train_.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/train_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/visualization.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +214,7 @@
       <workItem from="1701958044899" duration="607000" />
       <workItem from="1702134750063" duration="2601000" />
       <workItem from="1702214623006" duration="15335000" />
-      <workItem from="1702284119494" duration="278000" />
+      <workItem from="1702284119494" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -257,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701787457497</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="231211">
+      <option name="closed" value="true" />
+      <created>1702284638139</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702284638140</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,10 +275,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="231205" />
-    <option name="LAST_COMMIT_MESSAGE" value="231205" />
+    <MESSAGE value="231211" />
+    <option name="LAST_COMMIT_MESSAGE" value="231211" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Graduate_Thesis$train_.coverage" NAME="train_ Coverage Results" MODIFIED="1702276965956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
+    <SUITE FILE_PATH="coverage/Graduate_Thesis$train_.coverage" NAME="train_ Coverage Results" MODIFIED="1702284386408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$train.coverage" NAME="train Coverage Results" MODIFIED="1702268751824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
   </component>
 </project>

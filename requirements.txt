@@ -8,4 +8,7 @@ datasets==2.14.6
 vncorenlp==1.0.3
 tqdm==4.66.1
 torch==2.1.0
+pandas==2.1.1
+matplotlib==3.8.2
+numpy
 torchvision
