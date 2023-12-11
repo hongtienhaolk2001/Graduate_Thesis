@@ -46,7 +46,7 @@ class CustomModelSoftmax(nn.Module):
         outputs_classifier = self.classifier(outputs)
         outputs_regressor = self.regressor(outputs)
         outputs_classifier = nn.Sigmoid()(outputs_classifier)
-        outputs_regressor = outputs_regressor.reshape(-1, 6, 5)
+        outputs_regressor = outputs_regressor.reshape(-1, 6, 4)
         return outputs_classifier, outputs_regressor
 
 

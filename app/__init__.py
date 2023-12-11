@@ -25,9 +25,7 @@ def create_db(app):
     return SQLAlchemy(app=app)
 
 
-# app = Flask(__name__)
-# app.secret_key = '1234567890qwertyuiop'
-# app.config['PAGE_SIZE'] = 10
+
 app = create_app()
 root_path = app.root_path
 phobert_model = create_model(root_path)

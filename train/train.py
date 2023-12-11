@@ -82,17 +82,17 @@ for epoch in range(num_epochs):
         outputs_classifier, outputs_regressor = model(**inputs)
         loss1 = loss.sigmoid_focal(outputs_classifier, batch['labels_classifier'].to(device).float(), alpha=-1, gamma=1, reduction='mean')
         loss2 = loss.softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-        loss = 10 * loss1 + loss2
+        epoch_loss = 10 * loss1 + loss2
 
         optimizer.zero_grad()
         # Backward pass and optimization
-        loss.backward()
+        epoch_loss.backward()
         optimizer.step()
 
         lr_scheduler.step()
         pb_train.update(1)
-        pb_train.set_postfix(loss_classifier=loss1.item(), loss_regressor=loss2.item(), loss=loss.item())
-        train_loss += loss.item() / len(train_dataloader)
+        pb_train.set_postfix(loss_classifier=loss1.item(), loss_regressor=loss2.item(), loss=epoch_loss.item())
+        train_loss += epoch_loss.item() / len(train_dataloader)
     val_loss = ScalarMetric()
     val_loss_classifier = ScalarMetric()
     val_loss_regressor = ScalarMetric()
@@ -105,20 +105,19 @@ for epoch in range(num_epochs):
                   'attention_mask': batch['attention_mask'].to(device)}
         with torch.no_grad():
             outputs_classifier, outputs_regressor = model(**inputs)
-            loss1 = loss_classifier(outputs_classifier, batch['labels_classifier'].to(device).float())
-            loss2 = loss_softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-            loss = loss1 + loss2
+            loss1 = loss.classifier(outputs_classifier, batch['labels_classifier'].to(device).float())
+            loss2 = loss.softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
+            epoch_loss = loss1 + loss2
             outputs_classifier = outputs_classifier.cpu().numpy()
             outputs_regressor = outputs_regressor.cpu().numpy()
             outputs_regressor = outputs_regressor.argmax(axis=-1) + 1
             y_true = batch['labels_regressor'].numpy()
             outputs = pred_to_label(outputs_classifier, outputs_regressor)
-            result = np.concatenate([result, np.round(outputs)], axis=0) if result is not None else np.round(outputs)
 
             # update loss
             val_loss_classifier.update(loss1.item())
             val_loss_regressor.update(loss2.item())
-            val_loss.update(loss.item())
+            val_loss.update(epoch_loss.item())
             # val_acc.update(np.round(outputs), y_true)
             val_f1_score.update(np.round(outputs), y_true)
             val_r2_score.update(np.round(outputs), y_true)
