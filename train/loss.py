@@ -3,11 +3,8 @@ import torch
 import torch.nn as nn
 
 
-def classifier(pred_classifier, labels_classifier):
-    """
-    Binary Cross Entropy Loss for classification tasks.
-    """
-    return nn.BCELoss()(pred_classifier, labels_classifier)
+def classifier(outputs, targets):
+    return nn.BCELoss()(outputs, targets)
 
 
 def softmax(inputs, labels, device):
@@ -42,7 +39,6 @@ def sigmoid_focal(inputs: torch.Tensor, targets: torch.Tensor,
         loss = loss.mean()
     elif reduction == "sum":
         loss = loss.sum()
-
     return loss
 
 
@@ -50,7 +46,7 @@ def custom_loss_1(batch, outputs_classifier, outputs_regressor, device):
     focal_loss = sigmoid_focal(outputs_classifier, batch['labels_classifier'].to(device).float(),
                                alpha=-1, gamma=1, reduction='mean')
     softmax_loss = softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-    return 10*focal_loss + softmax_loss
+    return 10 * focal_loss + softmax_loss
 
 
 def custom_loss_2(batch, outputs_classifier, outputs_regressor, device):

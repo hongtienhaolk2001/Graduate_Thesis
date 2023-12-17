@@ -1,11 +1,11 @@
 import numpy as np
-from app.models import *
+from app import app, db
+from app.models import News, Category, User
+import hashlib
 
 
 def load_categories():
     return Category.query.all()
-    # with open(os.path.join(app.root_path, r'data/categories.json'), 'r', encoding='utf8') as f:
-    #     return json.load(f)
 
 
 def count_news(category_id):
@@ -35,5 +35,28 @@ def pred_to_label(outputs_classifier, outputs_regressor):
     return result
 
 
-if __name__ == '__main__':
-    pass
+def add_user(name, username, password, **kwargs):
+    """adds a new user to the database.
+    """
+    password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
+    user = User(name=name, username=username, password=password, email=kwargs.get('email'))
+    db.session.add(user)
+    try:
+        db.session.commit()
+    except:
+        return False
+    else:
+        return True
+
+
+def check_login(username, password):
+    """checks whether the given username and password match a user in the database.
+    """
+    if username and password:
+        password = str(hashlib.md5(password.strip().encode('utf8')).hexdigest())
+        return User.query.filter(User.username.__eq__(username.strip()),
+                                 User.password.__eq__(password)).first()
+
+
+def get_user_by_id(user_id):
+    return User.query.get(user_id)

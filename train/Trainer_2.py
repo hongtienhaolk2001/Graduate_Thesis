@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
 from vncorenlp import VnCoreNLP
 import loss
-from CustomSoftmaxModel import CustomModelSoftmax
+from .model import Model_2
 from metrics import ScalarMetric, F1_score
 from preprocessing.NewsPreprocessing import Preprocess
 from utils import pred_to_label
@@ -55,15 +55,15 @@ class Trainer:
         for batch in self.train_dataloader:
             inputs = {'input_ids': batch['input_ids'].to(self.device),
                       'attention_mask': batch['attention_mask'].to(self.device)}
-            outputs_classifier, outputs_regressor = self.model(**inputs)
-            batch_loss = criterion(batch, outputs_classifier, outputs_regressor, self.device)
+            outputs_classifier = self.model(**inputs)
+            batch_loss = criterion(batch, outputs_classifier, self.device)
             optimizer.zero_grad()
             # Backward pass and optimization
             batch_loss.backward()
             optimizer.step()
             with torch.no_grad():
                 epoch_loss.update(batch_loss)
-                y_pred, y_true = get_y(batch, outputs_classifier, outputs_regressor)
+                y_pred, y_true = get_y(batch, outputs_classifier)
                 # score
                 epoch_f1.update(y_pred, y_true)
         return epoch_f1.compute().sum()/6, float(epoch_loss.compute())
@@ -107,7 +107,7 @@ class Trainer:
             print("-" * 59)
             print(
                 "| End of epoch {:3d} | Time: {:5.2f}s | Train F1 {:8.3f} | Train Loss {:8.3f} "
-                "| Valid Accuracy {:8.3f} | Valid Loss {:8.3f} ".format(
+                "| Valid F1 {:8.3f} | Valid Loss {:8.3f} ".format(
                     epoch, time.time() - epoch_start_time, train_f1, train_loss, eval_f1, eval_loss
                 )
             )
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
     train_dataloader = DataLoader(tokenized_datasets["train"], batch_size=32, collate_fn=data_collator, shuffle=True)
     valid_dataloader = DataLoader(tokenized_datasets["test"], batch_size=32, collate_fn=data_collator)
-    trainer = Trainer(model=CustomModelSoftmax("vinai/phobert-base"),
+    trainer = Trainer(model=Model_2("vinai/phobert-base"),
                       train_dataloader=train_dataloader,
                       valid_dataloader=valid_dataloader, )
     train_f1_viz, eval_f1_viz, train_loss_viz, eval_loss_viz = trainer.training()

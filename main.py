@@ -1,8 +1,9 @@
 import math
 
-from flask import request, render_template
+from flask import render_template, request, redirect, url_for
+from flask_login import login_user, logout_user, current_user
 
-from app import utils, preprocessing, app, phobert_model
+from app import utils, preprocessing, app, login_manager, phobert_model
 
 
 @app.context_processor
@@ -36,8 +37,57 @@ def read():
     return render_template('read.html')
 
 
+@app.route('/login', methods=['get', 'post'])
+def user_signin():
+    error_msg = ""
+    if request.method.__eq__('POST'):  # check method
+        username = request.form.get('username')  # get value from form
+        password = request.form.get('password')
+        user = utils.check_login(username, password)  # check  (user, pass) match  between form submit and database
+        if user:
+            login_user(user=user)
+            return redirect(url_for('index'))  # direct to index.html
+        else:
+            error_msg = "Wrong password or username"  # assign variable to show error
+    return render_template('login.html', error_msg=error_msg)
+
+
+@login_manager.user_loader
+def user_load(user_id):
+    return utils.get_user_by_id(user_id=user_id)
+
+
+@app.route('/logout')
+def user_logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+
+@app.route('/register', methods=['get', 'post'])
+def user_signup():
+    error_msg = ""
+    if request.method.__eq__('POST'):
+        name = str(request.form.get('name')).strip()
+        username = str(request.form.get('username')).strip()
+        password = str(request.form.get('password')).strip()
+        email = str(request.form.get('email')).strip()
+        confirm = str(request.form.get('confirm')).strip()
+        try:
+            if password.__eq__(confirm):
+                utils.add_user(name=name, username=username, password=password, email=email)
+                return redirect(url_for('user_signin'))
+            else:
+                error_msg = "Mật khẩu xác nhận không khớp, vui lòng kiểm tra lại"
+        except Exception as ex:
+            error_msg = "Error: " + str(ex)
+    return render_template('register.html', error_msg=error_msg)
+
+
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
+    if not current_user.is_authenticated:
+        return render_template('login.html')
+
     if request.method.__eq__('POST'):
         news_sentence = f"{request.form['headline']} {request.form['brief']}"  # Get review from input
         news_sentence = preprocessing.pipeline(news_sentence)
@@ -51,4 +101,4 @@ def analysis():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
-
+    # print(phobert_model.predict("giá lúa tăng giá giá lúa tăng giá"))

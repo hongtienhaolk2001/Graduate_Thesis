@@ -3,13 +3,16 @@ from .analysis import ModelInference
 from vncorenlp import VnCoreNLP
 from transformers import AutoTokenizer
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 import os
 
 
 def create_model(root_path):
-    rdrsegmenter = VnCoreNLP(os.path.join(root_path, "vncorenlp/VnCoreNLP-1.1.1.jar"), annotators="wseg", max_heap_size='-Xmx500m')
+    rdrsegmenter = VnCoreNLP(os.path.join(root_path, "vncorenlp/VnCoreNLP-1.1.1.jar"), annotators="wseg",
+                             max_heap_size='-Xmx500m')
     tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base", local_files_only=True)
-    return ModelInference(model_path=os.path.join(root_path, "weights/model.pt"), tokenizer=tokenizer, rdrsegmenter=rdrsegmenter, )
+    return ModelInference(model_path=os.path.join(root_path, "weights/model.pt"), tokenizer=tokenizer,
+                          rdrsegmenter=rdrsegmenter, )
 
 
 def create_app():
@@ -25,8 +28,9 @@ def create_db(app):
     return SQLAlchemy(app=app)
 
 
-
 app = create_app()
+login_manager = LoginManager(app=app)
 root_path = app.root_path
 phobert_model = create_model(root_path)
 db = create_db(app)
+

@@ -1,14 +1,35 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Text
+from enum import Enum as UserEnum
+from datetime import datetime
+from flask_login import UserMixin
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Text, Enum
 from sqlalchemy.orm import relationship
 
-from app import *
-# from main import app
-
+from app import db
 
 
 class BaseModel(db.Model):
     __abstract__ = True
     id = Column(Integer, primary_key=True, autoincrement=True)
+
+
+class UserRole(UserEnum):
+    ADMIN = 1
+    USER = 2
+
+
+class User(BaseModel, UserMixin):
+    __tablename__ = 'user'
+    name = Column(String(50), nullable=False)
+    username = Column(String(50), nullable=False, unique=True)
+    password = Column(String(50), nullable=False)
+    avatar = Column(Text)
+    email = Column(Text)
+    active = Column(Boolean, default=True)
+    joined_date = Column(DateTime, default=datetime.now())
+    user_role = Column(Enum(UserRole), default=UserRole.USER)
+
+    def __str__(self):
+        return self.name
 
 
 class Category(BaseModel):
@@ -30,6 +51,3 @@ class News(BaseModel):
 
     def __str__(self):
         return self.name
-
-# if __name__ == '__main__':
-#     pass

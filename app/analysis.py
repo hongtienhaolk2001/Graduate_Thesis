@@ -7,9 +7,10 @@ from app.preprocessing import Preprocess
 
 
 def pred_to_label(outputs_classifier, outputs_regressor):
-    result = np.zeros((outputs_classifier.shape[0], 6))
+    result = np.zeros((outputs_classifier.shape[0], 6))  # [[0. 0. 0. 0. 0. 0.]]
     mask = (outputs_classifier >= 0.5)
     result[mask] = outputs_regressor[mask]
+
     return result
 
 
@@ -21,17 +22,22 @@ class CustomModelSoftmax(nn.Module):
                                                                       output_hidden_states=True))
         self.dropout = nn.Dropout(0.1)
         self.classifier = nn.Linear(768 * 4, 6)
-        self.regressor = nn.Linear(768 * 4, 30)
+        self.regressor = nn.Linear(768 * 4, 24)
 
     def forward(self, input_ids=None, attention_mask=None):
         outputs = self.model(input_ids=input_ids, attention_mask=attention_mask)
-        outputs = torch.cat((outputs[2][-1][:, 0, ...], outputs[2][-2][:, 0, ...], outputs[2][-3][:, 0, ...],
-                             outputs[2][-4][:, 0, ...]), -1)
+        outputs = torch.cat((outputs[2][-1][:, 0, ...],
+                             outputs[2][-2][:, 0, ...],
+                             outputs[2][-3][:, 0, ...],
+                             outputs[2][-4][:, 0, ...]), -1)  # torch.Size([1, 3072])
         outputs = self.dropout(outputs)
         outputs_classifier = self.classifier(outputs)
-        outputs_regressor = self.regressor(outputs)
         outputs_classifier = nn.Sigmoid()(outputs_classifier)
-        outputs_regressor = outputs_regressor.reshape(-1, 6, 5)
+        print(outputs_classifier)
+
+        outputs_regressor = self.regressor(outputs)
+        outputs_regressor = outputs_regressor.reshape(-1, 6, 4)
+        print(outputs_regressor)
         return outputs_classifier, outputs_regressor
 
 
@@ -53,6 +59,6 @@ class ModelInference(nn.Module):
             outputs_classifier, outputs_regressor = self.model(**inputs)  # Predict
             outputs_classifier = outputs_classifier.cpu().numpy()  # Convert to numpy array
             outputs_regressor = outputs_regressor.cpu().numpy()  # Convert to numpy array
-            outputs_regressor = outputs_regressor.argmax(axis=-1) + 1  # Get argmax each aspects
+            outputs_regressor = outputs_regressor.argmax(axis=-1) + 1  # Get argmax each aspects range [1,4]
             outputs = pred_to_label(outputs_classifier, outputs_regressor)  # Convert output to label
         return outputs
