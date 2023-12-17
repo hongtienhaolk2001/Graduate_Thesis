@@ -99,6 +99,11 @@ def analysis():
         return render_template("analysis.html")
 
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    return render_template('contact.html')
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
     # print(phobert_model.predict("giá lúa tăng giá giá lúa tăng giá"))
