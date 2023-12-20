@@ -7,12 +7,6 @@ from ..preprocessing.NewsPreprocessing import Preprocess
 
 class CustomModelSoftmax(nn.Module):
     def __init__(self, checkpoint):
-        """
-        Custom PyTorch model for a multi-task learning scenario with softmax activation.
-
-        Args:
-            checkpoint (str): Pretrained model checkpoint name.
-        """
         super(CustomModelSoftmax, self).__init__()
         # Load pretrained model with attention and hidden states output
         self.model = AutoModel.from_config(AutoConfig.from_pretrained(checkpoint,
@@ -36,16 +30,6 @@ class CustomModelSoftmax(nn.Module):
 
 class ModelInference(nn.Module):
     def __init__(self, tokenizer, rdrsegmenter, model_path, checkpoint="vinai/phobert-base", device="cpu"):
-        """
-        Inference module for the model.
-
-        Args:
-            tokenizer: Tokenizer for processing input.
-            rdrsegmenter: Segmenter for input.
-            model_path (str): Path to the trained model.
-            checkpoint (str): Pretrained model checkpoint name.
-            device (str): Device on which the model will run.
-        """
         super(ModelInference, self).__init__()
         # Preprocessing module
         self.preprocess = Preprocess(tokenizer, rdrsegmenter)
@@ -57,15 +41,6 @@ class ModelInference(nn.Module):
         self.model.to(device)
 
     def predict(self, sample):
-        """
-        Make predictions with the trained model.
-
-        Args:
-            sample (str): Input text sample.
-
-        Returns:
-            dict: Predicted labels for classification
-        """
         self.model.eval()
         with torch.no_grad():
             # Clean input, segment, and tokenize

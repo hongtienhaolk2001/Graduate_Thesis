@@ -20,15 +20,15 @@ class ScalarMetric:
 
 
 def precision(y_pred, y_true):
-    true_positive = np.logical_and(y_pred, y_true).sum(axis=0)
-    false_positive = np.logical_and(y_pred, np.logical_not(y_true)).sum(axis=0)
-    return true_positive / (true_positive + false_positive)
+    TP = np.logical_and(y_pred, y_true).sum(axis=0)
+    FP = np.logical_and(y_pred, np.logical_not(y_true)).sum(axis=0)
+    return TP / (TP + FP)
 
 
 def recall(y_pred, y_true):
-    true_positive = np.logical_and(y_pred, y_true).sum(axis=0)
-    false_negative = np.logical_and(np.logical_not(y_pred), y_true).sum(axis=0)
-    return true_positive / (true_positive + false_negative)
+    TP = np.logical_and(y_pred, y_true).sum(axis=0)
+    FN = np.logical_and(np.logical_not(y_pred), y_true).sum(axis=0)
+    return TP / (TP + FN)
 
 
 class F1_score:

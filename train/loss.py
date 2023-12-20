@@ -25,8 +25,8 @@ def softmax(inputs, labels, device):
 def sigmoid_focal(inputs: torch.Tensor, targets: torch.Tensor,
                   alpha: float = 0.25, gamma: float = 2,
                   reduction: str = "none", ):
-    p = torch.sigmoid(inputs)
-    ce_loss = F.binary_cross_entropy_with_logits(inputs, targets, reduction="none")
+    p = inputs
+    ce_loss = F.binary_cross_entropy(inputs, targets, reduction="none")
     p_t = p * targets + (1 - p) * (1 - targets)
     loss = ce_loss * ((1 - p_t) ** gamma)
 
