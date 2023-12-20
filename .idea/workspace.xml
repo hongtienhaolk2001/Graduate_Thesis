@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231217">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/analysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/read.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/read.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Trainer_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/Trainer_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/train.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,27 +64,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.Trainer_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.add2Database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train_.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/github/Graduate_Thesis/app/static/img&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.Trainer_1 (1).executor": "Run",
+    "Python.Trainer_2.executor": "Run",
+    "Python.add2Database.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.train.executor": "Run",
+    "Python.train_.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Workspace/github/Graduate_Thesis/app/static/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\github\Graduate_Thesis\app\static\img" />
@@ -97,7 +96,7 @@
       <recent name="D:\Workspace\github\Graduate_Thesis\train\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.Trainer_1 (1)">
     <configuration name="Graduate_Thesis" type="PythonConfigurationType" factoryName="Python">
       <module name="Graduate_Thesis" />
       <option name="ENV_FILES" value="" />
@@ -113,6 +112,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Trainer_1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Graduate_Thesis" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/train" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train/Trainer_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -213,29 +235,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Graduate_Thesis" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/train" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train/train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Graduate_Thesis" type="Python.AppEngineServer" factoryName="App Engine server">
       <module name="Graduate_Thesis" />
       <option name="ENV_FILES" value="" />
@@ -271,11 +270,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Trainer_1 (1)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.add2Database" />
         <item itemvalue="Python.Trainer_2" />
         <item itemvalue="Python.Trainer_1" />
-        <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
   </component>
@@ -314,7 +313,10 @@
       <workItem from="1702649111606" duration="2249000" />
       <workItem from="1702788281696" duration="14536000" />
       <workItem from="1702820545622" duration="2853000" />
-      <workItem from="1702825283599" duration="5129000" />
+      <workItem from="1702825283599" duration="5250000" />
+      <workItem from="1702899073764" duration="51000" />
+      <workItem from="1703002576333" duration="235000" />
+      <workItem from="1703078794607" duration="1981000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -404,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702827651330</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="231217">
+      <option name="closed" value="true" />
+      <created>1702830488177</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702830488177</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,6 +442,7 @@
     <SUITE FILE_PATH="coverage/Graduate_Thesis$main.coverage" NAME="main Coverage Results" MODIFIED="1702829208420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$Trainer_2.coverage" NAME="Trainer_2 Coverage Results" MODIFIED="1702291719300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$add2Database.coverage" NAME="add2Database Coverage Results" MODIFIED="1702804425636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/data" />
+    <SUITE FILE_PATH="coverage/Graduate_Thesis$Trainer_1__1_.coverage" NAME="Trainer_1 (1) Coverage Results" MODIFIED="1703080176526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$train.coverage" NAME="train Coverage Results" MODIFIED="1702268751824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
   </component>
 </project>

@@ -10,7 +10,7 @@ from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_sche
 from vncorenlp import VnCoreNLP
 
 import loss
-from CustomSoftmaxModel import CustomModelSoftmax
+from model.CustomSoftmaxModel import CustomModelSoftmax
 from metrics import ScalarMetric, F1_score, R2_score
 from preprocessing.NewsPreprocessing import Preprocess
 from utils import pred_to_label
@@ -114,18 +114,19 @@ class Trainer:
             times.append(time.time() - epoch_start_time)
         return train_f1_hist, eval_f1_hist, train_loss_hist, eval_loss_hist
 
-# if __name__ == '__main__':
-#     rdrsegmenter = VnCoreNLP("preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar",
-#                              annotators="wseg", max_heap_size='-Xmx500m')
-#     tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
-#     preprocess = Preprocess(tokenizer, rdrsegmenter)
-#     tokenized_datasets = preprocess.run(
-#         load_dataset('csv', data_files={'train': r"./data/training_data/train_datasets.csv",
-#                                         'test': r"./data/training_data/test_datasets.csv"}))
-#     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-#     train_dataloader = DataLoader(tokenized_datasets["train"], batch_size=32, collate_fn=data_collator, shuffle=True)
-#     valid_dataloader = DataLoader(tokenized_datasets["test"], batch_size=32, collate_fn=data_collator)
-#     trainer = Trainer(model=CustomModelSoftmax("vinai/phobert-base"),
-#                       train_dataloader=train_dataloader,
-#                       valid_dataloader=valid_dataloader, )
-#     train_f1_viz, eval_f1_viz, train_loss_viz, eval_loss_viz = trainer.training()
+
+if __name__ == '__main__':
+    rdrsegmenter = VnCoreNLP("preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar",
+                             annotators="wseg", max_heap_size='-Xmx500m')
+    tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
+    preprocess = Preprocess(tokenizer, rdrsegmenter)
+    tokenized_datasets = preprocess.run(
+        load_dataset('csv', data_files={'train': r"./data/training_data/train_datasets.csv",
+                                        'test': r"./data/training_data/test_datasets.csv"}))
+    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+    train_dataloader = DataLoader(tokenized_datasets["train"], batch_size=32, collate_fn=data_collator, shuffle=True)
+    valid_dataloader = DataLoader(tokenized_datasets["test"], batch_size=32, collate_fn=data_collator)
+    trainer = Trainer(model=CustomModelSoftmax("vinai/phobert-base"),
+                      train_dataloader=train_dataloader,
+                      valid_dataloader=valid_dataloader, )
+    train_f1_viz, eval_f1_viz, train_loss_viz, eval_loss_viz = trainer.training()
