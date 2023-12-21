@@ -11,8 +11,8 @@ class CustomModelSoftmax(nn.Module):
                                                                       output_attentions=True,
                                                                       output_hidden_states=True))
         self.dropout = nn.Dropout(0.1)
-        # Classifier for classification task
-        self.classifier = nn.Linear(in_features=768 * 4, out_features=6)
+        self.classifier = nn.Linear(768 * 4, 6)
+        self.regressor = nn.Linear(768 * 4, 24)
 
     def forward(self, input_ids=None, attention_mask=None):
         outputs = self.model(input_ids=input_ids, attention_mask=attention_mask)
@@ -23,4 +23,8 @@ class CustomModelSoftmax(nn.Module):
                              outputs[2][-4][:, 0, ...]), -1)
         outputs = self.dropout(outputs)
         outputs_classifier = self.classifier(outputs)
-        return outputs_classifier
+        outputs_regressor = self.regressor(outputs)
+        outputs_classifier = nn.Sigmoid()(outputs_classifier)
+        outputs_regressor = outputs_regressor.reshape(-1, 6, 4)
+        return outputs_classifier, outputs_regressor
+

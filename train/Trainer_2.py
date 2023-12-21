@@ -12,7 +12,7 @@ import loss
 from .model import Model_2
 from metrics import ScalarMetric, F1_score
 from preprocessing.NewsPreprocessing import Preprocess
-from utils import pred_to_label
+from utils import get_y
 
 # Set Seed
 seed = 19133022
@@ -23,14 +23,6 @@ np.random.seed(seed)
 random.seed(seed)
 torch.backends.cudnn.benchmark = False
 torch.backends.cudnn.deterministic = True
-
-
-def get_y(batch, outputs_classifier, outputs_regressor):
-    outputs_regressor = outputs_regressor.cpu().numpy()
-    outputs_regressor = outputs_regressor.argmax(axis=-1) + 1
-    y_true = batch['labels_regressor'].numpy()
-    y_pred = np.round(pred_to_label(outputs_classifier.cpu().numpy(), outputs_regressor))
-    return y_pred, y_true
 
 
 class Trainer:
@@ -66,7 +58,7 @@ class Trainer:
                 y_pred, y_true = get_y(batch, outputs_classifier)
                 # score
                 epoch_f1.update(y_pred, y_true)
-        return epoch_f1.compute().sum()/6, float(epoch_loss.compute())
+        return epoch_f1.compute().sum() / 6, float(epoch_loss.compute())
 
     def evaluate_epoch(self, criterion):
         epoch_loss = ScalarMetric()
@@ -82,7 +74,7 @@ class Trainer:
                 y_pred, y_true = get_y(batch, outputs_classifier, outputs_regressor)
                 # score
                 epoch_f1.update(y_pred, y_true)
-        return epoch_f1.compute().sum()/6, float(epoch_loss.compute())
+        return epoch_f1.compute().sum() / 6, float(epoch_loss.compute())
 
     def training(self, num_epochs=15, batch_size=32, learning_rate=5e-5):
         optimizer = AdamW(self.model.parameters(), lr=learning_rate)
@@ -115,6 +107,7 @@ class Trainer:
             lr_scheduler.step()
 
         return train_f1_hist, eval_f1_hist, train_loss_hist, eval_loss_hist
+
 
 if __name__ == '__main__':
     rdrsegmenter = VnCoreNLP("preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar",

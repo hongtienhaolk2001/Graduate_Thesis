@@ -1,19 +1,13 @@
 import random
 import time
-import matplotlib.pyplot as plt
-import numpy as np
 
+import numpy as np
 import torch
-from datasets import load_dataset
-from torch.utils.data import DataLoader
-from transformers import AutoTokenizer, DataCollatorWithPadding, AdamW, get_scheduler
-from vncorenlp import VnCoreNLP
+from transformers import AdamW, get_scheduler
 
 import loss
-from model.CustomSoftmaxModel import CustomModelSoftmax
 from metrics import ScalarMetric, F1_score, R2_score
-from preprocessing.NewsPreprocessing import Preprocess
-from utils import pred_to_label
+from utils import get_y
 
 # Set Seed
 seed = 19133022
@@ -24,14 +18,6 @@ np.random.seed(seed)
 random.seed(seed)
 torch.backends.cudnn.benchmark = False
 torch.backends.cudnn.deterministic = True
-
-
-def get_y(batch, outputs_classifier, outputs_regressor):
-    outputs_regressor = outputs_regressor.cpu().numpy()
-    outputs_regressor = outputs_regressor.argmax(axis=-1) + 1
-    y_true = batch['labels_regressor'].numpy()
-    y_pred = np.round(pred_to_label(outputs_classifier.cpu().numpy(), outputs_regressor))
-    return y_pred, y_true
 
 
 class Trainer:
@@ -49,12 +35,14 @@ class Trainer:
             print(f"update model with score {best_score}")
         return best_score
 
-    def train_epoch(self, optimizer, lr_scheduler, criterion):
+    def train_epoch(self, optimizer, criterion):
         epoch_f1 = F1_score()
         epoch_r2 = R2_score()
         epoch_loss = ScalarMetric()
         self.model.train()
         for batch in self.train_dataloader:
+            print(f"batch['input_ids'] {batch['input_ids']}")
+            print(f"batch['attention_mask'] {batch['attention_mask']}")
             inputs = {'input_ids': batch['input_ids'].to(self.device),
                       'attention_mask': batch['attention_mask'].to(self.device)}
             outputs_classifier, outputs_regressor = self.model(**inputs)
@@ -91,7 +79,7 @@ class Trainer:
         score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
         return score, epoch_loss.compute()
 
-    def training(self, num_epochs=15, batch_size=32, learning_rate=5e-5):
+    def training(self, num_epochs=15, learning_rate=5e-5):
         optimizer = AdamW(self.model.parameters(), lr=learning_rate)
         lr_scheduler = get_scheduler('linear', optimizer=optimizer,
                                      num_warmup_steps=0,
@@ -101,7 +89,7 @@ class Trainer:
         best_score = -1
         for epoch in range(1, num_epochs + 1):
             epoch_start_time = time.time()
-            train_f1, train_loss = self.train_epoch(optimizer, lr_scheduler, criterion=loss.custom_loss_1)
+            train_f1, train_loss = self.train_epoch(optimizer, criterion=loss.custom_loss_1)
             train_f1_hist.append(train_f1)
             train_loss_hist.append(train_loss)
             # Evaluation
@@ -123,18 +111,24 @@ class Trainer:
         return train_f1_hist, eval_f1_hist, train_loss_hist, eval_loss_hist
 
 
-if __name__ == '__main__':
-    rdrsegmenter = VnCoreNLP("preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar",
-                             annotators="wseg", max_heap_size='-Xmx500m')
-    tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
-    preprocess = Preprocess(tokenizer, rdrsegmenter)
-    tokenized_datasets = preprocess.run(
-        load_dataset('csv', data_files={'train': r"./data/training_data/train_datasets.csv",
-                                        'test': r"./data/training_data/test_datasets.csv"}))
-    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-    train_dataloader = DataLoader(tokenized_datasets["train"], batch_size=32, collate_fn=data_collator, shuffle=True)
-    valid_dataloader = DataLoader(tokenized_datasets["test"], batch_size=32, collate_fn=data_collator)
-    trainer = Trainer(model=CustomModelSoftmax("vinai/phobert-base"),
-                      train_dataloader=train_dataloader,
-                      valid_dataloader=valid_dataloader, )
-    train_f1_viz, eval_f1_viz, train_loss_viz, eval_loss_viz = trainer.training()
+# if __name__ == '__main__':
+#     from vncorenlp import VnCoreNLP
+#     from transformers import AutoTokenizer, DataCollatorWithPadding
+#     from preprocessing.NewsPreprocessing import Preprocess
+#     from datasets import load_dataset
+#     from torch.utils.data import DataLoader
+#     from model import Model_1
+#     rdrsegmenter = VnCoreNLP("preprocessing/vncorenlp/VnCoreNLP-1.1.1.jar",
+#                              annotators="wseg", max_heap_size='-Xmx500m')
+#     tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
+#     preprocess = Preprocess(tokenizer, rdrsegmenter)
+#     tokenized_datasets = preprocess.run(
+#         load_dataset('csv', data_files={'train': r"./data/training_data/train_datasets.csv",
+#                                         'test': r"./data/training_data/test_datasets.csv"}))
+#     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+#     train_dataloader = DataLoader(tokenized_datasets["train"], batch_size=32, collate_fn=data_collator, shuffle=True)
+#     valid_dataloader = DataLoader(tokenized_datasets["test"], batch_size=32, collate_fn=data_collator)
+#     trainer = Trainer(model=Model_1("vinai/phobert-base"),
+#                       train_dataloader=train_dataloader,
+#                       valid_dataloader=valid_dataloader, )
+#     train_f1_viz, eval_f1_viz, train_loss_viz, eval_loss_viz = trainer.training()

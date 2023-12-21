@@ -1,5 +1,5 @@
 import math
-
+import time
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user, current_user
 
@@ -89,10 +89,12 @@ def analysis():
         return render_template('login.html')
 
     if request.method.__eq__('POST'):
+        start_time = time.time()
         news_sentence = f"{request.form['headline']} {request.form['brief']}"  # Get review from input
         news_sentence = preprocessing.pipeline(news_sentence)
         predict_results = phobert_model.predict(news_sentence)
         final_output = preprocessing.output(predict_results[0])
+        print(f"predict successfully - {round(time.time() - start_time, 2)} second")
         return render_template("analysis.html",
                                predict=final_output['results'])
     else:
@@ -105,5 +107,5 @@ def contact():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
-    # print(phobert_model.predict("giá lúa tăng giá giá lúa tăng giá"))
+    # app.run(host='0.0.0.0', port=8080, debug=True)
+    print(phobert_model.predict("giá lúa tăng giá giá lúa tăng giá"))
