@@ -29,10 +29,13 @@ class Trainer:
         self.valid_dataloader = valid_dataloader
 
     def update_model(self, best_score, best_score_eval):
-        if best_score < best_score_eval:
-            best_score = best_score_eval
-            torch.save(self.model.state_dict(), "weights/model.pt")
-            print(f"update model with score {best_score}")
+        try:
+            if best_score < best_score_eval:
+                best_score = best_score_eval
+                torch.save(self.model.state_dict(), "weights/model.pt")
+                print(f"update model with score {best_score}")
+        except:
+            pass
         return best_score
 
     def train_epoch(self, optimizer, criterion):
@@ -75,8 +78,8 @@ class Trainer:
                 epoch_f1.update(y_pred, y_true)
                 # epoch_r2.update(y_pred, y_true)
         # score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
-        score = epoch_f1.compute()
-        return score, epoch_loss.compute()
+        f1_score = epoch_f1.compute()
+        return f1_score, epoch_loss.compute()
 
     def training(self, num_epochs=30, learning_rate=5e-5):
         optimizer = AdamW(self.model.parameters(), lr=learning_rate)
