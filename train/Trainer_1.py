@@ -61,7 +61,7 @@ class Trainer:
     def evaluate_epoch(self, criterion):
         epoch_loss = ScalarMetric()
         epoch_f1 = F1_score()
-        epoch_r2 = R2_score()
+        # epoch_r2 = R2_score()
         self.model.eval()
         with torch.no_grad():
             for batch in self.valid_dataloader:
@@ -73,11 +73,12 @@ class Trainer:
                 y_pred, y_true = get_y(batch, outputs_classifier, outputs_regressor)
                 # score
                 epoch_f1.update(y_pred, y_true)
-                epoch_r2.update(y_pred, y_true)
-        score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
+                # epoch_r2.update(y_pred, y_true)
+        # score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
+        score = epoch_f1.compute()
         return score, epoch_loss.compute()
 
-    def training(self, num_epochs=15, learning_rate=5e-5):
+    def training(self, num_epochs=30, learning_rate=5e-5):
         optimizer = AdamW(self.model.parameters(), lr=learning_rate)
         lr_scheduler = get_scheduler('linear', optimizer=optimizer,
                                      num_warmup_steps=0,

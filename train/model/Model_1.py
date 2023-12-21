@@ -3,9 +3,9 @@ import torch.nn as nn
 from transformers import AutoModel, AutoConfig
 
 
-class CustomModelSoftmax(nn.Module):
+class CustomModel(nn.Module):
     def __init__(self, checkpoint):
-        super(CustomModelSoftmax, self).__init__()
+        super(CustomModel, self).__init__()
         # Load pretrained model with attention and hidden states output
         self.model = AutoModel.from_config(AutoConfig.from_pretrained(checkpoint,
                                                                       output_attentions=True,
