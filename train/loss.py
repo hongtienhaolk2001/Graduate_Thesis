@@ -45,16 +45,12 @@ def custom_loss_1(batch, outputs_classifier, outputs_regressor, device):
     sigmoid_focal_loss = sigmoid_focal(outputs_classifier, batch['labels_classifier'].to(device).float(),
                                alpha=-1, gamma=1, reduction='mean')
     softmax_loss = softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-    print(f"batch['labels_regressor'] {batch['labels_regressor']}")
-    print(f"batch['labels_classifier'] {batch['labels_classifier']}")
     return 10 * sigmoid_focal_loss + softmax_loss
 
 
 def custom_loss_2(batch, outputs_classifier, outputs_regressor, device):
     classifier_loss = binary_CE(outputs_classifier, batch['labels_classifier'].to(device).float())
     softmax_loss = softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-    print(f"batch['labels_regressor'] {batch['labels_regressor']}")
-    print(f"batch['labels_classifier'] {batch['labels_classifier']}")
     return classifier_loss + softmax_loss
 
 

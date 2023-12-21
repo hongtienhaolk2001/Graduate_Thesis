@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231220">
-      <change afterPath="$PROJECT_DIR$/train/model/Model_1.py" afterDir="false" />
+    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231221">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/Trainer_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/Trainer_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/Trainer_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/Trainer_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train/loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/model/CustomSoftmaxModel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/model/Model_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/model/Model_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,6 +320,7 @@
       <workItem from="1703122375605" duration="3010000" />
       <workItem from="1703125534941" duration="674000" />
       <workItem from="1703126749119" duration="1806000" />
+      <workItem from="1703128585523" duration="665000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -442,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703083312908</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="231221">
+      <option name="closed" value="true" />
+      <created>1703128786923</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1703128786923</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +464,8 @@
     <MESSAGE value="231211" />
     <MESSAGE value="231217" />
     <MESSAGE value="231220" />
-    <option name="LAST_COMMIT_MESSAGE" value="231220" />
+    <MESSAGE value="231221" />
+    <option name="LAST_COMMIT_MESSAGE" value="231221" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Graduate_Thesis$loss.coverage" NAME="loss Coverage Results" MODIFIED="1703088202530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />

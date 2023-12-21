@@ -41,8 +41,6 @@ class Trainer:
         epoch_loss = ScalarMetric()
         self.model.train()
         for batch in self.train_dataloader:
-            print(f"batch['input_ids'] {batch['input_ids']}")
-            print(f"batch['attention_mask'] {batch['attention_mask']}")
             inputs = {'input_ids': batch['input_ids'].to(self.device),
                       'attention_mask': batch['attention_mask'].to(self.device)}
             outputs_classifier, outputs_regressor = self.model(**inputs)
