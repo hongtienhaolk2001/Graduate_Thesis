@@ -9684,3 +9684,19 @@ h6,
   list-style-type: none;
 }
 
+div#loading-gif {
+  text-align:center;
+  width: 100px;
+  height: 100px;
+  display:none;
+  margin:auto;
+
+  background: url("../img/loading.svg") no-repeat;
+  cursor: wait;
+  }
+div#loading {
+  display:none;
+  margin:auto;
+  cursor: wait;
+  }
+

@@ -19,11 +19,16 @@
                         </div>
                         <div>
                             <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
-                                type="submit">Phân Tích</button>
+                                type="submit" data-loading-text="Đang Xử Lý..." onclick="loading();">Phân Tích
+                            </button>
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-6">
+                <div id="loading" style="text-align: center">
+                    <div id="loading-gif"></div>
+                    <p>Đang Xử Lý...</p>
+                </div>
+                <div class="col-lg-6" id="content">
                     <table class="table">
                         {% if predict %}
                         <tr>
@@ -77,8 +82,18 @@
                        </tr>
                        {% endif %}
                     </table >
+
                 </div>
             </div>
         </div>
     </div>
+    <!-- Custom scripts for this template -->
+    <script type="text/javascript">// <![CDATA[
+        function loading() {
+            $("#loading").show();
+            $("#loading-gif").show();
+            $("#content").hide();
+        }
+    </script>
+
 {% endblock %}

@@ -33,7 +33,7 @@ class Trainer:
             if best_score < best_score_eval:
                 best_score = best_score_eval
                 torch.save(self.model.state_dict(), "weights/model.pt")
-                print(f"update model with score {best_score}")
+                print(f"update model with f1 score {best_score}")
         except:
             pass
         return best_score
@@ -55,7 +55,6 @@ class Trainer:
             with torch.no_grad():
                 epoch_loss.update(batch_loss)
                 y_pred, y_true = get_y(batch, outputs_classifier, outputs_regressor)
-                # score
                 epoch_f1.update(y_pred, y_true)
                 # epoch_r2.update(y_pred, y_true)
         # score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
@@ -102,13 +101,11 @@ class Trainer:
             # Save best model
             best_score = self.update_model(best_score, eval_f1)
             times.append(time.time() - epoch_start_time)
-            print("-" * 59)
             print(
                 "| End of epoch {:3d} | Time: {:5.2f}s | Train F1 {:8.3f} | Train Loss {:8.3f} "
                 "| Valid F1 {:8.3f} | Valid Loss {:8.3f} ".format(
                     epoch, time.time() - epoch_start_time, train_f1, train_loss, eval_f1, eval_loss
-                )
-            )
+                ))
             print("-" * 59)
             lr_scheduler.step()
         return train_f1_hist, eval_f1_hist, train_loss_hist, eval_loss_hist
