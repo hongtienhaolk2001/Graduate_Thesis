@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231221">
+      <change afterPath="$PROJECT_DIR$/app/static/img/loading.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/analysis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Trainer_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/Trainer_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/metrics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,33 +61,37 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2Z56kUgh8RsPEAGYlANcWK74SM3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.Trainer_1 (1).executor&quot;: &quot;Debug&quot;,
-    &quot;Python.Trainer_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.add2Database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.loss.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train_.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.Trainer_1 (1).executor": "Debug",
+    "Python.Trainer_2.executor": "Run",
+    "Python.add2Database.executor": "Run",
+    "Python.loss.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.train.executor": "Run",
+    "Python.train_.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Workspace",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\github\Graduate_Thesis\app\static\img" />
@@ -322,7 +329,7 @@
       <workItem from="1703126749119" duration="1806000" />
       <workItem from="1703128585523" duration="5109000" />
       <workItem from="1703140601957" duration="4957000" />
-      <workItem from="1703121785998" duration="3540000" />
+      <workItem from="1703121785998" duration="5327000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -468,7 +475,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703164135971</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="231221">
+      <option name="closed" value="true" />
+      <created>1703164942830</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1703164942831</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,6 +501,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="231205" />
     <MESSAGE value="231211" />
     <MESSAGE value="231217" />

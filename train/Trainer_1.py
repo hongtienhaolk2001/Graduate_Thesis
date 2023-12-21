@@ -40,7 +40,7 @@ class Trainer:
 
     def train_epoch(self, optimizer, criterion):
         epoch_f1 = F1_score()
-        epoch_r2 = R2_score()
+        # epoch_r2 = R2_score()
         epoch_loss = ScalarMetric()
         self.model.train()
         for batch in self.train_dataloader:
@@ -57,9 +57,10 @@ class Trainer:
                 y_pred, y_true = get_y(batch, outputs_classifier, outputs_regressor)
                 # score
                 epoch_f1.update(y_pred, y_true)
-                epoch_r2.update(y_pred, y_true)
-        score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
-        return score, epoch_loss.compute()
+                # epoch_r2.update(y_pred, y_true)
+        # score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
+        f1_score = epoch_f1.compute(aggregation='macro')
+        return f1_score, epoch_loss.compute()
 
     def evaluate_epoch(self, criterion):
         epoch_loss = ScalarMetric()
@@ -78,7 +79,7 @@ class Trainer:
                 epoch_f1.update(y_pred, y_true)
                 # epoch_r2.update(y_pred, y_true)
         # score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
-        f1_score = epoch_f1.compute()
+        f1_score = epoch_f1.compute(aggregation='macro')
         return f1_score, epoch_loss.compute()
 
     def training(self, num_epochs=30, learning_rate=5e-5):

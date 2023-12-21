@@ -40,7 +40,7 @@ class F1_score:
         self.y_pred = np.concatenate([self.y_pred, y_pred], axis=0) if self.y_pred is not None else y_pred
         self.y_true = np.concatenate([self.y_true, y_true], axis=0) if self.y_true is not None else y_true
 
-    def compute(self):
+    def compute(self, aggregation=None):
         f1_score = np.zeros(self.y_pred.shape[1])
         precision_score = precision(self.y_pred != 0, self.y_true != 0)
         recall_score = recall(self.y_pred != 0, self.y_true != 0)
@@ -48,6 +48,8 @@ class F1_score:
         mask_recall_score = np.logical_and(recall_score != 0, np.logical_not(np.isnan(recall_score)))
         mask = np.logical_and(mask_precision_score, mask_recall_score)
         f1_score[mask] = 2 * (precision_score[mask] * recall_score[mask]) / (precision_score[mask] + recall_score[mask])
+        if aggregation == "macro":
+            f1_score = f1_score.mean()
         return f1_score
 
 
@@ -68,4 +70,3 @@ class R2_score:
         mask2 = (k != 0)
         r2_score[mask2] = 1 - rss[mask2] / k[mask2]
         return r2_score
-
