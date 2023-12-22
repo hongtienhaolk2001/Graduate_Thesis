@@ -1,5 +1,6 @@
-torch
-transformers
+torch==2.1.0
+transformers==4.34.1
 openpyxl==3.1.2
-datasets
-vncorenlp
+datasets==2.14.6
+vncorenlp==1.0.3
+pandas==2.1.1
