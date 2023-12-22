@@ -109,10 +109,28 @@ class Preprocess:
         return dataset
 
 
-if __name__ == '__main__':
-    pass
-    # df = concat_files(root_path='../data/labeled_data/', file_format='xlsx')
-    # print(remove_irrelevant("tổng giám đốc cp đồng bằng ths tiến sĩ thac si"))
-    # t = "BẢN TIN THỊ TRƯỜNG VÀ THƯƠNG MẠI LÚA GẠO VIỆT NAM ½ (TUẦN 23 - 29/03/2009) Theo chỉ đạo của Bộ Công thương và Bộ NN&PTNT, cho đến hết tháng 6/2009, Việt Nam sẽ xuất khẩu khoảng 3,4 triệu tấn gạo trong tổng số 3,7 triệu tấn theo hợp đồng đã ký."
-    # print(pipeline(t))
-    # preprocess.crawled_Data()
+class Preprocess_2:
+    def __init__(self, tokenizer, rdrsegmenter):
+        self.tokenizer = tokenizer
+        self.rdrsegmenter = rdrsegmenter
+        self.feature = ['price', 'gov', 'market', 'intrinsic', 'extrinsic']
+
+    def segment(self, example):
+        return {"Segment": " ".join([" ".join(sen) for sen in self.rdrsegmenter.tokenize(example["News"])])}
+
+    def tokenize(self, example):
+        return self.tokenizer(example["Segment"], truncation=True)
+
+    def label(self, example):
+        return {'labels_regressor': np.array([example[i] for i in self.feature]),
+                'labels_classifier': np.array([int(example[i] != 0) for i in self.feature])}
+
+    def run(self, dataset):
+        dataset = dataset.map(pipeline)
+        dataset = dataset.map(self.segment)
+        dataset = dataset.map(self.tokenize, batched=True)
+        dataset = dataset.map(self.label)
+        columns = ['Unnamed: 0', 'News', 'price', 'gov', 'market', 'intrinsic', 'extrinsic', 'Segment']
+        dataset = dataset.remove_columns(columns)
+        dataset.set_format("torch")
+        return dataset

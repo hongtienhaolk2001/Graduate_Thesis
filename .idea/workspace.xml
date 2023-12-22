@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231221">
-      <change afterPath="$PROJECT_DIR$/train/visualize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train/data/training_data_5_label/test_datasets.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train/data/training_data_5_label/train_datasets.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/analysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/Trainer_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/Trainer_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/Trainer_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/Trainer_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/model/Model_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/model/Model_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/preprocessing/NewsPreprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/preprocessing/NewsPreprocessing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +87,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Workspace",
+    "last_opened_file_path": "D:/Workspace/github/Graduate_Thesis/train/data",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,6 +98,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspace\github\Graduate_Thesis\train\data" />
+      <recent name="D:\Workspace\github\Graduate_Thesis\train\data\training_data" />
       <recent name="D:\Workspace\github\Graduate_Thesis\app\static\img" />
       <recent name="D:\Workspace\github\Graduate_Thesis\train" />
     </key>
@@ -290,7 +293,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-7a29c1521ef0-c986f194a52a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.11799.298" />
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
@@ -332,7 +335,9 @@
       <workItem from="1703126749119" duration="1806000" />
       <workItem from="1703128585523" duration="5109000" />
       <workItem from="1703140601957" duration="4957000" />
-      <workItem from="1703121785998" duration="11599000" />
+      <workItem from="1703121785998" duration="12220000" />
+      <workItem from="1703213557088" duration="171000" />
+      <workItem from="1703213838454" duration="1498000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -494,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703169621482</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="231221">
+      <option name="closed" value="true" />
+      <created>1703175983372</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1703175983372</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
