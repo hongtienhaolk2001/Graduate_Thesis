@@ -40,7 +40,6 @@ class Trainer:
 
     def train_epoch(self, optimizer, criterion):
         epoch_f1 = F1_score()
-        # epoch_r2 = R2_score()
         epoch_loss = ScalarMetric()
         self.model.train()
         for batch in self.train_dataloader:

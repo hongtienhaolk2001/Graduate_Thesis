@@ -13,8 +13,8 @@ class Analysis(nn.Module):
                                                                       output_attentions=True,
                                                                       output_hidden_states=True))
         self.dropout = nn.Dropout(0.1)
-        self.classifier = nn.Linear(768 * 4, 6)
-        self.regressor = nn.Linear(768 * 4, 24)
+        self.classifier = nn.Linear(768 * 4, 5)
+        self.regressor = nn.Linear(768 * 4, 20)
 
     def forward(self, input_ids=None, attention_mask=None):
         outputs = self.model(input_ids=input_ids, attention_mask=attention_mask)
@@ -26,12 +26,12 @@ class Analysis(nn.Module):
         # Output 1
         outputs_classifier = nn.Sigmoid()(self.classifier(outputs))  # [%, %, %, %, %]
         # Output 2
-        outputs_regressor = self.regressor(outputs).reshape(-1, 6, 4)  # 6 topic 4 aspect
+        outputs_regressor = self.regressor(outputs).reshape(-1, 6, 4)  # 5 topic 4 aspect
         return outputs_classifier, outputs_regressor
 
 
 def pred_to_label(outputs_classifier, outputs_regressor):
-    result = np.zeros((outputs_classifier.shape[0], 6))  # [[0. 0. 0. 0. 0. 0.]]
+    result = np.zeros((outputs_classifier.shape[0], 5))  # [[0. 0. 0. 0. 0. ]]
     mask = (outputs_classifier >= 0.5)
     result[mask] = outputs_regressor[mask]
     return result
