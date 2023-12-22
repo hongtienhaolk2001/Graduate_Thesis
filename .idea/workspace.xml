@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231221">
-      <change afterPath="$PROJECT_DIR$/train/data/training_data_5_label/test_datasets.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train/data/training_data_5_label/train_datasets.csv" afterDir="false" />
+    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231222">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train/Trainer_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/Trainer_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/model/Model_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/model/Model_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/preprocessing/NewsPreprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/preprocessing/NewsPreprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/train/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +334,7 @@
       <workItem from="1703140601957" duration="4957000" />
       <workItem from="1703121785998" duration="12220000" />
       <workItem from="1703213557088" duration="171000" />
-      <workItem from="1703213838454" duration="1498000" />
+      <workItem from="1703213838454" duration="2201000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -507,7 +504,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703175983372</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="231222">
+      <option name="closed" value="true" />
+      <created>1703219989762</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1703219989762</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +536,8 @@
     <MESSAGE value="231217" />
     <MESSAGE value="231220" />
     <MESSAGE value="231221" />
-    <option name="LAST_COMMIT_MESSAGE" value="231221" />
+    <MESSAGE value="231222" />
+    <option name="LAST_COMMIT_MESSAGE" value="231222" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Graduate_Thesis$loss.coverage" NAME="loss Coverage Results" MODIFIED="1703133422108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />

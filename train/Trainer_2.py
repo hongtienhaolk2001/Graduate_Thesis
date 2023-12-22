@@ -6,8 +6,8 @@ import torch
 from transformers import AdamW, get_scheduler
 
 import loss
-from metrics import ScalarMetric, F1_score, R2_score
-from utils import get_y
+from metrics import ScalarMetric, F1_score
+from utils import get_y_
 
 # Set Seed
 seed = 19133022
@@ -54,17 +54,14 @@ class Trainer:
             optimizer.step()
             with torch.no_grad():
                 epoch_loss.update(batch_loss)
-                y_pred, y_true = get_y(batch, outputs_classifier, outputs_regressor)
+                y_pred, y_true = get_y_(batch, outputs_classifier, outputs_regressor)
                 epoch_f1.update(y_pred, y_true)
-                # epoch_r2.update(y_pred, y_true)
-        # score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
         f1_score = epoch_f1.compute(aggregation='macro')
         return f1_score, epoch_loss.compute()
 
     def evaluate_epoch(self, criterion):
         epoch_loss = ScalarMetric()
         epoch_f1 = F1_score()
-        # epoch_r2 = R2_score()
         self.model.eval()
         with torch.no_grad():
             for batch in self.valid_dataloader:
@@ -73,11 +70,9 @@ class Trainer:
                 outputs_classifier, outputs_regressor = self.model(**inputs)
                 # loss
                 epoch_loss.update(criterion(batch, outputs_classifier, outputs_regressor, self.device))
-                y_pred, y_true = get_y(batch, outputs_classifier, outputs_regressor)
+                y_pred, y_true = get_y_(batch, outputs_classifier, outputs_regressor)
                 # score
                 epoch_f1.update(y_pred, y_true)
-                # epoch_r2.update(y_pred, y_true)
-        # score = (epoch_f1.compute() * epoch_r2.compute()).sum() * 1 / 6
         f1_score = epoch_f1.compute(aggregation='macro')
         return f1_score, epoch_loss.compute()
 
