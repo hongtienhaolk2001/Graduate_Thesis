@@ -29,7 +29,7 @@ def load_news(category_id, keyword=None, page=1):
 
 
 def pred_to_label(outputs_classifier, outputs_regressor):
-    result = np.zeros((outputs_classifier.shape[0], 6))
+    result = np.zeros((outputs_classifier.shape[0], 5))
     mask = (outputs_classifier >= 0.5)
     result[mask] = outputs_regressor[mask]
     return result

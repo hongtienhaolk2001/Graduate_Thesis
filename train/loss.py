@@ -7,7 +7,7 @@ def binary_CE(outputs, targets):
     return nn.BCELoss()(outputs, targets)
 
 
-def softmax(predict, labels, device):
+def CrossEntropy_Multilabel(predict, labels, device):
     mask = (labels != 0)
     _, topic, _ = predict.shape  # n, topic, aspect
     loss = torch.zeros(labels.shape).to(device)
@@ -42,20 +42,11 @@ def sigmoid_focal(inputs: torch.Tensor, targets: torch.Tensor,
 def custom_loss_1(batch, outputs_classifier, outputs_regressor, device):
     sigmoid_focal_loss = sigmoid_focal(outputs_classifier, batch['labels_classifier'].to(device).float(),
                                        alpha=-1, gamma=1, reduction='mean')
-    softmax_loss = softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-    return 10 * sigmoid_focal_loss + softmax_loss
+    CrossEntropy_loss = CrossEntropy_Multilabel(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
+    return 10 * sigmoid_focal_loss + CrossEntropy_loss
 
 
 def custom_loss_2(batch, outputs_classifier, outputs_regressor, device):
     classifier_loss = binary_CE(outputs_classifier, batch['labels_classifier'].to(device).float())
-    softmax_loss = softmax(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
-    return classifier_loss + softmax_loss
-
-
-# if __name__ == '__main__':
-#     device = 'cuda' if torch.cuda.is_available() else 'cpu'
-#     predict, labels = torch.rand(-1, 6, 4), torch.rand(-1, 6, 4)
-    # print(labels != 0)
-    # print(predict.clone())
-    # print(softmax(predict, labels, device))
-
+    CrossEntropy_loss = CrossEntropy_Multilabel(outputs_regressor, batch['labels_regressor'].to(device).float(), device)
+    return classifier_loss + CrossEntropy_loss

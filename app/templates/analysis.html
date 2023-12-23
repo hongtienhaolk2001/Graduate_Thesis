@@ -11,12 +11,21 @@
                 </div>
                 <div class="col-lg-6">
                     <form action="/analysis" method="POST">
+                        {% if sententence %}
+                        <div class="form-group">
+                            <textarea name="headline" class="form-control p-4" rows="1" placeholder="Tiêu Đề Tin Tức" required="required">{{sententence.headline}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="brief" class="form-control" rows="10" placeholder="Nội Dung" required="required">{{sententence.headline}}</textarea>
+                        </div>
+                        {% else %}
                         <div class="form-group">
                             <input name="headline" type="text" class="form-control p-4" placeholder="Tiêu Đề Tin Tức" required="required"/>
                         </div>
                         <div class="form-group">
                             <textarea name="brief" class="form-control" rows="10" placeholder="Nội Dung" required="required"></textarea>
                         </div>
+                        {% endif %}
                         <div>
                             <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
                                 type="submit" data-loading-text="Đang Xử Lý..." onclick="loading();">Phân Tích
@@ -31,10 +40,6 @@
                 <div class="col-lg-6" id="content">
                     <table class="table">
                         {% if predict %}
-                        <tr>
-                            <th>Loại:</th>
-                            <td>{{predict.category}}</td>
-                        </tr>
                         <tr>
                             <th>Giá:</th>
                             <td>{{predict.price}}</td>
@@ -56,10 +61,6 @@
                             <td>{{predict.external}}</td>
                         </tr>
                        {% else %}
-                       <tr>
-                            <th>Loại Nông Sản:</th>
-                            <td>Chưa có thông tin</td>
-                       </tr>
                        <tr>
                            <th>Giá Nông Sản:</th>
                            <td>Chưa có thông tin</td>

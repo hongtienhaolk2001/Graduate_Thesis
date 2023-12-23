@@ -26,7 +26,7 @@ class Analysis(nn.Module):
         # Output 1
         outputs_classifier = nn.Sigmoid()(self.classifier(outputs))  # [%, %, %, %, %]
         # Output 2
-        outputs_regressor = self.regressor(outputs).reshape(-1, 6, 4)  # 5 topic 4 aspect
+        outputs_regressor = self.regressor(outputs).reshape(-1, 5, 4)  # 5 topic 4 aspect
         return outputs_classifier, outputs_regressor
 
 

@@ -89,16 +89,21 @@ def analysis():
         return render_template('login.html')
 
     if request.method.__eq__('POST'):
+        headline = request.form['headline']
+        brief = request.form['brief']
+        news_sentence = f"{headline} {brief}"  # Get review from input
         start_time = time.time()
-        news_sentence = f"{request.form['headline']} {request.form['brief']}"  # Get review from input
         news_sentence = preprocessing.pipeline(news_sentence)
         predict_results = phobert_model.predict(news_sentence)
         final_output = preprocessing.output(predict_results[0])
         print(f"predict successfully - {round(time.time() - start_time, 2)} second")
         return render_template("analysis.html",
-                               predict=final_output['results'])
+                               predict=final_output['results'],
+                               sententence={"headline": headline,
+                                            "brief": brief})
     else:
         return render_template("analysis.html")
+
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -106,5 +111,5 @@ def contact():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=False)
     # print(phobert_model.predict("giá lúa tăng giá giá lúa tăng giá"))

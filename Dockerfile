@@ -1,5 +1,4 @@
 FROM python:3.11.4
-# https://drive.google.com/file/d/13Qm55xy8sV6Tsu2WcKaGfNUSBeaeU8PO/view?usp=drive_link
 COPY ./requirements.txt ./
 
 RUN pip install --upgrade pip && \

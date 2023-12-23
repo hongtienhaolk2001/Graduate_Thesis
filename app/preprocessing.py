@@ -99,8 +99,7 @@ def output(encode_result):
         "news": "sentence",
         "results": {}
     }
-    factors = {"category": ["Không xác định", "Nông sản từ lúa, gạo", "Nông sản cà phê", "Nông sản cao su"],
-               "price": ["Không xác định", "Giảm", "Ổn định", "Tăng"],
+    factors = {"price": ["Không xác định", "Giảm", "Ổn định", "Tăng"],
                "market": ["Không xác định", "Nguồn cung lớn hơn nhu cầu", "Nguồn cung và cầu ổn định",
                           "Nhu cầu lớn hơn Nguồn cung"],
                "polices": ["Không xác định",
