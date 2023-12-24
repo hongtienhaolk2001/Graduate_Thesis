@@ -1,10 +1,11 @@
+import hashlib
 import json
+import os
 
 import numpy as np
+
 from app import app, db
 from app.models import News, Category, User
-import hashlib
-import os
 
 
 def read_json(path):

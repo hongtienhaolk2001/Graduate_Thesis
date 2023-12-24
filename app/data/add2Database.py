@@ -1,7 +1,9 @@
-from app.models import *
-from app import db, app
-import pandas as pd
 import hashlib
+
+import pandas as pd
+
+from app import db, app
+from app.models import *
 
 
 def add_Category(file_path):

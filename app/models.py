@@ -1,5 +1,6 @@
-from enum import Enum as UserEnum
 from datetime import datetime
+from enum import Enum as UserEnum
+
 from flask_login import UserMixin
 from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Text, Enum
 from sqlalchemy.orm import relationship

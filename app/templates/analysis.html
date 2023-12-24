@@ -12,23 +12,28 @@
                 <div class="col-lg-6">
                     <form action="/analysis" method="POST">
                         {% if sententence %}
-                        <div class="form-group">
-                            <textarea name="headline" class="form-control p-4" rows="1" placeholder="Tiêu Đề Tin Tức" required="required">{{sententence.headline}}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="brief" class="form-control" rows="10" placeholder="Nội Dung" required="required">{{sententence.headline}}</textarea>
-                        </div>
+                            <div class="form-group">
+                                <textarea name="headline" class="form-control p-4" rows="1"
+                                          placeholder="Tiêu Đề Tin Tức"
+                                          required="required">{{ sententence.headline }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="brief" class="form-control" rows="10" placeholder="Nội Dung"
+                                          required="required">{{ sententence.headline }}</textarea>
+                            </div>
                         {% else %}
-                        <div class="form-group">
-                            <input name="headline" type="text" class="form-control p-4" placeholder="Tiêu Đề Tin Tức" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="brief" class="form-control" rows="10" placeholder="Nội Dung" required="required"></textarea>
-                        </div>
+                            <div class="form-group">
+                                <input name="headline" type="text" class="form-control p-4"
+                                       placeholder="Tiêu Đề Tin Tức" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="brief" class="form-control" rows="10" placeholder="Nội Dung"
+                                          required="required"></textarea>
+                            </div>
                         {% endif %}
                         <div>
                             <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
-                                type="submit" data-loading-text="Đang Xử Lý..." onclick="loading();">Phân Tích
+                                    type="submit" data-loading-text="Đang Xử Lý..." onclick="loading();">Phân Tích
                             </button>
                         </div>
                     </form>
@@ -40,60 +45,60 @@
                 <div class="col-lg-6" id="content">
                     <table class="table">
                         {% if predict %}
-                        <tr>
-                            <th>Giá:</th>
-                            <td>{{predict.price}}</td>
-                        </tr>
-                        <tr>
-                            <th>Thị trường:</th>
-                            <td>{{predict.market}}</td>
-                        </tr>
-                        <tr>
-                            <th>Chính sách:</th>
-                            <td>{{predict.polices}}</td>
-                        </tr>
-                        <tr>
-                            <th>Nội Tại:</th>
-                            <td>{{predict.internal}}</td>
-                        </tr>
-                        <tr>
-                            <th>Ngoại Vi:</th>
-                            <td>{{predict.external}}</td>
-                        </tr>
-                       {% else %}
-                       <tr>
-                           <th>Giá Nông Sản:</th>
-                           <td>Chưa có thông tin</td>
-                       </tr>
-                       <tr>
-                           <th>Nông Sản:</th>
-                           <td>Chưa có thông tin</td>
-                       </tr>
-                       <tr>
-                           <th>Thị Trường:</th>
-                           <td>Chưa có thông tin</td>
-                       </tr>
-                       <tr>
-                           <th>Nội Tại:</th>
-                           <td>Chưa có thông tin</td>
-                       </tr>
-                       <tr>
-                           <th>Ngoại Vi:</th>
-                           <td>Chưa có thông tin</td>
-                       </tr>
-                       {% endif %}
-                    </table >
+                            <tr>
+                                <th>Giá:</th>
+                                <td>{{ predict.price }}</td>
+                            </tr>
+                            <tr>
+                                <th>Thị trường:</th>
+                                <td>{{ predict.market }}</td>
+                            </tr>
+                            <tr>
+                                <th>Chính sách:</th>
+                                <td>{{ predict.polices }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nội Tại:</th>
+                                <td>{{ predict.internal }}</td>
+                            </tr>
+                            <tr>
+                                <th>Ngoại Vi:</th>
+                                <td>{{ predict.external }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th>Giá Nông Sản:</th>
+                                <td>Chưa có thông tin</td>
+                            </tr>
+                            <tr>
+                                <th>Nông Sản:</th>
+                                <td>Chưa có thông tin</td>
+                            </tr>
+                            <tr>
+                                <th>Thị Trường:</th>
+                                <td>Chưa có thông tin</td>
+                            </tr>
+                            <tr>
+                                <th>Nội Tại:</th>
+                                <td>Chưa có thông tin</td>
+                            </tr>
+                            <tr>
+                                <th>Ngoại Vi:</th>
+                                <td>Chưa có thông tin</td>
+                            </tr>
+                        {% endif %}
+                    </table>
 
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript">// <![CDATA[
-        function loading() {
-            $("#loading").show();
-            $("#loading-gif").show();
-            $("#content").hide();
-        }
+    function loading() {
+        $("#loading").show();
+        $("#loading-gif").show();
+        $("#content").hide();
+    }
     </script>
 
 {% endblock %}

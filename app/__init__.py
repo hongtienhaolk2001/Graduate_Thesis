@@ -1,11 +1,13 @@
-from flask import Flask
-from .analysis import ModelInference
-from vncorenlp import VnCoreNLP
-from transformers import AutoTokenizer
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
 import os
 import time
+
+from flask import Flask
+from flask_login import LoginManager
+from flask_sqlalchemy import SQLAlchemy
+from transformers import AutoTokenizer
+from vncorenlp import VnCoreNLP
+
+from .analysis import ModelInference
 
 
 def load_model(root_path):
@@ -13,7 +15,7 @@ def load_model(root_path):
     rdrsegmenter = VnCoreNLP(os.path.join(root_path, "vncorenlp/VnCoreNLP-1.1.1.jar"), annotators="wseg",
                              max_heap_size='-Xmx500m')
     tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base", local_files_only=True)
-    print(f"load model successfully - {round(time.time()-start_time,2)} second")
+    print(f"load model successfully - {round(time.time() - start_time, 2)} second")
     return ModelInference(model_path=os.path.join(root_path, "weights/model.pt"), tokenizer=tokenizer,
                           rdrsegmenter=rdrsegmenter, )
 
@@ -34,7 +36,6 @@ def create_db(app):
 app = create_app()
 login_manager = LoginManager(app=app)
 root_path = app.root_path
-# phobert_model = load_model(root_path)
-phobert_model = None
+phobert_model = load_model(root_path)
+# phobert_model = None
 db = create_db(app)
-

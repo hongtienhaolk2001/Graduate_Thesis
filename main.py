@@ -87,7 +87,7 @@ def user_signup():
 @app.route('/analysis', methods=['GET', 'POST'])
 def analysis():
     if not current_user.is_authenticated:
-        return render_template('user/login.html')
+        return redirect(url_for('user_signin'))  # direct to index.html
 
     if request.method.__eq__('POST'):
         headline = request.form['headline']

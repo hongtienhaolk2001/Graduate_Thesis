@@ -15,7 +15,8 @@
                     <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Tin Tức</a>
                     <div class="dropdown-menu rounded-0 m-0">
                         {% for c in categories %}
-                        <a href="{{ url_for('news_list', category_id=c.id)  }}" class="dropdown-item">{{ c.name }}</a>
+                            <a href="{{ url_for('news_list', category_id=c.id) }}"
+                               class="dropdown-item">{{ c.name }}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -37,12 +38,12 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     {% if current_user.is_authenticated %}
-                    <a href="#" class="dropdown-item">Thông tin</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="{{ url_for('user_logout')}}" class="dropdown-item">Đăng xuất</a>
+                        <a href="#" class="dropdown-item">Thông tin</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ url_for('user_logout') }}" class="dropdown-item">Đăng xuất</a>
                     {% else %}
-                    <a href="{{ url_for('user_signin')}}" class="dropdown-item">Đăng nhập</a>
-                    <a href="{{ url_for('user_signup')}}" class="dropdown-item">Đăng ký</a>
+                        <a href="{{ url_for('user_signin') }}" class="dropdown-item">Đăng nhập</a>
+                        <a href="{{ url_for('user_signup') }}" class="dropdown-item">Đăng ký</a>
                     {% endif %}
                 </div>
             </div>

@@ -6,13 +6,74 @@
   <component name="ChangeListManager">
     <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231224">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/feature_news.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/latest_news.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/market_news.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/add2Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/add2Database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/ads.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/ads.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/data/news.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/news.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/img/loading.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/img/loading.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/lib/easing/easing.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/lib/easing/easing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/lib/owlcarousel/assets/owl.carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/lib/owlcarousel/assets/owl.carousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/lib/owlcarousel/assets/owl.theme.default.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/lib/owlcarousel/assets/owl.theme.default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/lib/owlcarousel/assets/owl.theme.green.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/lib/owlcarousel/assets/owl.theme.green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/lib/owlcarousel/owl.carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/lib/owlcarousel/owl.carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_breadcrumb.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_breadcrumb.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_button-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_button-group.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_carousel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_carousel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_custom-forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_custom-forms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_dropdown.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_dropdown.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_grid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_input-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_input-group.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_nav.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_pagination.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_pagination.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_popover.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_popover.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_progress.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_progress.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_reboot.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_spinners.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_spinners.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_tooltip.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_tooltip.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_type.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_type.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_border-radius.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_border-radius.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_float.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_float.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_gradients.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_gradients.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_grid-framework.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_grid-framework.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_hover.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_hover.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_image.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_image.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_pagination.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/mixins/_pagination.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_align.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_align.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_borders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_borders.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_display.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_display.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_flex.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_flex.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_float.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_float.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_interactions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_interactions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_overflow.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_overflow.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_position.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_position.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_shadows.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_shadows.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_sizing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_sizing.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_spacing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_spacing.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_text.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/utilities/_text.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/vendor/_rfs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/bootstrap/scss/vendor/_rfs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/analysis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/crawler/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/train/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/layout/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/layout/sign.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/sign.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/read.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/read.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -357,7 +418,7 @@
       <workItem from="1703383309862" duration="3603000" />
       <workItem from="1703389451172" duration="2449000" />
       <workItem from="1703412175872" duration="9086000" />
-      <workItem from="1703421841741" duration="7439000" />
+      <workItem from="1703421841741" duration="8338000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -575,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703417545054</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="231224">
+      <option name="closed" value="true" />
+      <created>1703432694745</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1703432694745</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,7 +676,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Graduate_Thesis$loss.coverage" NAME="loss Coverage Results" MODIFIED="1703248348311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$train_.coverage" NAME="train_ Coverage Results" MODIFIED="1702284386408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
-    <SUITE FILE_PATH="coverage/Graduate_Thesis$main.coverage" NAME="main Coverage Results" MODIFIED="1703432366755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Graduate_Thesis$main.coverage" NAME="main Coverage Results" MODIFIED="1703433418947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$Trainer_2.coverage" NAME="Trainer_2 Coverage Results" MODIFIED="1702291719300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$Trainer_1__1_.coverage" NAME="Trainer_1 (1) Coverage Results" MODIFIED="1703088245507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$add2Database.coverage" NAME="add2Database Coverage Results" MODIFIED="1703428275943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/data" />
