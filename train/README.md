@@ -1,3 +1,5 @@
+
+# Training Process
 ```
 # Epoch Training
 # Training
@@ -10,3 +12,7 @@
 # Update model
 # Update learning rate
 ```
+# Usage
+- upload notebook file `train.ipynb` to colab
+- Run all cell to train
+

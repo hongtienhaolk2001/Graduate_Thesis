@@ -1,27 +1,19 @@
-{"main": [
+{
+  "main": [
   {
       "category": "Lúa Gạo",
       "date": "04 | 04 | 2020",
       "title": "Chính Phủ Ấn Độ Có Thể Cấm Xuất Khẩu Gạo...",
-      "brief": "",
       "image": "img/rice_plant.jpg"
     },{
       "category": "Lúa Gạo",
       "date": "04 | 04 | 2020",
       "title": "VIỆT NAM ĐÃ CHI 4,27 TỶ USD NHẬP KHẨU THỨC ĂN CHĂN NUÔI GIA SÚC VÀ NGUYÊN LIỆU...",
-      "brief": "",
       "image": "img/rice_plant.jpg"
     },{
       "category": "Cà Phê",
       "date": "04 | 04 | 2020",
       "title": "ETHIOPIA CẤM XUẤT KHẨU, GIÁ CÀ PHÊ THẾ GIỚI CÓ THỂ TĂNG VỌT...",
-      "brief": "",
-      "image": "img/coffee.jpg"
-    },{
-      "category": "Cà Phê",
-      "date": "04 | 04 | 2020",
-      "title": "LIÊN KẾT VỚI HƠN 3.000 NÔNG DÂN LÀM...",
-      "brief": "",
       "image": "img/coffee.jpg"
     }
 ],
@@ -76,14 +68,43 @@
     "date": "",
     "title": "",
     "brief": "",
-    "image": ""
+    "image": "img/rice_plant.jpg"
   },  {
-    "category": "Cà Phê",
-    "date": "",
-    "title": "",
+    "category": "Lúa gạo",
+    "date": "31 | 01 | 2020",
+    "title": "THỊ TRƯỜNG GẠO NĂM 2019: NHU CẦU NHẬP KHẨU GẠO DỰ BÁO GIẢM",
     "brief": "",
     "image": "img/rice_plant.jpg"
   }
   ],
-  "latest": []
-}
+  "latest": [
+    {
+    "category": "Lúa Gạo",
+    "date": "11 | 12 | 2023",
+    "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
+    "brief": "Đang neo ở mức đỉnh, giá gạo Việt xuất khẩu quay đầu giảm sau tin đạt giải Gạo ngon nhất thế giới năm 2023...",
+    "image": "img/rice_1.svg",
+    "url": "https://www.canva.com/photos/MADGyf5YWWc-woman-picking-plant-on-field/"
+  },  {
+    "category": "Cà Phê",
+    "date": "18 | 12 | 2023",
+    "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
+    "brief": "Giá cà phê nội địa đạt gần 70.000 đồng/kg. Đây là điều chưa từng xảy ra trong lịch sử ngành cà phê Việt Nam.",
+    "image": "img/rice_1.svg",
+    "url": "https://www.canva.com/photos/MADGyf5YWWc-woman-picking-plant-on-field/"
+  },  {
+    "category": "Cao Su",
+    "date": "15 | 12 | 2023",
+    "title": "THỊ PHẦN CAO SU CỦA VIỆT NAM ĐANG BỊ THU HẸP TẠI THỊ TRƯỜNG ẤN",
+    "brief": "11 tháng năm 2023, xuất khẩu cao su đạt trên 1,87 triệu tấn, trị giá 2,51 tỷ USD. Tuy nhiên, thị phần cao su...",
+    "image": "img/rice_1.svg",
+    "url": "https://www.canva.com/photos/MADGyf5YWWc-woman-picking-plant-on-field/"
+  }, {
+    "category": "Lúa Gạo",
+    "date": "18 | 12 | 2023",
+    "title": "THÀNH LẬP HIỆP HỘI NGÀNH HÀNG LÚA GẠO VIỆT NAM",
+    "brief": "Lúa gạo có thêm một hiệp hội là Hiệp hội Ngành hàng lúa gạo Việt Nam, quy tụ các thành phần trong chuỗi giá...",
+    "image": "img/rice_2.svg",
+    "url": "https://www.canva.com/photos/MADFClTUM28-agricultural-machinery/"
+  }
+]}
