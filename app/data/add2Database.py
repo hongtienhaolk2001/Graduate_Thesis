@@ -24,13 +24,11 @@ def add_News(file_path):
 def add_User(file_path):
     user_data = pd.read_csv(file_path)
     for i in range(0, len(user_data)):
-        db.session.add(User(name=user_data['name'][i],
-                            username=user_data['username'][i],
+        db.session.add(User(username=user_data['username'][i],
                             password=str(hashlib.md5(user_data['password'][i].encode('utf8')).hexdigest()),
                             user_role=str(user_data['role'][i]),
-                            email=str(user_data['email'][i]),)
+                            email=str(user_data['email'][i]), )
                        )
-    db.session.commit()
 
 
 if __name__ == '__main__':

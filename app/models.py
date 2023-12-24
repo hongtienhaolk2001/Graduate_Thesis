@@ -19,7 +19,6 @@ class UserRole(UserEnum):
 
 class User(BaseModel, UserMixin):
     __tablename__ = 'user'
-    name = Column(String(50), nullable=False)
     username = Column(String(50), nullable=False, unique=True)
     password = Column(String(50), nullable=False)
     avatar = Column(Text)
@@ -29,7 +28,7 @@ class User(BaseModel, UserMixin):
     user_role = Column(Enum(UserRole), default=UserRole.USER)
 
     def __str__(self):
-        return self.name
+        return self.username
 
 
 class Category(BaseModel):

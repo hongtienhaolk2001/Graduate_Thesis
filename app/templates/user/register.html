@@ -1,0 +1,56 @@
+{% extends 'layout/sign.html' %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+    {% if current_user.is_authenticated %}
+    {% else %}
+    {% endif %}
+    <section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						<img src="{{ url_for('static', filename='img/logo.png')}}" alt="bootstrap 4 login page">
+					</div>
+					<div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title">Đăng ký</h4>
+							<form method="POST" action="{{ url_for('user_signup') }}" class="my-login-validation" enctype="multipart/form-data" novalidate="">
+								<div class="form-group">
+									<label for="username">Tài khoản</label>
+									<input id="username" type="text" class="form-control" name="username" required autofocus>
+									<div class="invalid-feedback">Tài khoản?</div>
+								</div>
+
+								<div class="form-group">
+									<label for="email">Địa chỉ e-Mail </label>
+									<input id="email" type="email" class="form-control" name="email" required>
+									<div class="invalid-feedback">Email của bạn không khả dụng</div>
+								</div>
+
+								<div class="form-group">
+									<label for="password">Mật khẩu</label>
+									<input id="password" type="password" class="form-control" name="password" required data-eye>
+									<div class="invalid-feedback">Vui lòng nhập mật khẩu</div>
+								</div>
+                                <div class="form-group">
+									<label for="confirm">Xác nhận mật khẩu</label>
+									<input id="confirm" type="password" class="form-control" name="confirm" required data-eye>
+									<div class="invalid-feedback">Vui lòng xác nhật mật khẩu</div>
+								</div>
+								<div class="form-group m-0">
+									<button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+								</div>
+								<div class="mt-4 text-center">
+                                    Đã có tài khoản? <a href="{{ url_for('user_signin')}}">Đăng nhập</a>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="footer">
+						Copyright &copy; 2023 &mdash; Hong Tien Hao
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

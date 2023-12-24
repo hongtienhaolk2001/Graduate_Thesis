@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231223">
-      <change afterPath="$PROJECT_DIR$/app/data/ads.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/data/feature_news.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/data/latest_news.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/data/market_news.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/data/news.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/img/feature_news.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/img/feature_news_1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/img/rice_1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/img/rice_2.svg" afterDir="false" />
+    <list default="true" id="e6fc6258-b87f-42d3-9110-15d567f1bbf1" name="Changes" comment="231224">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/categories.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/analysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/layout/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/read.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/read.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/add2Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/add2Database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/csv/user.csv" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/csv/user.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -120,14 +109,14 @@
       <recent name="D:\Workspace\github\Graduate_Thesis\app\static\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Workspace\github\Graduate_Thesis\app\templates\user" />
       <recent name="D:\Workspace\github\Graduate_Thesis\app\static\img" />
       <recent name="D:\Workspace\github\Graduate_Thesis\app\static\img\ads" />
       <recent name="D:\Workspace\github\Graduate_Thesis\train" />
       <recent name="D:\Workspace\github\Graduate_Thesis\crawler" />
-      <recent name="D:\Workspace\github\Graduate_Thesis\app\templates\layout" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.add2Database">
     <configuration name="Graduate_Thesis" type="PythonConfigurationType" factoryName="Python">
       <module name="Graduate_Thesis" />
       <option name="ENV_FILES" value="" />
@@ -301,10 +290,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.add2Database" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.loss" />
         <item itemvalue="Python.Trainer_1 (1)" />
-        <item itemvalue="Python.add2Database" />
         <item itemvalue="Python.Trainer_2" />
       </list>
     </recent_temporary>
@@ -368,7 +357,7 @@
       <workItem from="1703338270224" duration="595000" />
       <workItem from="1703383309862" duration="3603000" />
       <workItem from="1703389451172" duration="2449000" />
-      <workItem from="1703412175872" duration="4962000" />
+      <workItem from="1703412175872" duration="9086000" />
     </task>
     <task id="LOCAL-00001" summary="231205">
       <option name="closed" value="true" />
@@ -578,7 +567,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703301924778</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="231224">
+      <option name="closed" value="true" />
+      <created>1703417545054</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1703417545054</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,15 +601,16 @@
     <MESSAGE value="231221" />
     <MESSAGE value="231222" />
     <MESSAGE value="231223" />
-    <option name="LAST_COMMIT_MESSAGE" value="231223" />
+    <MESSAGE value="231224" />
+    <option name="LAST_COMMIT_MESSAGE" value="231224" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Graduate_Thesis$loss.coverage" NAME="loss Coverage Results" MODIFIED="1703248348311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$train_.coverage" NAME="train_ Coverage Results" MODIFIED="1702284386408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$main.coverage" NAME="main Coverage Results" MODIFIED="1703416070752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$Trainer_2.coverage" NAME="Trainer_2 Coverage Results" MODIFIED="1702291719300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
-    <SUITE FILE_PATH="coverage/Graduate_Thesis$add2Database.coverage" NAME="add2Database Coverage Results" MODIFIED="1702804425636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/data" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$Trainer_1__1_.coverage" NAME="Trainer_1 (1) Coverage Results" MODIFIED="1703088245507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
+    <SUITE FILE_PATH="coverage/Graduate_Thesis$add2Database.coverage" NAME="add2Database Coverage Results" MODIFIED="1703419140478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/data" />
     <SUITE FILE_PATH="coverage/Graduate_Thesis$train.coverage" NAME="train Coverage Results" MODIFIED="1702268751824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/train" />
   </component>
 </project>

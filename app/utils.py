@@ -44,11 +44,11 @@ def pred_to_label(outputs_classifier, outputs_regressor):
     return result
 
 
-def add_user(name, username, password, **kwargs):
+def add_user(username, password, **kwargs):
     """adds a new user to the database.
     """
     password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
-    user = User(name=name, username=username, password=password, email=kwargs.get('email'))
+    user = User(username=username, password=password, email=kwargs.get('email'))
     db.session.add(user)
     try:
         db.session.commit()
