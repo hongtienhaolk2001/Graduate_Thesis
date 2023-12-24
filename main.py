@@ -9,13 +9,15 @@ from app import utils, preprocessing, app, login_manager, phobert_model
 @app.context_processor
 def common_response():
     return {
-        'categories': utils.load_categories()
+        'categories': utils.load_categories(),
+        'ads': utils.read_json('data/ads.json')
     }
 
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("index.html",
+                           news=utils.read_json('data/news.json'))
 
 
 @app.route('/news/<int:category_id>/', methods=['GET', 'POST'])
@@ -111,5 +113,6 @@ def contact():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=False)
+    # app.run(host='0.0.0.0', port=8080, debug=False)
+    app.run()
     # print(phobert_model.predict("giá lúa tăng giá giá lúa tăng giá"))

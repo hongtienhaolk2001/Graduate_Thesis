@@ -34,6 +34,7 @@ def create_db(app):
 app = create_app()
 login_manager = LoginManager(app=app)
 root_path = app.root_path
-phobert_model = load_model(root_path)
+# phobert_model = load_model(root_path)
+phobert_model = None
 db = create_db(app)
 

@@ -1,0 +1,89 @@
+{"main": [
+  {
+      "category": "Lúa Gạo",
+      "date": "04 | 04 | 2020",
+      "title": "Chính Phủ Ấn Độ Có Thể Cấm Xuất Khẩu Gạo...",
+      "brief": "",
+      "image": "img/rice_plant.jpg"
+    },{
+      "category": "Lúa Gạo",
+      "date": "04 | 04 | 2020",
+      "title": "VIỆT NAM ĐÃ CHI 4,27 TỶ USD NHẬP KHẨU THỨC ĂN CHĂN NUÔI GIA SÚC VÀ NGUYÊN LIỆU...",
+      "brief": "",
+      "image": "img/rice_plant.jpg"
+    },{
+      "category": "Cà Phê",
+      "date": "04 | 04 | 2020",
+      "title": "ETHIOPIA CẤM XUẤT KHẨU, GIÁ CÀ PHÊ THẾ GIỚI CÓ THỂ TĂNG VỌT...",
+      "brief": "",
+      "image": "img/coffee.jpg"
+    },{
+      "category": "Cà Phê",
+      "date": "04 | 04 | 2020",
+      "title": "LIÊN KẾT VỚI HƠN 3.000 NÔNG DÂN LÀM...",
+      "brief": "",
+      "image": "img/coffee.jpg"
+    }
+],
+  "block main": [
+    {
+      "category": "Lúa Gạo",
+      "date": "04 | 04 | 2020",
+      "title": "LIÊN KẾT VỚI HƠN 3.000 NÔNG DÂN LÀM...",
+      "brief": "",
+      "image": "img/rice_plant.jpg"
+    },{
+      "category": "Lúa Gạo",
+      "date": "04 | 04 | 2020",
+      "title": "Cao Su Rớt Giá Do Siết chặt đầu ra...",
+      "brief": "",
+      "image": "img/rice_plant.jpg"
+    },{
+      "category": "Cà Phê",
+      "date": "04 | 04 | 2020",
+      "title": "Thiếu hụt nhân công thu...",
+      "brief": "",
+      "image": "img/coffee.jpg"
+    },{
+      "category": "Cà Phê",
+      "date": "04 | 04 | 2020",
+      "title": " Báo cáo thị trường xuất khẩu quý...",
+      "brief": "",
+      "image": "img/coffee.jpg"
+    }
+  ],
+  "feature": [
+    {
+    "category": "Lúa Gạo",
+    "date": "04 | 04 | 2020",
+    "title": "GIÁ GẠO THÁI LAN LÊN CAO NHẤT 7 NĂM KHI DỊCH COVID-19 HẠN CHẾ THƯƠNG MẠI TỪ VIỆT NAM, ẤN ĐỘ",
+    "brief": "Tuần này, giá xuất khẩu gạo Thái Lan tăng vọt lên cao nhất trong 7 năm nhờ kì vọng doanh số bán tăng sau khi nhà xuất khẩu hàng đầu Ấn Độ bước vào giai đoạn đóng cửa để ngăn chặn sự lây lan của virus corona và đối thủ chính Việt Nam tạm ngừng kí hợp đồng xuất khẩu mới.",
+    "image": "img/rice_plant.jpg"
+  },  {
+    "category": "Cao Su",
+    "date": "",
+    "title": "Vinafood xây dựng nông trại organic",
+    "brief": "",
+    "image": "img/feature_news_1.svg"
+  },  {
+    "category": "Cà Phê",
+    "date": "",
+    "title": "",
+    "brief": "",
+    "image": "img/rice_plant.jpg"
+  },  {
+    "category": "Cao Su",
+    "date": "",
+    "title": "",
+    "brief": "",
+    "image": ""
+  },  {
+    "category": "Cà Phê",
+    "date": "",
+    "title": "",
+    "brief": "",
+    "image": "img/rice_plant.jpg"
+  }
+  ],
+  "latest": []
+}

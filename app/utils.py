@@ -1,7 +1,16 @@
+import json
+
 import numpy as np
 from app import app, db
 from app.models import News, Category, User
 import hashlib
+import os
+
+
+def read_json(path):
+    path = os.path.join(app.root_path, path)
+    with open(path, encoding='utf-8') as file:
+        return json.load(file)
 
 
 def load_categories():

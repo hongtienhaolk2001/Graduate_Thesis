@@ -6,126 +6,43 @@
         <div class="row">
             <div class="col-lg-7 px-0">
                 <div class="owl-carousel main-carousel position-relative">
+                    {% for n in news['main'] %}
                     <div class="position-relative overflow-hidden" style="height: 500px;">
-                        <img class="img-fluid h-100" src="{{ url_for('static', filename='img/rice_plant.jpg') }}" style="object-fit: cover;">
+                        <img class="img-fluid h-100" src="{{ url_for('static', filename=n.image) }}" style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-2">
                                 <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="{{ url_for('read')}}">Lúa Gạo</a>
-                                <a class="text-white" href="{{ url_for('read')}}">31 | 12 | 2023</a>
+                                    href="{{ url_for('read')}}">{{ n.category }}</a>
+                                <a class="text-white" href="{{ url_for('read')}}">{{ n.date }}</a>
                             </div>
-                            <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{{ url_for('read')}}">Chính Phủ Ấn Độ Có Thể Cấm Xuất Khẩu Gạo...</a>
+                            <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{{ url_for('read')}}">{{ n.title }}</a>
                         </div>
                     </div>
-                    <div class="position-relative overflow-hidden" style="height: 500px;">
-                        <img class="img-fluid h-100" src="{{ url_for('static', filename='img/rice_plant_2.jpg') }}" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="{{ url_for('read')}}">Lúa Gạo</a>
-                                <a class="text-white" href="{{ url_for('read')}}">31 | 12 | 2023</a>
-                            </div>
-                            <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{{ url_for('read')}}">VIỆT NAM ĐÃ CHI 4,27 TỶ USD NHẬP KHẨU THỨC ĂN CHĂN NUÔI GIA SÚC VÀ NGUYÊN LIỆU...</a>
-                        </div>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 500px;">
-                        <img class="img-fluid h-100" src="{{ url_for('static', filename='img/coffee.jpg') }}" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="{{ url_for('read')}}">Cà Phê</a>
-                                <a class="text-white" href="{{ url_for('read')}}">31 | 12 | 2023</a>
-                            </div>
-                            <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="{{ url_for('read')}}">ETHIOPIA CẤM XUẤT KHẨU, GIÁ CÀ PHÊ THẾ GIỚI CÓ THỂ TĂNG VỌT...</a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-lg-5 px-0">
                 <div class="row mx-0">
+                    {% for n in news['block main'] %}
                     <div class="col-md-6 px-0">
                         <div class="position-relative overflow-hidden" style="height: 250px;">
-                            <img class="img-fluid w-100 h-100" src="{{ url_for('static', filename='img/coffee_2.jpg') }}" style="object-fit: cover;">
+                            <img class="img-fluid w-100 h-100" src="{{ url_for('static', filename=n.image) }}" style="object-fit: cover;">
                             <div class="overlay">
                                 <div class="mb-2">
                                     <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                        href="{{ url_for('read')}}">Cà Phê</a>
-                                    <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
+                                        href="{{ url_for('read')}}">{{ n.category }}</a>
+                                    <a class="text-white" href="{{ url_for('read')}}"><small>{{ n.date}}</small></a>
                                 </div>
-                                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">LIÊN KẾT VỚI HƠN 3.000 NÔNG DÂN LÀM...</a>
+                                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">{{ n.title }}</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 px-0">
-                        <div class="position-relative overflow-hidden" style="height: 250px;">
-                            <img class="img-fluid w-100 h-100" src="{{ url_for('static', filename='img/cao_su.jpg') }}" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-2">
-                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                        href="{{ url_for('read')}}">Cao Su</a>
-                                    <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
-                                </div>
-                                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Cao Su Rớt Giá Do Siết chặt đầu ra...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 px-0">
-                        <div class="position-relative overflow-hidden" style="height: 250px;">
-                            <img class="img-fluid w-100 h-100" src="{{ url_for('static', filename='img/cao_su_2.png') }}" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-2">
-                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                        href="{{ url_for('read')}}">Cao Su</a>
-                                    <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
-                                </div>
-                                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Thiếu hụt nhân công thu...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 px-0">
-                        <div class="position-relative overflow-hidden" style="height: 250px;">
-                            <img class="img-fluid w-100 h-100" src="{{ url_for('static', filename='img/report.png') }}" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-2">
-                                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                        href="{{ url_for('read')}}">Thị Trường</a>
-                                    <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
-                                </div>
-                                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Báo cáo thị trường xuất khẩu quý...</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
     <!-- Main News Slider End -->
-
-
-    <!-- Breaking News Start -->
-{#    <div class="container-fluid bg-dark py-3 mb-3">#}
-{#        <div class="container">#}
-{#            <div class="row align-items-center bg-dark">#}
-{#                <div class="col-12">#}
-{#                    <div class="d-flex justify-content-between">#}
-{#                        <div class="bg-primary text-dark text-center font-weight-medium py-2" style="width: 170px;">#}
-{#                            Tin Nóng</div>#}
-{#                        <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"#}
-{#                            style="width: calc(100% - 170px); padding-right: 90px;">#}
-{#                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold"#}
-{#                                    href="{{ url_for('read')}}">Lorem ipsum dolor sit amet elit. Proin interdum lacus eget ante tincidunt,#}
-{#                                    sed faucibus nisl sodales</a></div>#}
-{#                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold"#}
-{#                                    href="{{ url_for('read')}}">Lorem ipsum dolor sit amet elit. Proin interdum lacus eget ante tincidunt,#}
-{#                                    sed faucibus nisl sodales</a></div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-    <!-- Breaking News End -->
-
 
     <!-- Featured News Slider Start -->
     <div class="container-fluid pt-5 mb-3">
@@ -134,66 +51,19 @@
                 <h4 class="m-0 text-uppercase font-weight-bold">Tin Nổi Bật</h4>
             </div>
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+                {% for n in news['feature'] %}
                 <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid h-100" src="{{ url_for('static', filename='img/coffee.jpg') }}" style="object-fit: cover;">
+                    <img class="img-fluid h-100" src="{{ url_for('static', filename= n.image) }}" style="object-fit: cover;">
                     <div class="overlay">
                         <div class="mb-2">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="{{ url_for('read')}}">Cà phê</a>
-                            <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
+                                href="{{ url_for('read')}}">{{ news.category }}</a>
+                            <a class="text-white" href="{{ url_for('read')}}"><small>{{ n.date }}</small></a>
                         </div>
-                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Lorem ipsum dolor sit
-                            amet elit...</a>
+                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">{{ n.title }}</a>
                     </div>
                 </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid h-100" src="{{ url_for('static', filename='img/rice_plant_2.jpg')}}" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-2">
-                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="{{ url_for('read')}}">Lúa Gạo</a>
-                            <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
-                        </div>
-                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Lorem ipsum dolor sit
-                            amet elit...</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid h-100" src="{{ url_for('static', filename='img/rice_plant_2.png')}}" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-2">
-                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="{{ url_for('read')}}">Lúa Gạo</a>
-                            <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
-                        </div>
-                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Lorem ipsum dolor sit
-                            amet elit...</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid h-100" src="{{ url_for('static', filename='img/report.png')}}" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-2">
-                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="{{ url_for('read')}}">Thống Kê</a>
-                            <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
-                        </div>
-                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Lorem ipsum dolor sit
-                            amet elit...</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid h-100" src="{{ url_for('static', filename='img/logo.png')}}" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-2">
-                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                href="{{ url_for('read')}}">Nông Sản</a>
-                            <a class="text-white" href="{{ url_for('read')}}"><small>31 | 12 | 2023</small></a>
-                        </div>
-                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="{{ url_for('read')}}">Lorem ipsum dolor sit
-                            amet elit...</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -208,7 +78,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="section-title">
-                                <h4 class="m-0 text-uppercase font-weight-bold">Tin Mới Nhất News</h4>
+                                <h4 class="m-0 text-uppercase font-weight-bold">Tin Mới Nhất</h4>
                                 <a class="text-secondary font-weight-medium text-decoration-none" href="{{ url_for('read')}}">View All</a>
                             </div>
                         </div>
@@ -267,8 +137,9 @@
                             </div>
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <a href="{{ url_for('read')}}"><img class="img-fluid w-100" src="https://fit.hcmute.edu.vn/Resources/Images/SubDomain/fit/HCMUTE-fit.png" alt=""></a>
+                            <a href="{{ ads[0].url }}"><img class="img-fluid w-100" src="{{ url_for('static', filename=ads[0].image) }}" alt=""></a>
                         </div>
+
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
                                 <img class="img-fluid w-100" src="{{ url_for('static', filename='img/cao_su_2.png')}}" style="object-fit: cover;">
@@ -376,7 +247,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <a href="{{ url_for('read')}}"><img class="img-fluid w-100" src="https://fit.hcmute.edu.vn/Resources/Images/SubDomain/fit/HCMUTE-fit.png" alt=""></a>
+                            <a href="{{ ads[0].url }}"><img class="img-fluid w-100" src="{{ url_for('static', filename=ads[0].image) }}" alt=""></a>
                         </div>
 
                         <div class="col-lg-6">
@@ -438,53 +309,26 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <!-- Social Follow Start -->
+                    <!-- New Feature Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Theo Dõi Chúng Tôi</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">Tính Năng Mới</h4>
                         </div>
-                        <div class="bg-white border border-top-0 p-3">
-                            <a href="{{ url_for('read')}}" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #39569E;">
-                                <i class="fab fa-facebook-f text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">19,133,022 Người hâm mộ</span>
-                            </a>
-                            <a href="{{ url_for('read')}}" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #52AAF4;">
-                                <i class="fab fa-twitter text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">19,133,022 Người theo dõi</span>
-                            </a>
-                            <a href="{{ url_for('read')}}" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #0185AE;">
-                                <i class="fab fa-linkedin-in text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">19,133,022 Kết nối</span>
-                            </a>
-                            <a href="{{ url_for('read')}}" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #C8359D;">
-                                <i class="fab fa-instagram text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Người theo dõi</span>
-                            </a>
-                            <a href="{{ url_for('read')}}" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #DC472E;">
-                                <i class="fab fa-youtube text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">19,133,022 Người đăng ký</span>
+                        <div class="bg-white text-center border border-top-0 p-3">
+                            <a href="{{ url_for('analysis')}}">
+                                <img class="img-fluid" src="{{ url_for('static', filename=ads[1].image)}}" alt="">
                             </a>
                         </div>
                     </div>
-                    <!-- Social Follow End -->
+                    <!-- New Feature End -->
 
                     <!-- Ads Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Quảng cáo</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">Sự kiện</h4>
                         </div>
                         <div class="bg-white text-center border border-top-0 p-3">
-                            <a href="{{ url_for('read')}}"><img class="img-fluid" src="https://fit.hcmute.edu.vn/Resources/Images/SubDomain/fit/HCMUTE-fit.png" alt=""></a>
+                            <a href="{{ ads[0].url }}"><img class="img-fluid" src="{{ url_for('static', filename=ads[0].image)}}" alt=""></a>
                         </div>
                     </div>
                     <!-- Ads End -->
@@ -492,7 +336,7 @@
                     <!-- Popular News Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Tin Mua Bán</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">Tin Xem Nhiều</h4>
                         </div>
                         <div class="bg-white border border-top-0 p-3">
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
@@ -584,5 +428,3 @@
     </div>
     <!-- News With Sidebar End -->
 {% endblock %}
-
-
