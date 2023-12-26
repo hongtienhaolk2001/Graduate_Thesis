@@ -52,7 +52,7 @@
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Nông Sản</h5>
             <div class="m-n1">
                 {% for c in categories %}
-                    <a href="{{ url_for('news_list', category_id=c.id) }}"
+                    <a href="{{ url_for('category_list', category_id=c.id) }}"
                        class="btn btn-sm btn-secondary m-1">{{ c.name }}</a>
                 {% endfor %}
             </div>

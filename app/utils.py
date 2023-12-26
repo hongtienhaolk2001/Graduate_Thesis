@@ -19,17 +19,17 @@ def load_categories():
 
 
 def count_news(category_id):
-    if category_id != 0:
+    if category_id:
         return News.query.filter(News.category_id.__eq__(int(category_id))).count()
     return News.query.filter().count()
 
 
-def load_news(category_id, keyword=None, page=1):
+def load_news(category_id=None, keyword=None, page=1):
     news = News.query.filter()
-    if category_id != 0:
+    if category_id:
         news = news.filter(News.category_id.__eq__(category_id))
     if keyword:
-        news = news.filter(News.brief.contains(keyword))
+        news = news.filter(News.brief.contains(keyword.lower()))
 
     page_size = app.config['PAGE_SIZE']
     start = (page - 1) * page_size

@@ -86,22 +86,21 @@
                         <div class="col-12">
                             <div class="section-title">
                                 <h4 class="m-0 text-uppercase font-weight-bold">Tin Mới Nhất</h4>
-                                <a class="text-secondary font-weight-medium text-decoration-none"
-                                   href="{{ url_for('read') }}">View All</a>
                             </div>
                         </div>
                         {% for n in news['latest'] %}
                             <div class="col-lg-6">
                                 <div class="position-relative mb-3">
-                                    <img class="img-fluid w-100"
-                                         src="{{ url_for('static', filename='img/cao_su.jpg') }}"
+                                    <img class="img-fluid w-100 image-resize"
+                                         src="{{ url_for('static', filename=n.image) }}"
                                          style="object-fit: cover;">
                                     <div class="bg-white border border-top-0 p-4">
                                         <div class="mb-2">
                                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                               href="{{ url_for('read') }}">Cao Su</a>
-                                            <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 |
-                                                2023</small></a>
+                                               href="{{ url_for('read') }}">{{ n.category }}</a>
+                                            <a class="text-body" href="{{ url_for('read') }}">
+                                                <small>{{ n.date }}</small>
+                                            </a>
                                         </div>
                                         <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                                            href="{{ url_for('read') }}">{{ n.title }}</a>
@@ -112,129 +111,28 @@
                         {% endfor %}
 
                         <div class="col-lg-6">
+                            {% for n in news['other'] %}
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
                                 {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
                                 <div
                                         class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
+                                           href="{{ url_for('read') }}">{{ n.category }}</a>
+                                        <a class="text-body" href="{{ url_for('read') }}"><small>{{ n.date }}</small></a>
                                     </div>
                                     <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
+                                       href="{{ url_for('read') }}">
+                                        {{ n.title }}
+                                    </a>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/.jpg')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/.jpg')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/.jpg')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <!-- New Feature Start -->
+                    <!-- Advertisement Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
                             <h4 class="m-0 text-uppercase font-weight-bold">Tính Năng Mới</h4>
@@ -245,7 +143,7 @@
                             </a>
                         </div>
                     </div>
-                    <!-- New Feature End -->
+                    <!-- Advertisement End -->
 
                     <!-- Ads Start -->
                     <div class="mb-3">
@@ -265,76 +163,21 @@
                             <h4 class="m-0 text-uppercase font-weight-bold">Tin Xem Nhiều</h4>
                         </div>
                         <div class="bg-white border border-top-0 p-3">
+                            {% for n in news['popular'] %}
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
                                 {#                                <img class="img-fluid" src="{{ url_for('static', filename='')}}" alt="">#}
                                 <div
                                         class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>22 | 12 | 2023</small></a>
+                                           href="{{ url_for('read') }}">{{ n.category }}n</a>
+                                        <a class="text-body" href="{{ url_for('read') }}"><small>{{ n.date }}</small></a>
                                     </div>
                                     <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
+                                       href="{{ url_for('read') }}">{{ n.title }}</a>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
-                                <div
-                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                                           href="{{ url_for('read') }}">Nông Sản</a>
-                                        <a class="text-body" href="{{ url_for('read') }}"><small>31 | 12 | 2023</small></a>
-                                    </div>
-                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                       href="{{ url_for('read') }}">Lorem ipsum
-                                        dolor sit amet elit...</a>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                     <!-- Popular News End -->
@@ -347,7 +190,7 @@
                         <div class="bg-white border border-top-0 p-3">
                             <div class="d-flex flex-wrap m-n1">
                                 {% for c in categories %}
-                                    <a href="{{ url_for('news_list', category_id=c.id) }}"
+                                    <a href="{{ url_for('category_list', category_id=c.id) }}"
                                        class="btn btn-sm btn-outline-secondary m-1">{{ c.name }}</a>
                                 {% endfor %}
                             </div>

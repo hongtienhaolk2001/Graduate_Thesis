@@ -10,7 +10,7 @@
       "category": "Lúa Gạo",
       "date": "04 | 04 | 2020",
       "title": "VIỆT NAM ĐÃ CHI 4,27 TỶ USD NHẬP KHẨU THỨC ĂN CHĂN NUÔI GIA SÚC VÀ NGUYÊN LIỆU...",
-      "image": "img/rice_plant.jpg"
+      "image": "img/rice_plant_2.jpg"
     },
     {
       "category": "Cà Phê",
@@ -24,66 +24,57 @@
       "category": "Lúa Gạo",
       "date": "04 | 04 | 2020",
       "title": "LIÊN KẾT VỚI HƠN 3.000 NÔNG DÂN LÀM...",
-      "brief": "",
-      "image": "img/rice_plant.jpg"
+      "image": "img/coffee_2.jpg"
     },
     {
       "category": "Lúa Gạo",
       "date": "04 | 04 | 2020",
       "title": "Cao Su Rớt Giá Do Siết chặt đầu ra...",
-      "brief": "",
-      "image": "img/rice_plant.jpg"
+      "image": "img/cao_su.jpg"
     },
     {
       "category": "Cà Phê",
       "date": "04 | 04 | 2020",
       "title": "Thiếu hụt nhân công thu...",
-      "brief": "",
-      "image": "img/coffee.jpg"
+      "image": "img/cao_su_2.png"
     },
     {
       "category": "Cà Phê",
       "date": "04 | 04 | 2020",
       "title": " Báo cáo thị trường xuất khẩu quý...",
-      "brief": "",
-      "image": "img/coffee.jpg"
+      "image": "img/report.png"
     }
   ],
   "feature": [
     {
       "category": "Lúa Gạo",
       "date": "04 | 04 | 2020",
-      "title": "GIÁ GẠO THÁI LAN LÊN CAO NHẤT 7 NĂM KHI DỊCH COVID-19 HẠN CHẾ THƯƠNG MẠI TỪ VIỆT NAM, ẤN ĐỘ",
-      "brief": "Tuần này, giá xuất khẩu gạo Thái Lan tăng vọt lên cao nhất trong 7 năm nhờ kì vọng doanh số bán tăng sau khi nhà xuất khẩu hàng đầu Ấn Độ bước vào giai đoạn đóng cửa để ngăn chặn sự lây lan của virus corona và đối thủ chính Việt Nam tạm ngừng kí hợp đồng xuất khẩu mới.",
-      "image": "img/rice_plant.jpg"
+      "title": "Lorem ipsum dolor sit amet elit...",
+      "image": "img/feature_1.jpg"
     },
     {
       "category": "Cao Su",
       "date": "",
       "title": "Vinafood xây dựng nông trại organic",
-      "brief": "",
-      "image": "img/feature_news_1.svg"
+      "image": "img/feature_2.jpg"
     },
     {
       "category": "Cà Phê",
       "date": "",
       "title": "",
-      "brief": "",
-      "image": "img/rice_plant.jpg"
+      "image": "img/feature_3.jpg"
     },
     {
       "category": "Cao Su",
       "date": "",
       "title": "",
-      "brief": "",
-      "image": "img/rice_plant.jpg"
+      "image": "img/feature_4.jpg"
     },
     {
       "category": "Lúa gạo",
       "date": "31 | 01 | 2020",
       "title": "THỊ TRƯỜNG GẠO NĂM 2019: NHU CẦU NHẬP KHẨU GẠO DỰ BÁO GIẢM",
-      "brief": "",
-      "image": "img/rice_plant.jpg"
+      "image": "img/feature_5.jpg"
     }
   ],
   "latest": [
@@ -92,32 +83,81 @@
       "date": "11 | 12 | 2023",
       "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
       "brief": "Đang neo ở mức đỉnh, giá gạo Việt xuất khẩu quay đầu giảm sau tin đạt giải Gạo ngon nhất thế giới năm 2023...",
-      "image": "img/rice_1.svg",
-      "url": "https://www.canva.com/photos/MADGyf5YWWc-woman-picking-plant-on-field/"
+      "image": "img/latest_1.jpg"
     },
     {
       "category": "Cà Phê",
       "date": "18 | 12 | 2023",
       "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
       "brief": "Giá cà phê nội địa đạt gần 70.000 đồng/kg. Đây là điều chưa từng xảy ra trong lịch sử ngành cà phê Việt Nam.",
-      "image": "img/rice_1.svg",
-      "url": "https://www.canva.com/photos/MADGyf5YWWc-woman-picking-plant-on-field/"
+      "image": "img/latest_2.jpg"
     },
     {
       "category": "Cao Su",
       "date": "15 | 12 | 2023",
       "title": "THỊ PHẦN CAO SU CỦA VIỆT NAM ĐANG BỊ THU HẸP TẠI THỊ TRƯỜNG ẤN",
       "brief": "11 tháng năm 2023, xuất khẩu cao su đạt trên 1,87 triệu tấn, trị giá 2,51 tỷ USD. Tuy nhiên, thị phần cao su...",
-      "image": "img/rice_1.svg",
-      "url": "https://www.canva.com/photos/MADGyf5YWWc-woman-picking-plant-on-field/"
+      "image": "img/latest_3.jpg"
     },
     {
       "category": "Lúa Gạo",
       "date": "18 | 12 | 2023",
       "title": "THÀNH LẬP HIỆP HỘI NGÀNH HÀNG LÚA GẠO VIỆT NAM",
       "brief": "Lúa gạo có thêm một hiệp hội là Hiệp hội Ngành hàng lúa gạo Việt Nam, quy tụ các thành phần trong chuỗi giá...",
-      "image": "img/rice_2.svg",
-      "url": "https://www.canva.com/photos/MADFClTUM28-agricultural-machinery/"
+      "image": "img/latest_4.jpg"
+    }
+  ],
+  "other": [
+        {
+      "category": "Lúa Gạo",
+      "date": "11 | 12 | 2023",
+      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
+      "image": "img/other_1.jpg"
+    },
+    {
+      "category": "Cà Phê",
+      "date": "18 | 12 | 2023",
+      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
+      "image": "img/other_2.jpg"
+    },
+            {
+      "category": "Lúa Gạo",
+      "date": "11 | 12 | 2023",
+      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
+      "image": "img/other_3.jpg"
+    },
+    {
+      "category": "Cà Phê",
+      "date": "18 | 12 | 2023",
+      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
+      "image": "img/other_4.jpg"
+    }
+  ],
+  "popular": [
+    {
+      "category": "Lúa Gạo",
+      "date": "11 | 12 | 2023",
+      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
+      "image": "img/popular_1.jpg"
+    },
+    {
+      "category": "Cà Phê",
+      "date": "18 | 12 | 2023",
+      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
+      "image": "img/popular_2.jpg"
+    },
+    {
+      "category": "Lúa Gạo",
+      "date": "11 | 12 | 2023",
+      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
+      "image": "img/popular_3.jpg"
+    },
+    {
+      "category": "Cà Phê",
+      "date": "18 | 12 | 2023",
+      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
+      "image": "img/popular_4.jpg"
     }
   ]
 }
+

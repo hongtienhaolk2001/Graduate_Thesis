@@ -10512,3 +10512,8 @@ div#loading {
     cursor: wait;
 }
 
+
+.image-resize{
+  height: 225px;
+  width: 300px;
+}

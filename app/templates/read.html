@@ -295,7 +295,7 @@
                         <div class="bg-white border border-top-0 p-3">
                             <div class="d-flex flex-wrap m-n1">
                                 {% for c in categories %}
-                                    <a href="{{ url_for('news_list', category_id=c.id) }}"
+                                    <a href="{{ url_for('category_list', category_id=c.id) }}"
                                        class="btn btn-sm btn-outline-secondary m-1">{{ c.name }}</a>
                                 {% endfor %}
                             </div>

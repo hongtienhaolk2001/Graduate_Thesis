@@ -19,18 +19,26 @@ def user_load(user_id):
     return utils.get_user_by_id(user_id=user_id)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template("index.html",
                            news=utils.read_json('data/news.json'))
 
 
-@app.route('/news/<int:category_id>/', methods=['GET', 'POST'])
-def news_list(category_id=0):
-    category_name = {0: " ", 1: "Lúa Gạo", 2: "Cà Phê", 3: "Cao Su"}
+@app.route('/search', methods=['GET', 'POST'])
+def search():
     page = request.args.get('page', 1)
     kw = request.args.get('keyword')
-    news = utils.load_news(category_id=category_id, page=int(page), keyword=kw)
+    news = utils.load_news(page=int(page), keyword=kw)
+    return render_template('news.html',
+                           news=news,)
+
+
+@app.route('/news/<int:category_id>/', methods=['GET', 'POST'])
+def category_list(category_id=0):
+    category_name = {1: "Lúa Gạo", 2: "Cà Phê", 3: "Cao Su", 0: " "}
+    page = request.args.get('page', 1)
+    news = utils.load_news(category_id=category_id, page=int(page))
     counter = utils.count_news(category_id)
     return render_template('news.html',
                            category_name=category_name[category_id],
@@ -39,7 +47,7 @@ def news_list(category_id=0):
                            pages=math.ceil(counter / app.config['PAGE_SIZE']))
 
 
-@app.route('/read/')
+@app.route('/read', methods=['GET', 'POST'])
 def read():
     return render_template('read.html')
 
@@ -74,7 +82,7 @@ def user_signup():
         email = str(request.form.get('email')).strip()
         confirm = str(request.form.get('confirm')).strip()
         try:
-            if password.__eq__(confirm) :
+            if password.__eq__(confirm):
                 utils.add_user(username=username, password=password, email=email)
                 return redirect(url_for('user_signin'))
             else:
@@ -112,6 +120,4 @@ def contact():
 
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=8080, debug=False)
-    app.run()
-    # print(phobert_model.predict("giá lúa tăng giá giá lúa tăng giá"))
+    app.run(host='0.0.0.0', port=8080, debug=False)
