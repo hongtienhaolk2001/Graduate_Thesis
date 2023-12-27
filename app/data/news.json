@@ -47,33 +47,33 @@
   ],
   "feature": [
     {
-      "category": "Lúa Gạo",
-      "date": "04 | 04 | 2020",
-      "title": "Lorem ipsum dolor sit amet elit...",
+      "category": "Cao Su",
+      "date": "27 | 12 | 2023",
+      "title": "Quan chức Tổng cục Lâm nghiệp: Cây...",
       "image": "img/feature_1.jpg"
     },
     {
-      "category": "Cao Su",
-      "date": "",
-      "title": "Vinafood xây dựng nông trại organic",
+      "category": "Lúa Gạo",
+      "date": "27 | 12 | 2023",
+      "title": "Cơ hội vàng cho các doanh nghiệp...",
       "image": "img/feature_2.jpg"
     },
     {
-      "category": "Cà Phê",
-      "date": "",
-      "title": "",
-      "image": "img/feature_3.jpg"
+      "category": "Lúa Gạo",
+      "date": "27 | 12 | 2023",
+      "title": "Doanh nghiệp ngành gạo đón “trợ lực”...",
+      "image": "img/feature_3.png"
     },
     {
-      "category": "Cao Su",
-      "date": "",
-      "title": "",
+      "category": "Cà Phê",
+      "date": "27 | 12 | 2023",
+      "title": "Ngành cà phê Việt Nam trong những năm qua",
       "image": "img/feature_4.jpg"
     },
     {
-      "category": "Lúa gạo",
-      "date": "31 | 01 | 2020",
-      "title": "THỊ TRƯỜNG GẠO NĂM 2019: NHU CẦU NHẬP KHẨU GẠO DỰ BÁO GIẢM",
+      "category": "Cao Su",
+      "date": "27 | 12 | 2023",
+      "title": "Hướng Dẫn Cách Lấy Mủ Cao Su Đúng Kỹ Thuật",
       "image": "img/feature_5.jpg"
     }
   ],
@@ -107,56 +107,52 @@
       "image": "img/latest_4.jpg"
     }
   ],
-  "other": [
-        {
-      "category": "Lúa Gạo",
-      "date": "11 | 12 | 2023",
-      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
-      "image": "img/other_1.jpg"
-    },
+  "left-other": [
     {
       "category": "Cà Phê",
-      "date": "18 | 12 | 2023",
-      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
-      "image": "img/other_2.jpg"
+      "date": "27 | 12 | 2023",
+      "title": "Xuất khẩu cà phê: Điểm sáng trong nhiều thách thức",
+      "image": "img/other_1.png"
     },
-            {
+    {
       "category": "Lúa Gạo",
-      "date": "11 | 12 | 2023",
-      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
+      "date": "27 | 12 | 2023",
+      "title": "Cân đối nguồn lúa, gạo phục vụ nhu cầu trong nước, xuất...",
+      "image": "img/other_2.png"
+    }
+  ],
+   "right-other": [
+    {
+      "category": "Cao su",
+      "date": "27 | 12 | 2023",
+      "title": "Cao su xuất khẩu hầu hết sang Trung Quốc; Cấp bách bảo...",
       "image": "img/other_3.jpg"
     },
     {
       "category": "Cà Phê",
-      "date": "18 | 12 | 2023",
-      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
+      "date": "27 | 12 | 2023",
+      "title": "Ngành cà phê cần huy động được các nguồn lực để phát...",
       "image": "img/other_4.jpg"
     }
   ],
-  "popular": [
-    {
-      "category": "Lúa Gạo",
-      "date": "11 | 12 | 2023",
-      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
-      "image": "img/popular_1.jpg"
-    },
+  "market": [
     {
       "category": "Cà Phê",
-      "date": "18 | 12 | 2023",
-      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
-      "image": "img/popular_2.jpg"
+      "date": "27 | 12 | 2023",
+      "title": "Giá cà phê hôm nay 27/12: Duy trì ở mức cao",
+      "image": "img/market_1.jpg"
+    },
+    {
+      "category": "Cao Su",
+      "date": "27 | 12 | 2023",
+      "title": "Giá cao su hôm nay 27/12: Tiếp tục tăng...",
+      "image": "img/market_2.jpg"
     },
     {
       "category": "Lúa Gạo",
-      "date": "11 | 12 | 2023",
-      "title": "GẠO VIỆT QUAY ĐẦU GIẢM GIÁ VẪN ĐẮT NHẤT THẾ GIỚI, GẠO THÁI LAN TĂNG MẠNH",
-      "image": "img/popular_3.jpg"
-    },
-    {
-      "category": "Cà Phê",
-      "date": "18 | 12 | 2023",
-      "title": "GIÁ LIÊN TỤC TĂNG VÀO NEO Ở MỨC CAO, NGƯỜI DÂN TRỒNG CÀ PHÊ TRÚNG ĐẬM",
-      "image": "img/popular_4.jpg"
+      "date": "27 | 12 | 2023",
+      "title": "Giá lúa gạo hôm nay 27/12: Các mặt hàng đi ngang",
+      "image": "img/market_3.jpg"
     }
   ]
 }

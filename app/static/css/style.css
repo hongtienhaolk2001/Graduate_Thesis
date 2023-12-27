@@ -10517,3 +10517,7 @@ div#loading {
   height: 225px;
   width: 300px;
 }
+.image-resize-1x1{
+  height: 110px;
+  width: 110px;
+}

@@ -63,7 +63,7 @@
                         <div class="overlay">
                             <div class="mb-2">
                                 <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                   href="{{ url_for('read') }}">{{ news.category }}</a>
+                                   href="{{ url_for('read') }}">{{ n.category }}</a>
                                 <a class="text-white" href="{{ url_for('read') }}"><small>{{ n.date }}</small></a>
                             </div>
                             <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
@@ -83,6 +83,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
+                        <!-- Latest News Start -->
                         <div class="col-12">
                             <div class="section-title">
                                 <h4 class="m-0 text-uppercase font-weight-bold">Tin Mới Nhất</h4>
@@ -109,11 +110,13 @@
                                 </div>
                             </div>
                         {% endfor %}
+                        <!-- Latest News End -->
 
+                        <!-- Other News Start -->
                         <div class="col-lg-6">
-                            {% for n in news['other'] %}
+                            {% for n in news['left-other'] %}
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='img/logo.png')}}" alt="">#}
+                                <img class="img-fluid image-resize-1x1" src="{{ url_for('static', filename=n.image )}}" alt="">
                                 <div
                                         class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                                     <div class="mb-2">
@@ -129,6 +132,27 @@
                             </div>
                             {% endfor %}
                         </div>
+                        <div class="col-lg-6">
+                            {% for n in news['right-other'] %}
+                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
+                                <img class="img-fluid image-resize-1x1" src="{{ url_for('static', filename=n.image )}}" alt="">
+                                <div
+                                        class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                                           href="{{ url_for('read') }}">{{ n.category }}</a>
+                                        <a class="text-body" href="{{ url_for('read') }}"><small>{{ n.date }}</small></a>
+                                    </div>
+                                    <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
+                                       href="{{ url_for('read') }}">
+                                        {{ n.title }}
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <!-- Other News End -->
+
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -157,15 +181,15 @@
                     </div>
                     <!-- Ads End -->
 
-                    <!-- Popular News Start -->
+                    <!-- Market News Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Tin Xem Nhiều</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">Tin Thị Trường</h4>
                         </div>
                         <div class="bg-white border border-top-0 p-3">
-                            {% for n in news['popular'] %}
+                            {% for n in news['market'] %}
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                {#                                <img class="img-fluid" src="{{ url_for('static', filename='')}}" alt="">#}
+                                <img class="img-fluid image-resize-1x1" src="{{ url_for('static', filename=n.image )}}" alt="">
                                 <div
                                         class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                                     <div class="mb-2">
@@ -180,7 +204,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <!-- Popular News End -->
+                    <!-- Market News End -->
 
                     <!-- Tags Start -->
                     <div class="mb-3">
