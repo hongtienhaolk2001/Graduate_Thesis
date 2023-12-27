@@ -18,8 +18,6 @@ python3 .app/data/add2Database.py
 python3 main.py
 ```
 ## Result
-![]()
+![Dashboard Layout](./images/index.png)
 
-![]()
-
-![]()
+![Analysis Layout](./images/analysis.png)

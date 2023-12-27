@@ -2,19 +2,19 @@
   "main": [
     {
       "category": "Lúa Gạo",
-      "date": "04 | 04 | 2020",
+      "date": "27 | 12 | 2023",
       "title": "Chính Phủ Ấn Độ Có Thể Cấm Xuất Khẩu Gạo...",
       "image": "img/rice_plant.jpg"
     },
     {
       "category": "Lúa Gạo",
-      "date": "04 | 04 | 2020",
+      "date": "27 | 12 | 2023",
       "title": "VIỆT NAM ĐÃ CHI 4,27 TỶ USD NHẬP KHẨU THỨC ĂN CHĂN NUÔI GIA SÚC VÀ NGUYÊN LIỆU...",
       "image": "img/rice_plant_2.jpg"
     },
     {
       "category": "Cà Phê",
-      "date": "04 | 04 | 2020",
+      "date": "27 | 12 | 2023",
       "title": "ETHIOPIA CẤM XUẤT KHẨU, GIÁ CÀ PHÊ THẾ GIỚI CÓ THỂ TĂNG VỌT...",
       "image": "img/coffee.jpg"
     }
@@ -22,25 +22,25 @@
   "block main": [
     {
       "category": "Lúa Gạo",
-      "date": "04 | 04 | 2020",
+      "date": "27 | 12 | 2023",
       "title": "LIÊN KẾT VỚI HƠN 3.000 NÔNG DÂN LÀM...",
       "image": "img/coffee_2.jpg"
     },
     {
       "category": "Lúa Gạo",
-      "date": "04 | 04 | 2020",
+      "date": "27 | 12 | 2023",
       "title": "Cao Su Rớt Giá Do Siết chặt đầu ra...",
       "image": "img/cao_su.jpg"
     },
     {
       "category": "Cà Phê",
-      "date": "04 | 04 | 2020",
+      "date": "27 | 12 | 2023",
       "title": "Thiếu hụt nhân công thu...",
       "image": "img/cao_su_2.png"
     },
     {
       "category": "Cà Phê",
-      "date": "04 | 04 | 2020",
+      "date": "27 | 12 | 2023",
       "title": " Báo cáo thị trường xuất khẩu quý...",
       "image": "img/report.png"
     }
@@ -121,7 +121,7 @@
       "image": "img/other_2.png"
     }
   ],
-   "right-other": [
+  "right-other": [
     {
       "category": "Cao su",
       "date": "27 | 12 | 2023",
