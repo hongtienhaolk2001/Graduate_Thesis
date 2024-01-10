@@ -3,7 +3,7 @@ flask-sqlalchemy==3.1.1
 pymysql==1.1.0
 numpy==1.26.0
 openpyxl==3.1.2
-transformers==4.35.1
+transformers==4.36.0
 datasets==2.14.6
 vncorenlp==1.0.3
 tqdm==4.66.1
